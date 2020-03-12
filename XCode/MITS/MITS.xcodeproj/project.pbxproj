@@ -7,28 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B5F748524024D2000B2309D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F748424024D2000B2309D /* AppDelegate.swift */; };
-		2B5F748724024D2000B2309D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F748624024D2000B2309D /* ViewController.swift */; };
-		2B5F748924024D2400B2309D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B5F748824024D2400B2309D /* Assets.xcassets */; };
-		2B5F748C24024D2400B2309D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B5F748A24024D2400B2309D /* Main.storyboard */; };
-		2B5F749524024DE800B2309D /* BTConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F749424024DE800B2309D /* BTConstants.swift */; };
-		2BF54A542419DE5500B87559 /* BTHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF54A532419DE5500B87559 /* BTHandler.swift */; };
+		2BF54A62241A9DD900B87559 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF54A61241A9DD900B87559 /* AppDelegate.swift */; };
+		2BF54A64241A9DD900B87559 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF54A63241A9DD900B87559 /* ViewController.swift */; };
+		2BF54A66241A9DDF00B87559 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BF54A65241A9DDF00B87559 /* Assets.xcassets */; };
+		2BF54A69241A9DDF00B87559 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BF54A67241A9DDF00B87559 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2B5F748124024D2000B2309D /* TestBLE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestBLE.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2B5F748424024D2000B2309D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2B5F748624024D2000B2309D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2B5F748824024D2400B2309D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2B5F748B24024D2400B2309D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2B5F748D24024D2400B2309D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2B5F748E24024D2400B2309D /* TestBLE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestBLE.entitlements; sourceTree = "<group>"; };
-		2B5F749424024DE800B2309D /* BTConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTConstants.swift; sourceTree = "<group>"; };
-		2BF54A532419DE5500B87559 /* BTHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTHandler.swift; sourceTree = "<group>"; };
+		2BF54A5E241A9DD900B87559 /* MITS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MITS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BF54A61241A9DD900B87559 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2BF54A63241A9DD900B87559 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2BF54A65241A9DDF00B87559 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2BF54A68241A9DDF00B87559 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2BF54A6A241A9DDF00B87559 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BF54A6B241A9DDF00B87559 /* MITS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MITS.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2B5F747E24024D2000B2309D /* Frameworks */ = {
+		2BF54A5B241A9DD900B87559 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -38,73 +34,71 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2B5F747824024D2000B2309D = {
+		2BF54A55241A9DD900B87559 = {
 			isa = PBXGroup;
 			children = (
-				2B5F748324024D2000B2309D /* TestBLE */,
-				2B5F748224024D2000B2309D /* Products */,
+				2BF54A60241A9DD900B87559 /* MITS */,
+				2BF54A5F241A9DD900B87559 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		2B5F748224024D2000B2309D /* Products */ = {
+		2BF54A5F241A9DD900B87559 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2B5F748124024D2000B2309D /* TestBLE.app */,
+				2BF54A5E241A9DD900B87559 /* MITS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2B5F748324024D2000B2309D /* TestBLE */ = {
+		2BF54A60241A9DD900B87559 /* MITS */ = {
 			isa = PBXGroup;
 			children = (
-				2B5F748424024D2000B2309D /* AppDelegate.swift */,
-				2B5F748624024D2000B2309D /* ViewController.swift */,
-				2BF54A532419DE5500B87559 /* BTHandler.swift */,
-				2B5F749424024DE800B2309D /* BTConstants.swift */,
-				2B5F748824024D2400B2309D /* Assets.xcassets */,
-				2B5F748A24024D2400B2309D /* Main.storyboard */,
-				2B5F748D24024D2400B2309D /* Info.plist */,
-				2B5F748E24024D2400B2309D /* TestBLE.entitlements */,
+				2BF54A61241A9DD900B87559 /* AppDelegate.swift */,
+				2BF54A63241A9DD900B87559 /* ViewController.swift */,
+				2BF54A65241A9DDF00B87559 /* Assets.xcassets */,
+				2BF54A67241A9DDF00B87559 /* Main.storyboard */,
+				2BF54A6A241A9DDF00B87559 /* Info.plist */,
+				2BF54A6B241A9DDF00B87559 /* MITS.entitlements */,
 			);
-			path = TestBLE;
+			path = MITS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2B5F748024024D2000B2309D /* TestBLE */ = {
+		2BF54A5D241A9DD900B87559 /* MITS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2B5F749124024D2400B2309D /* Build configuration list for PBXNativeTarget "TestBLE" */;
+			buildConfigurationList = 2BF54A6E241A9DDF00B87559 /* Build configuration list for PBXNativeTarget "MITS" */;
 			buildPhases = (
-				2B5F747D24024D2000B2309D /* Sources */,
-				2B5F747E24024D2000B2309D /* Frameworks */,
-				2B5F747F24024D2000B2309D /* Resources */,
+				2BF54A5A241A9DD900B87559 /* Sources */,
+				2BF54A5B241A9DD900B87559 /* Frameworks */,
+				2BF54A5C241A9DD900B87559 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = TestBLE;
-			productName = TestBLE;
-			productReference = 2B5F748124024D2000B2309D /* TestBLE.app */;
+			name = MITS;
+			productName = MITS;
+			productReference = 2BF54A5E241A9DD900B87559 /* MITS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		2B5F747924024D2000B2309D /* Project object */ = {
+		2BF54A56241A9DD900B87559 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Anuj Parakh";
 				TargetAttributes = {
-					2B5F748024024D2000B2309D = {
+					2BF54A5D241A9DD900B87559 = {
 						CreatedOnToolsVersion = 11.3;
 					};
 				};
 			};
-			buildConfigurationList = 2B5F747C24024D2000B2309D /* Build configuration list for PBXProject "TestBLE" */;
+			buildConfigurationList = 2BF54A59241A9DD900B87559 /* Build configuration list for PBXProject "MITS" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -112,47 +106,45 @@
 				en,
 				Base,
 			);
-			mainGroup = 2B5F747824024D2000B2309D;
-			productRefGroup = 2B5F748224024D2000B2309D /* Products */;
+			mainGroup = 2BF54A55241A9DD900B87559;
+			productRefGroup = 2BF54A5F241A9DD900B87559 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2B5F748024024D2000B2309D /* TestBLE */,
+				2BF54A5D241A9DD900B87559 /* MITS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2B5F747F24024D2000B2309D /* Resources */ = {
+		2BF54A5C241A9DD900B87559 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B5F748924024D2400B2309D /* Assets.xcassets in Resources */,
-				2B5F748C24024D2400B2309D /* Main.storyboard in Resources */,
+				2BF54A66241A9DDF00B87559 /* Assets.xcassets in Resources */,
+				2BF54A69241A9DDF00B87559 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2B5F747D24024D2000B2309D /* Sources */ = {
+		2BF54A5A241A9DD900B87559 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B5F749524024DE800B2309D /* BTConstants.swift in Sources */,
-				2B5F748724024D2000B2309D /* ViewController.swift in Sources */,
-				2BF54A542419DE5500B87559 /* BTHandler.swift in Sources */,
-				2B5F748524024D2000B2309D /* AppDelegate.swift in Sources */,
+				2BF54A64241A9DD900B87559 /* ViewController.swift in Sources */,
+				2BF54A62241A9DD900B87559 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2B5F748A24024D2400B2309D /* Main.storyboard */ = {
+		2BF54A67241A9DDF00B87559 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2B5F748B24024D2400B2309D /* Base */,
+				2BF54A68241A9DDF00B87559 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -160,7 +152,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		2B5F748F24024D2400B2309D /* Debug */ = {
+		2BF54A6C241A9DDF00B87559 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -220,7 +212,7 @@
 			};
 			name = Debug;
 		};
-		2B5F749024024D2400B2309D /* Release */ = {
+		2BF54A6D241A9DDF00B87559 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -273,41 +265,41 @@
 			};
 			name = Release;
 		};
-		2B5F749224024D2400B2309D /* Debug */ = {
+		2BF54A6F241A9DDF00B87559 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = TestBLE/TestBLE.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MITS/MITS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = T628V6ULQ5;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = TestBLE/Info.plist;
+				INFOPLIST_FILE = MITS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.anuj.TestBLE;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anuj.MITS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		2B5F749324024D2400B2309D /* Release */ = {
+		2BF54A70241A9DDF00B87559 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = TestBLE/TestBLE.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MITS/MITS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = T628V6ULQ5;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = TestBLE/Info.plist;
+				INFOPLIST_FILE = MITS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.anuj.TestBLE;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anuj.MITS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -316,25 +308,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2B5F747C24024D2000B2309D /* Build configuration list for PBXProject "TestBLE" */ = {
+		2BF54A59241A9DD900B87559 /* Build configuration list for PBXProject "MITS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2B5F748F24024D2400B2309D /* Debug */,
-				2B5F749024024D2400B2309D /* Release */,
+				2BF54A6C241A9DDF00B87559 /* Debug */,
+				2BF54A6D241A9DDF00B87559 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2B5F749124024D2400B2309D /* Build configuration list for PBXNativeTarget "TestBLE" */ = {
+		2BF54A6E241A9DDF00B87559 /* Build configuration list for PBXNativeTarget "MITS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2B5F749224024D2400B2309D /* Debug */,
-				2B5F749324024D2400B2309D /* Release */,
+				2BF54A6F241A9DDF00B87559 /* Debug */,
+				2BF54A70241A9DDF00B87559 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 2B5F747924024D2000B2309D /* Project object */;
+	rootObject = 2BF54A56241A9DD900B87559 /* Project object */;
 }

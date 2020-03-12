@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  TestBLE
+//  MITS
 //
-//  Created by Anuj Parakh on 2/23/20.
+//  Created by Anuj Parakh on 3/12/20.
 //  Copyright © 2020 Anuj Parakh. All rights reserved.
 //
 

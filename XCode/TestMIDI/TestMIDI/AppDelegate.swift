@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  MITS
+//  TestMIDI
 //
 //  Created by Anuj Parakh on 3/12/20.
 //  Copyright © 2020 Anuj Parakh. All rights reserved.

@@ -7,24 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2BF54A62241A9DD900B87559 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF54A61241A9DD900B87559 /* AppDelegate.swift */; };
-		2BF54A64241A9DD900B87559 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF54A63241A9DD900B87559 /* ViewController.swift */; };
-		2BF54A66241A9DDF00B87559 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BF54A65241A9DDF00B87559 /* Assets.xcassets */; };
-		2BF54A69241A9DDF00B87559 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BF54A67241A9DDF00B87559 /* Main.storyboard */; };
+		2BF54A88241ABB3C00B87559 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF54A87241ABB3C00B87559 /* AppDelegate.swift */; };
+		2BF54A8A241ABB3C00B87559 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF54A89241ABB3C00B87559 /* ViewController.swift */; };
+		2BF54A8C241ABB3E00B87559 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BF54A8B241ABB3E00B87559 /* Assets.xcassets */; };
+		2BF54A8F241ABB3F00B87559 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BF54A8D241ABB3F00B87559 /* Main.storyboard */; };
+		2BF54A9A241ABB6400B87559 /* midiConnector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF54A98241ABB6400B87559 /* midiConnector.cpp */; };
+		2BF54A9C241AC5F300B87559 /* MIDIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF54A9B241AC5F300B87559 /* MIDIConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2BF54A5E241A9DD900B87559 /* MITS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MITS.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2BF54A61241A9DD900B87559 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2BF54A63241A9DD900B87559 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2BF54A65241A9DDF00B87559 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2BF54A68241A9DDF00B87559 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2BF54A6A241A9DDF00B87559 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2BF54A6B241A9DDF00B87559 /* MITS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MITS.entitlements; sourceTree = "<group>"; };
+		2BF54A84241ABB3C00B87559 /* TestMIDI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestMIDI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BF54A87241ABB3C00B87559 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2BF54A89241ABB3C00B87559 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2BF54A8B241ABB3E00B87559 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2BF54A8E241ABB3F00B87559 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2BF54A90241ABB3F00B87559 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BF54A91241ABB3F00B87559 /* TestMIDI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestMIDI.entitlements; sourceTree = "<group>"; };
+		2BF54A97241ABB6400B87559 /* TestMIDI-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TestMIDI-Bridging-Header.h"; sourceTree = "<group>"; };
+		2BF54A98241ABB6400B87559 /* midiConnector.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = midiConnector.cpp; sourceTree = "<group>"; };
+		2BF54A99241ABB6400B87559 /* midiConnector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = midiConnector.h; sourceTree = "<group>"; };
+		2BF54A9B241AC5F300B87559 /* MIDIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2BF54A5B241A9DD900B87559 /* Frameworks */ = {
+		2BF54A81241ABB3C00B87559 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -34,71 +40,76 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2BF54A55241A9DD900B87559 = {
+		2BF54A7B241ABB3C00B87559 = {
 			isa = PBXGroup;
 			children = (
-				2BF54A60241A9DD900B87559 /* MITS */,
-				2BF54A5F241A9DD900B87559 /* Products */,
+				2BF54A86241ABB3C00B87559 /* TestMIDI */,
+				2BF54A85241ABB3C00B87559 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		2BF54A5F241A9DD900B87559 /* Products */ = {
+		2BF54A85241ABB3C00B87559 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2BF54A5E241A9DD900B87559 /* MITS.app */,
+				2BF54A84241ABB3C00B87559 /* TestMIDI.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2BF54A60241A9DD900B87559 /* MITS */ = {
+		2BF54A86241ABB3C00B87559 /* TestMIDI */ = {
 			isa = PBXGroup;
 			children = (
-				2BF54A61241A9DD900B87559 /* AppDelegate.swift */,
-				2BF54A63241A9DD900B87559 /* ViewController.swift */,
-				2BF54A65241A9DDF00B87559 /* Assets.xcassets */,
-				2BF54A67241A9DDF00B87559 /* Main.storyboard */,
-				2BF54A6A241A9DDF00B87559 /* Info.plist */,
-				2BF54A6B241A9DDF00B87559 /* MITS.entitlements */,
+				2BF54A87241ABB3C00B87559 /* AppDelegate.swift */,
+				2BF54A89241ABB3C00B87559 /* ViewController.swift */,
+				2BF54A9B241AC5F300B87559 /* MIDIConstants.swift */,
+				2BF54A8B241ABB3E00B87559 /* Assets.xcassets */,
+				2BF54A8D241ABB3F00B87559 /* Main.storyboard */,
+				2BF54A90241ABB3F00B87559 /* Info.plist */,
+				2BF54A91241ABB3F00B87559 /* TestMIDI.entitlements */,
+				2BF54A98241ABB6400B87559 /* midiConnector.cpp */,
+				2BF54A99241ABB6400B87559 /* midiConnector.h */,
+				2BF54A97241ABB6400B87559 /* TestMIDI-Bridging-Header.h */,
 			);
-			path = MITS;
+			path = TestMIDI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2BF54A5D241A9DD900B87559 /* MITS */ = {
+		2BF54A83241ABB3C00B87559 /* TestMIDI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2BF54A6E241A9DDF00B87559 /* Build configuration list for PBXNativeTarget "MITS" */;
+			buildConfigurationList = 2BF54A94241ABB3F00B87559 /* Build configuration list for PBXNativeTarget "TestMIDI" */;
 			buildPhases = (
-				2BF54A5A241A9DD900B87559 /* Sources */,
-				2BF54A5B241A9DD900B87559 /* Frameworks */,
-				2BF54A5C241A9DD900B87559 /* Resources */,
+				2BF54A80241ABB3C00B87559 /* Sources */,
+				2BF54A81241ABB3C00B87559 /* Frameworks */,
+				2BF54A82241ABB3C00B87559 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = MITS;
-			productName = MITS;
-			productReference = 2BF54A5E241A9DD900B87559 /* MITS.app */;
+			name = TestMIDI;
+			productName = TestMIDI;
+			productReference = 2BF54A84241ABB3C00B87559 /* TestMIDI.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		2BF54A56241A9DD900B87559 /* Project object */ = {
+		2BF54A7C241ABB3C00B87559 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Anuj Parakh";
 				TargetAttributes = {
-					2BF54A5D241A9DD900B87559 = {
+					2BF54A83241ABB3C00B87559 = {
 						CreatedOnToolsVersion = 11.3;
+						LastSwiftMigration = 1130;
 					};
 				};
 			};
-			buildConfigurationList = 2BF54A59241A9DD900B87559 /* Build configuration list for PBXProject "MITS" */;
+			buildConfigurationList = 2BF54A7F241ABB3C00B87559 /* Build configuration list for PBXProject "TestMIDI" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -106,45 +117,47 @@
 				en,
 				Base,
 			);
-			mainGroup = 2BF54A55241A9DD900B87559;
-			productRefGroup = 2BF54A5F241A9DD900B87559 /* Products */;
+			mainGroup = 2BF54A7B241ABB3C00B87559;
+			productRefGroup = 2BF54A85241ABB3C00B87559 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2BF54A5D241A9DD900B87559 /* MITS */,
+				2BF54A83241ABB3C00B87559 /* TestMIDI */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2BF54A5C241A9DD900B87559 /* Resources */ = {
+		2BF54A82241ABB3C00B87559 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BF54A66241A9DDF00B87559 /* Assets.xcassets in Resources */,
-				2BF54A69241A9DDF00B87559 /* Main.storyboard in Resources */,
+				2BF54A8C241ABB3E00B87559 /* Assets.xcassets in Resources */,
+				2BF54A8F241ABB3F00B87559 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2BF54A5A241A9DD900B87559 /* Sources */ = {
+		2BF54A80241ABB3C00B87559 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BF54A64241A9DD900B87559 /* ViewController.swift in Sources */,
-				2BF54A62241A9DD900B87559 /* AppDelegate.swift in Sources */,
+				2BF54A9A241ABB6400B87559 /* midiConnector.cpp in Sources */,
+				2BF54A8A241ABB3C00B87559 /* ViewController.swift in Sources */,
+				2BF54A9C241AC5F300B87559 /* MIDIConstants.swift in Sources */,
+				2BF54A88241ABB3C00B87559 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2BF54A67241A9DDF00B87559 /* Main.storyboard */ = {
+		2BF54A8D241ABB3F00B87559 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2BF54A68241A9DDF00B87559 /* Base */,
+				2BF54A8E241ABB3F00B87559 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -152,7 +165,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		2BF54A6C241A9DDF00B87559 /* Debug */ = {
+		2BF54A92241ABB3F00B87559 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -212,7 +225,7 @@
 			};
 			name = Debug;
 		};
-		2BF54A6D241A9DDF00B87559 /* Release */ = {
+		2BF54A93241ABB3F00B87559 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -265,68 +278,79 @@
 			};
 			name = Release;
 		};
-		2BF54A6F241A9DDF00B87559 /* Debug */ = {
+		2BF54A95241ABB3F00B87559 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = MITS/MITS.entitlements;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = TestMIDI/TestMIDI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = T628V6ULQ5;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = MITS/Info.plist;
+				INFOPLIST_FILE = TestMIDI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.anuj.MITS;
+				LIBRARY_SEARCH_PATHS = /opt/local/lib;
+				OTHER_LDFLAGS = "-lportmidi";
+				PRODUCT_BUNDLE_IDENTIFIER = com.anuj.TestMIDI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TestMIDI/TestMIDI-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				USER_HEADER_SEARCH_PATHS = /opt/local/include;
 			};
 			name = Debug;
 		};
-		2BF54A70241A9DDF00B87559 /* Release */ = {
+		2BF54A96241ABB3F00B87559 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = MITS/MITS.entitlements;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = TestMIDI/TestMIDI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = T628V6ULQ5;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = MITS/Info.plist;
+				INFOPLIST_FILE = TestMIDI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.anuj.MITS;
+				LIBRARY_SEARCH_PATHS = /opt/local/lib;
+				OTHER_LDFLAGS = "-lportmidi";
+				PRODUCT_BUNDLE_IDENTIFIER = com.anuj.TestMIDI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TestMIDI/TestMIDI-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
+				USER_HEADER_SEARCH_PATHS = /opt/local/include;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2BF54A59241A9DD900B87559 /* Build configuration list for PBXProject "MITS" */ = {
+		2BF54A7F241ABB3C00B87559 /* Build configuration list for PBXProject "TestMIDI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2BF54A6C241A9DDF00B87559 /* Debug */,
-				2BF54A6D241A9DDF00B87559 /* Release */,
+				2BF54A92241ABB3F00B87559 /* Debug */,
+				2BF54A93241ABB3F00B87559 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2BF54A6E241A9DDF00B87559 /* Build configuration list for PBXNativeTarget "MITS" */ = {
+		2BF54A94241ABB3F00B87559 /* Build configuration list for PBXNativeTarget "TestMIDI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2BF54A6F241A9DDF00B87559 /* Debug */,
-				2BF54A70241A9DDF00B87559 /* Release */,
+				2BF54A95241ABB3F00B87559 /* Debug */,
+				2BF54A96241ABB3F00B87559 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 2BF54A56241A9DD900B87559 /* Project object */;
+	rootObject = 2BF54A7C241ABB3C00B87559 /* Project object */;
 }

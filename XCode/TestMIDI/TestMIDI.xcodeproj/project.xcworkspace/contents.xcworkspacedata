@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:MITS.xcodeproj">
+      location = "self:TestMIDI.xcodeproj">
    </FileRef>
 </Workspace>

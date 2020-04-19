@@ -105,6 +105,7 @@ class BTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
         
     }
     
+    // Called whenever a new flex value is received
     func updateFlexValues(_ newFlexVals: [String: AnyObject])
     {
         if (flexCallback != nil)
@@ -130,7 +131,9 @@ class BTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
     
 }
 
-extension String {
+extension String
+{
+    // converts a string to JSON
     func toJSON() -> Any? {
         guard let data = self.data(using: .utf8, allowLossyConversion: false) else { return nil }
         return try? JSONSerialization.jsonObject(with: data, options: .mutableContainers)

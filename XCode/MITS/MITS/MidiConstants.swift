@@ -13,6 +13,7 @@ enum Instrument: uint8
 {
     case guitar = 0x19
     case strings = 0x11
+    case piano = 0x01
     // Add instruments here
 }
 
@@ -24,6 +25,21 @@ enum MitsMode: String
     // Add different possible modes here
 }
 
+enum FlexSign: String
+{
+    case zero = "zero"
+    case one = "one"
+    case two = "two"
+    case three = "three"
+    case four = "four"
+}
+
+//enum PianoChords: uint8
+//{
+//
+//}
+
+// Stores the notes for each finger during String Mode
 enum StringNotes: uint8
 {
     case finger1 = 60 // middle C

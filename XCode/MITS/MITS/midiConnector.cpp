@@ -13,6 +13,14 @@
 #include "portmidi.h"
 #include "midiConnector.hpp"
 
+// Macro to construct a MIDI message
+#define MIDIMessage(status, channel, data1, data2) (uint32_t)(((data2 & 0x7f) << 16) | ((data1 & 0x7f) << 8) | ((status & 0xf0) | (channel & 0x0f)))
+#define MIDI_NOTE_ON 0x90
+#define MIDI_NOTE_OFF 0x80
+#define MIDI_CONTROL_CHANGE 0xb0
+#define MIDI_PROGRAM_CHANGE 0xc0
+#define MIDI_CC_VOLUME 0x07
+
 
 using namespace std;
 
@@ -21,9 +29,6 @@ const string midiDeviceName = "IAC Driver Bus 1";
 
 // Globals
 PortMidiStream *midiDeviceStream = nullptr;
-
-#define MIDIMessage(opcode, channel, data1, data2) (uint32_t)(((data2 & 0x7f) << 16) | ((data1 & 0x7f) << 8) | ((opcode & 0xf0) | (channel & 0x0f)))
-
 
 // Called to initialize portmidi
 void initializePortMidi()
@@ -65,7 +70,7 @@ void setInstrument(uint8_t instrumentCode, uint8_t channel)
 {
     // Construct the instruction
 
-    const uint32_t instrumentInstruction(MIDIMessage(0xc0, channel, instrumentCode, 0x00));
+    const uint32_t instrumentInstruction(MIDIMessage(MIDI_PROGRAM_CHANGE, channel, instrumentCode, 0x00));
     Pm_WriteShort(midiDeviceStream, 0, instrumentInstruction);
 }
 
@@ -74,7 +79,7 @@ void playNote(uint8_t note, uint8_t velocity, uint8_t channel)
 {
     // Construct the instruction
     
-    const uint32_t noteOnInstruction(MIDIMessage(0x90, channel, note, velocity));
+    const uint32_t noteOnInstruction(MIDIMessage(MIDI_NOTE_ON, channel, note, velocity));
     Pm_WriteShort(midiDeviceStream, 0, noteOnInstruction);
 }
 
@@ -82,7 +87,7 @@ void setVolume(uint8_t volume, uint8_t channel)
 {
     // Construct the instruction
     
-    const uint32_t volumeInstruction (MIDIMessage(0xb0, channel, 0x07, volume));
+    const uint32_t volumeInstruction (MIDIMessage(MIDI_CONTROL_CHANGE, channel, MIDI_CC_VOLUME, volume));
     cout << hex << "0x" << volumeInstruction << endl;
     Pm_WriteShort(midiDeviceStream, 0, volumeInstruction);
 }
@@ -92,7 +97,7 @@ void endNote(uint8_t note, uint8_t channel)
 {
     // Construct the instruction
  
-    const uint32_t noteOffInstruction(MIDIMessage(0x80, channel, note, 0x00));
+    const uint32_t noteOffInstruction(MIDIMessage(MIDI_NOTE_OFF, channel, note, 0x00));
 
     Pm_WriteShort(midiDeviceStream, 0, noteOffInstruction);
 }

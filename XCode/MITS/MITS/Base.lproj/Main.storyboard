@@ -710,30 +710,63 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7ft-7s-RvG">
-                                <rect key="frame" x="18" y="549" width="134" height="23"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Current Mode:" id="bmK-GG-Iwo">
+                                <rect key="frame" x="18" y="549" width="138" height="23"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Current Mode :" id="bmK-GG-Iwo">
                                     <font key="font" metaFont="system" size="20"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bkj-qs-C0D" customClass="label">
-                                <rect key="frame" x="156" y="549" width="58" height="23"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZEL-eU-MwX">
+                                <rect key="frame" x="18" y="518" width="125" height="23"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Piano Chord :" id="QUT-fO-zuD">
+                                    <font key="font" metaFont="system" size="20"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bkj-qs-C0D">
+                                <rect key="frame" x="160" y="549" width="58" height="23"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="mode" id="rht-FA-jXC">
                                     <font key="font" metaFont="system" size="20"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MMW-mU-j5W">
+                                <rect key="frame" x="160" y="518" width="58" height="23"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="chord" id="gbU-1j-UPq">
+                                    <font key="font" metaFont="system" size="20"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9Qc-YM-YUN">
+                                <rect key="frame" x="365" y="289" width="106" height="32"/>
+                                <buttonCell key="cell" type="push" title="Play Chord" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8Y7-DA-4mk">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="playChordClicked:" target="XfG-lQ-9wD" id="WCN-KE-UEK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="9Qc-YM-YUN" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="3OX-x6-YRq"/>
+                            <constraint firstItem="ZEL-eU-MwX" firstAttribute="top" secondItem="7ft-7s-RvG" secondAttribute="bottom" constant="8" symbolic="YES" id="D5F-b5-j1Z"/>
+                            <constraint firstItem="MMW-mU-j5W" firstAttribute="leading" secondItem="bkj-qs-C0D" secondAttribute="leading" id="F6p-Zq-UP7"/>
                             <constraint firstItem="bkj-qs-C0D" firstAttribute="leading" secondItem="7ft-7s-RvG" secondAttribute="trailing" constant="8" symbolic="YES" id="OfN-99-p8Z"/>
+                            <constraint firstItem="MMW-mU-j5W" firstAttribute="baseline" secondItem="ZEL-eU-MwX" secondAttribute="baseline" id="S2e-kW-AlN"/>
+                            <constraint firstItem="ZEL-eU-MwX" firstAttribute="leading" secondItem="7ft-7s-RvG" secondAttribute="leading" id="TMY-6R-P5f"/>
                             <constraint firstItem="7ft-7s-RvG" firstAttribute="baseline" secondItem="bkj-qs-C0D" secondAttribute="baseline" id="UcT-mp-c3t"/>
                             <constraint firstItem="7ft-7s-RvG" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="41" id="Z3A-mN-Gah"/>
                             <constraint firstItem="7ft-7s-RvG" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="ano-q1-IHR"/>
+                            <constraint firstItem="9Qc-YM-YUN" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="pn7-zf-MtU"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="chordLabel" destination="MMW-mU-j5W" id="puN-oK-PYZ"/>
                         <outlet property="modeLabel" destination="bkj-qs-C0D" id="tNS-22-Wgu"/>
                     </connections>
                 </viewController>

@@ -8,12 +8,30 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
-
-    override func viewDidLoad() {
+class ViewController: NSViewController
+{
+    @IBOutlet weak var modeLabel: NSTextField!
+    
+    var midiHandler = MidiHandler()
+    var currentMode: MitsMode = MitsMode.flexStringsMode
+    {
+        didSet {
+            // called whenever the mode changes so update the mode label
+            modeLabel.stringValue = currentMode.rawValue
+            midiHandler.updateMode(currentMode)
+            
+        }
+    }
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        currentMode = MitsMode.flexStringsMode
+    }
+    
+    func updateMode()
+    {
+        
     }
 
     override var representedObject: Any? {

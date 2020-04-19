@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B64117D244BBE8E006F2004 /* BTConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B64117C244BBE8E006F2004 /* BTConstants.swift */; };
+		2B64117F244BBE96006F2004 /* BTHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B64117E244BBE96006F2004 /* BTHandler.swift */; };
+		2B731722244A141100136A5C /* midiConnector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B731720244A141100136A5C /* midiConnector.cpp */; };
+		2B731724244A15AC00136A5C /* MidiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B731723244A15AC00136A5C /* MidiConstants.swift */; };
+		2B731726244A1A9600136A5C /* MidiHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B731725244A1A9600136A5C /* MidiHandler.swift */; };
 		2BF54A62241A9DD900B87559 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF54A61241A9DD900B87559 /* AppDelegate.swift */; };
 		2BF54A64241A9DD900B87559 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF54A63241A9DD900B87559 /* ViewController.swift */; };
 		2BF54A66241A9DDF00B87559 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BF54A65241A9DDF00B87559 /* Assets.xcassets */; };
@@ -14,6 +19,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B64117C244BBE8E006F2004 /* BTConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTConstants.swift; sourceTree = "<group>"; };
+		2B64117E244BBE96006F2004 /* BTHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTHandler.swift; sourceTree = "<group>"; };
+		2B73171F244A141100136A5C /* MITS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MITS-Bridging-Header.h"; sourceTree = "<group>"; };
+		2B731720244A141100136A5C /* midiConnector.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = midiConnector.cpp; sourceTree = "<group>"; };
+		2B731721244A141100136A5C /* midiConnector.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = midiConnector.hpp; sourceTree = "<group>"; };
+		2B731723244A15AC00136A5C /* MidiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiConstants.swift; sourceTree = "<group>"; };
+		2B731725244A1A9600136A5C /* MidiHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiHandler.swift; sourceTree = "<group>"; };
 		2BF54A5E241A9DD900B87559 /* MITS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MITS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BF54A61241A9DD900B87559 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BF54A63241A9DD900B87559 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -55,10 +67,17 @@
 			children = (
 				2BF54A61241A9DD900B87559 /* AppDelegate.swift */,
 				2BF54A63241A9DD900B87559 /* ViewController.swift */,
+				2B731725244A1A9600136A5C /* MidiHandler.swift */,
+				2B731723244A15AC00136A5C /* MidiConstants.swift */,
+				2B64117C244BBE8E006F2004 /* BTConstants.swift */,
+				2B64117E244BBE96006F2004 /* BTHandler.swift */,
+				2B731720244A141100136A5C /* midiConnector.cpp */,
+				2B731721244A141100136A5C /* midiConnector.hpp */,
 				2BF54A65241A9DDF00B87559 /* Assets.xcassets */,
 				2BF54A67241A9DDF00B87559 /* Main.storyboard */,
 				2BF54A6A241A9DDF00B87559 /* Info.plist */,
 				2BF54A6B241A9DDF00B87559 /* MITS.entitlements */,
+				2B73171F244A141100136A5C /* MITS-Bridging-Header.h */,
 			);
 			path = MITS;
 			sourceTree = "<group>";
@@ -95,6 +114,7 @@
 				TargetAttributes = {
 					2BF54A5D241A9DD900B87559 = {
 						CreatedOnToolsVersion = 11.3;
+						LastSwiftMigration = 1130;
 					};
 				};
 			};
@@ -133,7 +153,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B731722244A141100136A5C /* midiConnector.cpp in Sources */,
 				2BF54A64241A9DD900B87559 /* ViewController.swift in Sources */,
+				2B731726244A1A9600136A5C /* MidiHandler.swift in Sources */,
+				2B64117D244BBE8E006F2004 /* BTConstants.swift in Sources */,
+				2B64117F244BBE96006F2004 /* BTHandler.swift in Sources */,
+				2B731724244A15AC00136A5C /* MidiConstants.swift in Sources */,
 				2BF54A62241A9DD900B87559 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +294,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MITS/MITS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -279,9 +305,14 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = /opt/local/lib;
+				OTHER_LDFLAGS = "-lportmidi";
 				PRODUCT_BUNDLE_IDENTIFIER = com.anuj.MITS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MITS/MITS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				USER_HEADER_SEARCH_PATHS = /opt/local/include;
 			};
 			name = Debug;
 		};
@@ -289,6 +320,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MITS/MITS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -299,9 +331,13 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = /opt/local/lib;
+				OTHER_LDFLAGS = "-lportmidi";
 				PRODUCT_BUNDLE_IDENTIFIER = com.anuj.MITS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MITS/MITS-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
+				USER_HEADER_SEARCH_PATHS = /opt/local/include;
 			};
 			name = Release;
 		};

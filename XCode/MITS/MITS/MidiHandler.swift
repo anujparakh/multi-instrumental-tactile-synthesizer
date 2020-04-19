@@ -161,7 +161,7 @@ class MidiHandler
     func calculateVolume(forFlex flexValue: Int) -> UInt8
     {
         var newVolume = flexValue
-        newVolume = 127 - (newVolume - (900 - 128))
+        newVolume = newVolume - 673
         if (newVolume < 0)
         {
             newVolume = 0

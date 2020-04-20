@@ -8,18 +8,46 @@
 
 import Cocoa
 
-class ViewController: NSViewController
+class ViewController: NSViewController, NSWindowDelegate
 {
-    @IBOutlet weak var modeLabel: NSTextField!
-    @IBOutlet weak var chordLabel: NSTextField!
+    @IBOutlet weak var pianoContainerView: NSView!
+    @IBOutlet weak var stringsContainerView: NSView!
+    @IBOutlet weak var drumsContainerView: NSView!
+    @IBOutlet weak var modeSegmentedControl: NSSegmentedControl!
+    
+    @IBAction func modeSegmentSelected(_ sender: NSSegmentedControl)
+    {
+        pianoContainerView.isHidden = true
+        stringsContainerView.isHidden = true
+        drumsContainerView.isHidden = true
+        
+        switch (sender.selectedSegment)
+        {
+        case 0:
+            drumsContainerView.isHidden = false
+            currentMode = MitsMode.percussionMode
+            break
+        case 1:
+            stringsContainerView.isHidden = false
+            currentMode = MitsMode.flexStringsMode
+            break
+        case 2:
+            pianoContainerView.isHidden = false
+            currentMode = MitsMode.pianoMode
+            break
+            
+        default:
+            break;
+        }
+    }
+    
     
     var midiHandler = MidiHandler()
     var currentChord = FlexSign.zero
     var currentMode: MitsMode = MitsMode.flexStringsMode
     {
-        didSet {
-            // called whenever the mode changes so update the mode label
-            modeLabel.stringValue = currentMode.rawValue
+        didSet
+        {
             midiHandler.updateMode(currentMode)
         }
     }
@@ -28,22 +56,18 @@ class ViewController: NSViewController
     {
         super.viewDidLoad()
         setupMidiHandler()
-        currentMode = MitsMode.pianoMode
+        // String mode is the initial mode
+        currentMode = MitsMode.flexStringsMode
+        
     }
     
     func setupMidiHandler()
     {
-        midiHandler.setPianoModeHandler(fingerSignUpdated(_:))
+//        midiHandler.setPianoModeHandler(fingerSignUpdated(_:))
     }
     
-    func fingerSignUpdated(_ newSign: FlexSign)
-    {
-        chordLabel.stringValue = newSign.rawValue
-        currentChord = newSign
-    }
-    
-    
-    @IBAction func playChordClicked(_ sender: Any)
+    // Called by child view controller
+    func playChordClicked(_ sender: Any)
     {
         midiHandler.playPianoChord(currentChord)
     }
@@ -54,6 +78,16 @@ class ViewController: NSViewController
         }
     }
 
-
+    //
+    // MARK: WindowDelegate stuff
+    //
+    override func viewDidAppear() {
+           self.view.window?.delegate = self
+       }
+    
+    func windowWillClose(_ notification: Notification)
+    {
+        midiHandler.stopCurrentPlaying()
+    }
 }
 

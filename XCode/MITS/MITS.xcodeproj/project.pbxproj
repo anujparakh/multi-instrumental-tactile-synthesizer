@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2B64117D244BBE8E006F2004 /* BTConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B64117C244BBE8E006F2004 /* BTConstants.swift */; };
 		2B64117F244BBE96006F2004 /* BTHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B64117E244BBE96006F2004 /* BTHandler.swift */; };
+		2B641181244D4877006F2004 /* StringsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B641180244D4877006F2004 /* StringsViewController.swift */; };
+		2B641183244D4883006F2004 /* PianoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B641182244D4883006F2004 /* PianoViewController.swift */; };
+		2B641185244D4894006F2004 /* DrumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B641184244D4894006F2004 /* DrumsViewController.swift */; };
 		2B731722244A141100136A5C /* midiConnector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B731720244A141100136A5C /* midiConnector.cpp */; };
 		2B731724244A15AC00136A5C /* MidiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B731723244A15AC00136A5C /* MidiConstants.swift */; };
 		2B731726244A1A9600136A5C /* MidiHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B731725244A1A9600136A5C /* MidiHandler.swift */; };
@@ -21,6 +24,9 @@
 /* Begin PBXFileReference section */
 		2B64117C244BBE8E006F2004 /* BTConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTConstants.swift; sourceTree = "<group>"; };
 		2B64117E244BBE96006F2004 /* BTHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTHandler.swift; sourceTree = "<group>"; };
+		2B641180244D4877006F2004 /* StringsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringsViewController.swift; sourceTree = "<group>"; };
+		2B641182244D4883006F2004 /* PianoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PianoViewController.swift; sourceTree = "<group>"; };
+		2B641184244D4894006F2004 /* DrumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrumsViewController.swift; sourceTree = "<group>"; };
 		2B73171F244A141100136A5C /* MITS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MITS-Bridging-Header.h"; sourceTree = "<group>"; };
 		2B731720244A141100136A5C /* midiConnector.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = midiConnector.cpp; sourceTree = "<group>"; };
 		2B731721244A141100136A5C /* midiConnector.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = midiConnector.hpp; sourceTree = "<group>"; };
@@ -67,6 +73,9 @@
 			children = (
 				2BF54A61241A9DD900B87559 /* AppDelegate.swift */,
 				2BF54A63241A9DD900B87559 /* ViewController.swift */,
+				2B641180244D4877006F2004 /* StringsViewController.swift */,
+				2B641182244D4883006F2004 /* PianoViewController.swift */,
+				2B641184244D4894006F2004 /* DrumsViewController.swift */,
 				2B731725244A1A9600136A5C /* MidiHandler.swift */,
 				2B731723244A15AC00136A5C /* MidiConstants.swift */,
 				2B64117C244BBE8E006F2004 /* BTConstants.swift */,
@@ -153,6 +162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B641185244D4894006F2004 /* DrumsViewController.swift in Sources */,
 				2B731722244A141100136A5C /* midiConnector.cpp in Sources */,
 				2BF54A64241A9DD900B87559 /* ViewController.swift in Sources */,
 				2B731726244A1A9600136A5C /* MidiHandler.swift in Sources */,
@@ -160,6 +170,8 @@
 				2B64117F244BBE96006F2004 /* BTHandler.swift in Sources */,
 				2B731724244A15AC00136A5C /* MidiConstants.swift in Sources */,
 				2BF54A62241A9DD900B87559 /* AppDelegate.swift in Sources */,
+				2B641183244D4883006F2004 /* PianoViewController.swift in Sources */,
+				2B641181244D4877006F2004 /* StringsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

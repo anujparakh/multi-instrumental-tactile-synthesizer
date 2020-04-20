@@ -25,6 +25,15 @@ enum MitsMode: String
     // Add different possible modes here
 }
 
+enum MidiChannels: UInt8
+{
+    case pianoChannel = 0
+    case stringChannelStart = 1 // Needs 8 channels
+    case stringChannelEnd = 8 // Needs 8 channels
+    case drumChannelStart = 9 // Needs 4 channels
+}
+
+
 enum FlexSign: String
 {
     case zero = "zero"

@@ -65,6 +65,11 @@ int isMidiInitialized()
 // Functionalities!
 //
 
+void printInstruction(uint32_t instruction)
+{
+//    cout << "Sending inst: " << hex << "0x" << instruction << endl;
+}
+
 // Set MIDI Instrument
 void setInstrument(uint8_t instrumentCode, uint8_t channel)
 {
@@ -88,7 +93,7 @@ void setVolume(uint8_t volume, uint8_t channel)
     // Construct the instruction
     
     const uint32_t volumeInstruction (MIDIMessage(MIDI_CONTROL_CHANGE, channel, MIDI_CC_VOLUME, volume));
-    cout << hex << "0x" << volumeInstruction << endl;
+    printInstruction(volumeInstruction);
     Pm_WriteShort(midiDeviceStream, 0, volumeInstruction);
 }
 

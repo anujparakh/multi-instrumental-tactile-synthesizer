@@ -11,8 +11,9 @@ import Foundation
 class MidiHandler
 {
     // MARK: Constants
-    let NUM_FINGERS = 2; // Constant storing number of fingers on each glove
+    let NUM_FINGERS = 4; // Constant storing number of fingers on each glove
     let BENDING_THRESHOLD = 850 // threshold for bending value (above this counts as BENT)
+    let STRING_NOTE_VELOCITY = UInt8(60)
     
     // MARK: Private Member variables
     private var currentInstrument: Instrument!;
@@ -22,6 +23,8 @@ class MidiHandler
     
     public func updateMode(_ newMode: MitsMode)
     {
+        stopCurrentPlaying()
+
         currentMode = newMode
         switch (currentMode)
         {
@@ -44,6 +47,7 @@ class MidiHandler
     func stopCurrentPlaying()
     {
         // Stop all current instruments here
+        stopStringNotes()
     }
     
     
@@ -51,9 +55,9 @@ class MidiHandler
     init ()
     {
         initializePortMidi()
-//        initForStringsMode()
+        initForStringsMode()
         initForPianoMode()
-//        initForPercussionMode()
+        initForPercussionMode()
         
     }
     
@@ -62,7 +66,7 @@ class MidiHandler
     //
     func initForPianoMode()
     {
-        setInstrument(Instrument.piano.rawValue, 1)
+        setInstrument(Instrument.piano.rawValue, MidiChannels.pianoChannel.rawValue)
     }
     
     func playPianoChord(_ noteNumber: FlexSign)
@@ -88,7 +92,7 @@ class MidiHandler
             default:
                 break
             }
-            playNote(note.rawValue, 0x60, 1)
+            playNote(note.rawValue, 0x60, MidiChannels.pianoChannel.rawValue)
         }
     }
     
@@ -97,11 +101,13 @@ class MidiHandler
         btHandler.setFlexCallback(pianoModeFlexCallback(_:))
     }
     
+    // sets the handler for piano mode
     func setPianoModeHandler(_ callback: @escaping (FlexSign)->Void)
     {
         pianoModeCallback = callback
     }
     
+    // Called whenever flex value changes when in piano mode
     func pianoModeFlexCallback(_ newFlexVal: [String: AnyObject?])
     {
         var evaluatedSign = FlexSign.four
@@ -134,9 +140,9 @@ class MidiHandler
     
     func initForStringsMode()
     {
-        for channelIndex in 0..<NUM_FINGERS
+        for channelIndex in MidiChannels.stringChannelStart.rawValue...MidiChannels.stringChannelEnd.rawValue
         {
-            setInstrument(Instrument.strings.rawValue, UInt8(channelIndex))
+            setInstrument(Instrument.strings.rawValue, channelIndex)
         }
     }
     
@@ -144,7 +150,6 @@ class MidiHandler
     func setStringsMode()
     {
         currentMode = MitsMode.flexStringsMode
-        stopCurrentPlaying()
         currentInstrument = .strings
         
         btHandler.setFlexCallback(stringsFlexCallback(_:))
@@ -153,9 +158,26 @@ class MidiHandler
     
     func startStringNotes()
     {
-        playNote(StringNotes.finger5.rawValue, 60, 0)
-        playNote(StringNotes.finger6.rawValue, 60, 1)
-
+        playNote(StringNotes.finger1.rawValue, STRING_NOTE_VELOCITY, MidiChannels.stringChannelStart.rawValue)
+        playNote(StringNotes.finger2.rawValue, STRING_NOTE_VELOCITY, MidiChannels.stringChannelStart.rawValue + 1)
+        playNote(StringNotes.finger3.rawValue, STRING_NOTE_VELOCITY, MidiChannels.stringChannelStart.rawValue + 2)
+        playNote(StringNotes.finger4.rawValue, STRING_NOTE_VELOCITY, MidiChannels.stringChannelStart.rawValue + 3)
+//        playNote(StringNotes.finger5.rawValue, STRING_NOTE_VELOCITY, MidiChannels.stringChannelStart.rawValue + 4)
+//        playNote(StringNotes.finger6.rawValue, STRING_NOTE_VELOCITY, MidiChannels.stringChannelStart.rawValue + 5)
+//        playNote(StringNotes.finger7.rawValue, STRING_NOTE_VELOCITY, MidiChannels.stringChannelStart.rawValue + 6)
+//        playNote(StringNotes.finger8.rawValue, STRING_NOTE_VELOCITY, MidiChannels.stringChannelStart.rawValue + 7)
+    }
+    
+    func stopStringNotes()
+    {
+        endNote(StringNotes.finger1.rawValue, MidiChannels.stringChannelStart.rawValue)
+        endNote(StringNotes.finger2.rawValue, MidiChannels.stringChannelStart.rawValue + 1)
+        endNote(StringNotes.finger3.rawValue, MidiChannels.stringChannelStart.rawValue + 2)
+        endNote(StringNotes.finger4.rawValue, MidiChannels.stringChannelStart.rawValue + 3)
+//        playNote(StringNotes.finger5.rawValue, MidiChannels.stringChannelStart.rawValue + 4)
+//        playNote(StringNotes.finger6.rawValue, MidiChannels.stringChannelStart.rawValue + 5)
+//        playNote(StringNotes.finger7.rawValue, MidiChannels.stringChannelStart.rawValue + 6)
+//        playNote(StringNotes.finger8.rawValue, MidiChannels.stringChannelStart.rawValue + 7)
     }
     
     func calculateVolume(forFlex flexValue: Int) -> UInt8
@@ -180,14 +202,21 @@ class MidiHandler
         {
             // do nothing
             return
-        }
-        print("t = \(newFlexVal["t"] as! Int) \t f1: \(newFlexVal["f1"] as! Int)")
-        
+        }        
         // set the volume for each flex sensor
         for flexIndex in 0..<NUM_FINGERS
         {
             setVolume(calculateVolume(forFlex: newFlexVal["f\(flexIndex + 1)"] as! Int), UInt8(flexIndex))
         }
+    }
+    
+    //
+    // MARK: Percussion Mode Functions
+    //
+    
+    func initForPercussionMode()
+    {
+        // set the instruments for percussion channels
     }
     
 }

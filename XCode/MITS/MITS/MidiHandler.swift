@@ -218,7 +218,7 @@ class MidiHandler
         // set the volume for each flex sensor
         for flexIndex in 0..<NUM_FINGERS
         {
-            setVolume(calculateVolume(forFlex: newFlexVal["f\(flexIndex + 1)"] as! Int), UInt8(flexIndex))
+            setVolume(calculateVolume(forFlex: newFlexVal["f\(flexIndex + 1)"] as! Int), MidiChannels.stringChannelStart.rawValue + UInt8(flexIndex))
         }
     }
     

@@ -16,6 +16,20 @@ class BTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
 
     private var flexCallback: (([String: AnyObject]) -> Void)?;
     
+    public var connectionStatusCallback: ((String) -> Void)?
+    
+    private func updateConnectionStatus(_ status: String)
+    {
+        if (connectionStatusCallback != nil)
+        {
+            connectionStatusCallback!(status)
+        }
+        else
+        {
+            print(status)
+        }
+    }
+    
     // Callback when central manager's state is updated
     func centralManagerDidUpdateState(_ central: CBCentralManager)
     {
@@ -34,6 +48,7 @@ class BTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
             print("BLE powered off")
         case .poweredOn:
             print("BLE On and Scanning")
+            updateConnectionStatus("Scanning")
             // Scan for any peripherals
             centralManager.scanForPeripherals(withServices: [BTConstants.nanoID])
         @unknown default:
@@ -56,7 +71,14 @@ class BTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral)
     {
         print("Connected to MITS Mk. II!")
+        updateConnectionStatus("Connected to MITS!")
+
         mitsPeripheral.discoverServices([BTConstants.nanoID])
+    }
+    
+    func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?)
+    {
+        updateConnectionStatus("Disconnected")
     }
     
     // Handles Services Discovery

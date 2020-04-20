@@ -763,11 +763,20 @@
                                     <segue destination="ld0-Dh-T4u" kind="embed" id="Tf8-HR-7B9"/>
                                 </connections>
                             </containerView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="brs-uH-faB">
+                                <rect key="frame" x="666" y="567" width="152" height="21"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" alignment="right" title="Status" id="JCI-Uk-b08">
+                                    <font key="font" size="18" name="HelveticaNeue-Light"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="M48-J0-7km" firstAttribute="top" secondItem="2bN-S4-qc6" secondAttribute="bottom" constant="6" id="0Wv-Z4-vuZ"/>
                             <constraint firstItem="VRY-eG-oxb" firstAttribute="top" secondItem="3As-hV-zhM" secondAttribute="bottom" constant="14" id="7U6-X8-w0s"/>
                             <constraint firstItem="20O-nX-H2W" firstAttribute="leading" secondItem="J4S-Ar-xrn" secondAttribute="leading" id="8GQ-ic-aZB"/>
+                            <constraint firstItem="brs-uH-faB" firstAttribute="leading" secondItem="2bN-S4-qc6" secondAttribute="trailing" constant="23" id="BRj-ea-o7Y"/>
                             <constraint firstItem="3As-hV-zhM" firstAttribute="top" secondItem="M48-J0-7km" secondAttribute="bottom" constant="8" symbolic="YES" id="IFj-p1-EiW"/>
                             <constraint firstItem="VRY-eG-oxb" firstAttribute="trailing" secondItem="20O-nX-H2W" secondAttribute="trailing" id="Ihg-LQ-fNN"/>
                             <constraint firstItem="VRY-eG-oxb" firstAttribute="top" secondItem="20O-nX-H2W" secondAttribute="top" id="JdQ-fa-Jj7"/>
@@ -779,7 +788,9 @@
                             <constraint firstItem="20O-nX-H2W" firstAttribute="bottom" secondItem="VRY-eG-oxb" secondAttribute="bottom" id="gZ7-gU-n8E"/>
                             <constraint firstAttribute="trailing" secondItem="20O-nX-H2W" secondAttribute="trailing" id="j7A-Mv-SSs"/>
                             <constraint firstItem="VRY-eG-oxb" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="jXY-s9-stT"/>
+                            <constraint firstAttribute="trailing" secondItem="brs-uH-faB" secondAttribute="trailing" constant="20" symbolic="YES" id="ksG-Zq-S1l"/>
                             <constraint firstItem="M48-J0-7km" firstAttribute="centerX" secondItem="3As-hV-zhM" secondAttribute="centerX" id="oH8-4A-Wnb"/>
+                            <constraint firstItem="brs-uH-faB" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="25" id="qaV-WD-O3V"/>
                             <constraint firstItem="2bN-S4-qc6" firstAttribute="leading" secondItem="M48-J0-7km" secondAttribute="leading" id="qoo-h3-F6N"/>
                             <constraint firstItem="2bN-S4-qc6" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="t6E-bh-wzd"/>
                             <constraint firstItem="2bN-S4-qc6" firstAttribute="trailing" secondItem="M48-J0-7km" secondAttribute="trailing" id="vhI-GP-1ZM"/>
@@ -790,6 +801,7 @@
                         <outlet property="drumsContainerView" destination="VRY-eG-oxb" id="gqW-bH-Gwb"/>
                         <outlet property="modeSegmentedControl" destination="3As-hV-zhM" id="2Zw-9G-OJe"/>
                         <outlet property="pianoContainerView" destination="J4S-Ar-xrn" id="JZ7-zZ-23S"/>
+                        <outlet property="statusView" destination="brs-uH-faB" id="PSe-Hl-McI"/>
                         <outlet property="stringsContainerView" destination="20O-nX-H2W" id="vaA-Sv-Uh2"/>
                     </connections>
                 </viewController>

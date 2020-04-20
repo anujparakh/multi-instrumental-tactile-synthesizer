@@ -21,6 +21,18 @@ class MidiHandler
     private var btHandler = BTHandler()
     private var pianoModeCallback: ((FlexSign) -> Void)?
     
+    public var btConnectionStatusCallback: ((String) -> Void)?
+    {
+        didSet {
+            btHandler.connectionStatusCallback = {(_ status: String) -> Void in
+                if (self.btConnectionStatusCallback != nil)
+                {
+                    self.btConnectionStatusCallback!(status)
+                }
+            }
+        }
+    }
+    
     public func updateMode(_ newMode: MitsMode)
     {
         stopCurrentPlaying()

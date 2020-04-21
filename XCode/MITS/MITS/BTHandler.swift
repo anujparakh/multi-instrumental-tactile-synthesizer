@@ -13,7 +13,7 @@ class BTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
 {
     private var centralManager: CBCentralManager!
     private var mitsPeripheral: CBPeripheral!
-
+    private var mitsUUID: CBUUID!
     private var flexCallback: (([String: AnyObject]) -> Void)?;
     
     public var connectionStatusCallback: ((String) -> Void)?
@@ -50,7 +50,7 @@ class BTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
             print("BLE On and Scanning")
             updateConnectionStatus("Scanning")
             // Scan for any peripherals
-            centralManager.scanForPeripherals(withServices: [BTConstants.nanoID])
+            centralManager.scanForPeripherals(withServices: [mitsUUID])
         @unknown default:
             print ("Central Manager Don't know :(")
         }
@@ -73,7 +73,7 @@ class BTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
         print("Connected to MITS Mk. II!")
         updateConnectionStatus("Connected to MITS!")
 
-        mitsPeripheral.discoverServices([BTConstants.nanoID])
+        mitsPeripheral.discoverServices([mitsUUID])
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?)
@@ -148,7 +148,13 @@ class BTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
     override init()
     {
         super.init()
+    }
+    
+    func setUUIDToLookFor(_ theUUID: CBUUID)
+    {
+        mitsUUID = theUUID
         centralManager = CBCentralManager(delegate: self, queue: nil)
+
     }
     
 }

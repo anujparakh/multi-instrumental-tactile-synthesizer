@@ -14,8 +14,9 @@ class ViewController: NSViewController, NSWindowDelegate
     @IBOutlet weak var stringsContainerView: NSView!
     @IBOutlet weak var drumsContainerView: NSView!
     @IBOutlet weak var modeSegmentedControl: NSSegmentedControl!
-    @IBOutlet weak var statusView: NSTextField!
-    
+    @IBOutlet weak var leftStatusView: NSTextField!
+    @IBOutlet weak var rightStatusView: NSTextField!
+
     @IBAction func modeSegmentSelected(_ sender: NSSegmentedControl)
     {
         pianoContainerView.isHidden = true
@@ -64,10 +65,14 @@ class ViewController: NSViewController, NSWindowDelegate
     
     func setupMidiHandler()
     {
-//        midiHandler.setPianoModeHandler(fingerSignUpdated(_:))
-        midiHandler.btConnectionStatusCallback = {(_ status: String) -> Void in
-            self.statusView.stringValue = "Status: \(status)"
+        midiHandler.btLeftConnectionStatusCallback = {(_ status: String) -> Void in
+            self.leftStatusView.stringValue = "Left: \(status)"
         }
+
+        midiHandler.btRightConnectionStatusCallback = {(_ status: String) -> Void in
+            self.rightStatusView.stringValue = "Right: \(status)"
+        }
+
     }
     
     // Called by child view controller

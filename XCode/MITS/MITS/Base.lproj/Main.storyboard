@@ -882,14 +882,31 @@
                                     <action selector="playChordClicked:" target="ld0-Dh-T4u" id="fdz-uk-UGZ"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ACu-RV-fa6">
+                                <rect key="frame" x="224" y="282" width="228" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="224" id="NN5-oA-kgk"/>
+                                    <constraint firstAttribute="height" constant="31" id="ojh-76-MPU"/>
+                                </constraints>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Chord: One" id="zsF-4g-FgI">
+                                    <font key="font" size="23" name="HelveticaNeue-Light"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Soe-ZJ-mh8" firstAttribute="centerX" secondItem="WE3-Nf-aMT" secondAttribute="centerX" id="2qQ-G2-P62"/>
+                            <constraint firstItem="hXi-Wn-SzM" firstAttribute="top" secondItem="ACu-RV-fa6" secondAttribute="bottom" constant="19" id="GnI-gY-S4y"/>
                             <constraint firstItem="hXi-Wn-SzM" firstAttribute="centerX" secondItem="WE3-Nf-aMT" secondAttribute="centerX" id="Hea-lU-klX"/>
                             <constraint firstItem="Soe-ZJ-mh8" firstAttribute="top" secondItem="WE3-Nf-aMT" secondAttribute="top" constant="20" symbolic="YES" id="M1n-X1-h27"/>
+                            <constraint firstItem="ACu-RV-fa6" firstAttribute="centerX" secondItem="Soe-ZJ-mh8" secondAttribute="centerX" id="N6v-Yl-L4V"/>
                             <constraint firstItem="hXi-Wn-SzM" firstAttribute="centerY" secondItem="WE3-Nf-aMT" secondAttribute="centerY" id="hkq-hk-U8L"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="chordLabel" destination="ACu-RV-fa6" id="Wc6-Es-f5f"/>
+                    </connections>
                 </viewController>
                 <customObject id="RHD-Xu-Z4x" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

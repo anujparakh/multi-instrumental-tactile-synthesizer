@@ -105,27 +105,17 @@ class MidiHandler
     {
         if (currentMode == .pianoMode)
         {
-            // TEMPORARY CODE
-            var note = StringNotes.finger5
-            switch (noteNumber)
-            {
-            case .one:
-                note = StringNotes.finger6
-                break
-            case .two:
-                note = StringNotes.finger7
-                break
-            case .three:
-                note = StringNotes.finger8
-                break
-            case .four:
-                note = StringNotes.finger1
-                break
-            default:
-                break
-            }
-            playNote(note.rawValue, velocity, MidiChannels.pianoChannel.rawValue)
+            playChord(chord: PianoChords[currentPianoSign]!, velocity)
         }
+    }
+    
+    func playChord(chord chordNotes: [uint8],_ velocity: uint8)
+    {
+        for note in chordNotes
+        {
+            playNote(note, velocity, MidiChannels.pianoChannel.rawValue)
+        }
+
     }
     
     func setPianoMode()
@@ -143,8 +133,7 @@ class MidiHandler
     // Called whenever flex value changes when in piano mode
     func pianoModeFlexCallback(_ newFlexVal: [String: AnyObject?])
     {
-//        print("----------------------------------")
-//        print(newFlexVal)
+
         var evaluatedSign = FlexSign.four
         if (newFlexVal["f1"] as! Int) < BENDING_THRESHOLD
         {
@@ -174,8 +163,6 @@ class MidiHandler
     
     func pianoModeForceCallback(_ newFlexVal: [String: AnyObject?])
     {
-//        print("**************************")
-//        print(newFlexVal)
         let forceValue = newFlexVal["fs"] as! Int
         if (forceValue > 500) && !justPlayed
         {
@@ -271,7 +258,6 @@ class MidiHandler
     
     func stringsFlexCallbackRight(_ newFlexVal: [String: AnyObject?])
     {
-        print(newFlexVal["fs"])
         if (currentMode != .flexStringsMode)
         {
             // do nothing

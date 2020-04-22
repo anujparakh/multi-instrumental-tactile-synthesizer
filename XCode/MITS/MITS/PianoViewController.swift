@@ -11,6 +11,7 @@ import Cocoa
 class PianoViewController:NSViewController
 {
     
+    @IBOutlet weak var chordLabel: NSTextField!
     
     @IBAction func playChordClicked(_ sender: Any)
     {

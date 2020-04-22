@@ -17,6 +17,8 @@ class ViewController: NSViewController, NSWindowDelegate
     @IBOutlet weak var leftStatusView: NSTextField!
     @IBOutlet weak var rightStatusView: NSTextField!
 
+    var pianoViewController: PianoViewController!
+    
     @IBAction func modeSegmentSelected(_ sender: NSSegmentedControl)
     {
         pianoContainerView.isHidden = true
@@ -72,6 +74,10 @@ class ViewController: NSViewController, NSWindowDelegate
         midiHandler.btRightConnectionStatusCallback = {(_ status: String) -> Void in
             self.rightStatusView.stringValue = "Right: \(status)"
         }
+        
+        midiHandler.setPianoModeHandler({ (_ newSign: FlexSign) -> Void in
+            self.pianoViewController.chordLabel.stringValue = newSign.rawValue
+        })
 
     }
     
@@ -93,6 +99,19 @@ class ViewController: NSViewController, NSWindowDelegate
     override func viewDidAppear() {
            self.view.window?.delegate = self
        }
+    
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?)
+    {
+        switch segue.destinationController
+        {
+                
+            case let pianoController as PianoViewController:
+                self.pianoViewController = pianoController
+
+            default:
+                break
+        }
+    }
     
     func windowWillClose(_ notification: Notification)
     {

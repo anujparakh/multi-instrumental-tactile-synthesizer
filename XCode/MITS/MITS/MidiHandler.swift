@@ -140,19 +140,19 @@ class MidiHandler
     func pianoModeFlexCallback(_ newFlexVal: [String: AnyObject?])
     {
         var evaluatedSign = FlexSign.four
-        if (newFlexVal["f1"] as! Int) > BENDING_THRESHOLD
+        if (newFlexVal["f1"] as! Int) < BENDING_THRESHOLD
         {
             evaluatedSign = FlexSign.zero
         }
-        else if (newFlexVal["f2"] as! Int) > BENDING_THRESHOLD
+        else if (newFlexVal["f2"] as! Int) < BENDING_THRESHOLD
         {
             evaluatedSign = FlexSign.one
         }
-        else if (newFlexVal["f3"] as! Int) > BENDING_THRESHOLD
+        else if (newFlexVal["f3"] as! Int) < BENDING_THRESHOLD
         {
             evaluatedSign = FlexSign.two
         }
-        else if (newFlexVal["f4"] as! Int) > BENDING_THRESHOLD
+        else if (newFlexVal["f4"] as! Int) < BENDING_THRESHOLD
         {
             evaluatedSign = FlexSign.three
         }

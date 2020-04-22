@@ -12,7 +12,7 @@ class MidiHandler
 {
     // MARK: Constants
     let NUM_FINGERS = 4; // Constant storing number of fingers on each glove
-    let BENDING_THRESHOLD = 850 // threshold for bending value (above this counts as BENT)
+    let BENDING_THRESHOLD = 800 // threshold for bending value (above this counts as BENT)
     let STRING_NOTE_VELOCITY = UInt8(60)
     
     // MARK: Private Member variables
@@ -143,19 +143,19 @@ class MidiHandler
     func pianoModeFlexCallback(_ newFlexVal: [String: AnyObject?])
     {
         var evaluatedSign = FlexSign.four
-        if (newFlexVal["f1"] as! Int) < BENDING_THRESHOLD
+        if (newFlexVal["f1"] as! Int) > BENDING_THRESHOLD
         {
             evaluatedSign = FlexSign.zero
         }
-        else if (newFlexVal["f2"] as! Int) < BENDING_THRESHOLD
+        else if (newFlexVal["f2"] as! Int) > BENDING_THRESHOLD
         {
             evaluatedSign = FlexSign.one
         }
-        else if (newFlexVal["f3"] as! Int) < BENDING_THRESHOLD
+        else if (newFlexVal["f3"] as! Int) > BENDING_THRESHOLD
         {
             evaluatedSign = FlexSign.two
         }
-        else if (newFlexVal["f4"] as! Int) < BENDING_THRESHOLD
+        else if (newFlexVal["f4"] as! Int) > BENDING_THRESHOLD
         {
             evaluatedSign = FlexSign.three
         }

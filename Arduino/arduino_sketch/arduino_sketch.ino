@@ -1,12 +1,14 @@
-#include <Arduino_LSM9DS1.h> // For Arduino Stuff
+//#include <Arduino_LSM9DS1.h> // For Arduino Stuff
 #include <ArduinoBLE.h> // For BLE Stuff
 // Set constants for flex analog inputs
 #define FINGER_1 A0
 #define FINGER_2 A1
 #define FINGER_3 A2
 #define FINGER_4 A3
+#define FINGER_5 A4 // Right hand only
 
-BLEService theService("26548447-3cd0-4460-b683-43b332274c2b");
+//BLEService theService("26548447-3cd0-4460-b683-43b332274c2b");
+BLEService theService("26548447-3cd0-4460-b683-43b332274c2c");
 //BLECharacteristic imuCharacteristic("20831a75-7aaf-4284-888f-47c41dc6b976", BLERead | BLENotify, 512);
 BLECharacteristic flexCharacteristic("43b513cf-08aa-4bd9-bc58-3f626a4248d8", BLERead | BLENotify, 512);
 
@@ -18,6 +20,7 @@ String getFlexValuesString()
   toReturn += "\"f2\":" + String(analogRead(FINGER_2)) + ",";
   toReturn += "\"f3\":" + String(analogRead(FINGER_3)) + ",";
   toReturn += "\"f4\":" + String(analogRead(FINGER_4)) + "}";
+  toReturn += "\"f4\":" + String(analogRead(FINGER_5)) + "}";
   return toReturn;
 }
 

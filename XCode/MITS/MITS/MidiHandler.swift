@@ -180,7 +180,7 @@ class MidiHandler
     {
         currentMode = MitsMode.flexStringsMode
         currentInstrument = .strings
-        initForStringsMode()
+        // initForStringsMode()
         
         btHandlerLeft.setFlexCallback(stringsFlexCallbackLeft(_:))
         btHandlerRight.setFlexCallback(stringsFlexCallbackRight(_:))

@@ -20,6 +20,7 @@
 #define MIDI_CONTROL_CHANGE 0xb0
 #define MIDI_PROGRAM_CHANGE 0xc0
 #define MIDI_CC_VOLUME 0x07
+#define MIDI_CC_SUSTAIN 0x40
 
 
 using namespace std;
@@ -95,6 +96,13 @@ void setVolume(uint8_t volume, uint8_t channel)
     const uint32_t volumeInstruction (MIDIMessage(MIDI_CONTROL_CHANGE, channel, MIDI_CC_VOLUME, volume));
     printInstruction(volumeInstruction);
     Pm_WriteShort(midiDeviceStream, 0, volumeInstruction);
+}
+
+void setSustain(uint8_t sustainValue, uint8_t channel)
+{
+    const uint32_t sustainInstruction (MIDIMessage(MIDI_CONTROL_CHANGE, channel, MIDI_CC_SUSTAIN, sustainValue));
+    printInstruction(sustainInstruction);
+    Pm_WriteShort(midiDeviceStream, 0, sustainInstruction);
 }
 
 // End Note

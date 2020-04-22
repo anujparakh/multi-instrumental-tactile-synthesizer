@@ -11,9 +11,9 @@ import Foundation
 // Stores codes of all the instruments
 enum Instrument: uint8
 {
-    case guitar = 0x19
+//    case guitar = 0x19
     case strings = 0x11
-    case piano = 0x01
+    case piano = 0x19
     // Add instruments here
 }
 

@@ -244,6 +244,7 @@ class MidiHandler
     
     func stringsFlexCallbackRight(_ newFlexVal: [String: AnyObject?])
     {
+        print(newFlexVal["fs"])
         if (currentMode != .flexStringsMode)
         {
             // do nothing

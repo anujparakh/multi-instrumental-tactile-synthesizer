@@ -84,7 +84,7 @@ class ViewController: NSViewController, NSWindowDelegate
     // Called by child view controller
     func playChordClicked(_ sender: Any)
     {
-        midiHandler.playPianoChord(currentChord)
+        midiHandler.playPianoChord(currentChord, velocity: 80)
     }
     
     override var representedObject: Any? {

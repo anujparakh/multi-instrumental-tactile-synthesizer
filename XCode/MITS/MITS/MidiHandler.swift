@@ -21,6 +21,7 @@ class MidiHandler
     private var btHandlerLeft = BTHandler()
     private var btHandlerRight = BTHandler()
     private var pianoModeCallback: ((FlexSign) -> Void)?
+    private var currentPianoSign: FlexSign!
     
     public var btLeftConnectionStatusCallback: ((String) -> Void)?
     {
@@ -96,9 +97,10 @@ class MidiHandler
     func initForPianoMode()
     {
         setInstrument(Instrument.piano.rawValue, MidiChannels.pianoChannel.rawValue)
+        currentPianoSign = .one
     }
     
-    func playPianoChord(_ noteNumber: FlexSign)
+    func playPianoChord(_ noteNumber: FlexSign, velocity: UInt8)
     {
         if (currentMode == .pianoMode)
         {
@@ -121,13 +123,14 @@ class MidiHandler
             default:
                 break
             }
-            playNote(note.rawValue, 0x60, MidiChannels.pianoChannel.rawValue)
+            playNote(note.rawValue, velocity, MidiChannels.pianoChannel.rawValue)
         }
     }
     
     func setPianoMode()
     {
         btHandlerLeft.setFlexCallback(pianoModeFlexCallback(_:))
+        btHandlerRight.setFlexCallback(pianoModeForceCallback(_:))
     }
     
     // sets the handler for piano mode
@@ -161,7 +164,19 @@ class MidiHandler
         {
             pianoModeCallback!(evaluatedSign)
         }
+        currentPianoSign = evaluatedSign
     }
+    
+    func pianoModeForceCallback(_ newFlexVal: [String: AnyObject?])
+    {
+        let forceValue = newFlexVal["fs"] as! Int
+        if (forceValue > 500)
+        {
+            playPianoChord(currentPianoSign, velocity: UInt8((forceValue / 8) - 1))
+        }
+    }
+
+    
     
     //
     // MARK: Strings Mode Functions

@@ -97,7 +97,7 @@ class MidiHandler
     func initForPianoMode()
     {
         setInstrument(Instrument.piano.rawValue, MidiChannels.pianoChannel.rawValue)
-        setSustain(0, 0)
+        setSustain(9, 0)
         currentPianoSign = .two
     }
     
@@ -283,7 +283,7 @@ class MidiHandler
         setInstrument(MidiChannels.drumChannelThree.rawValue, PercussionInstruments.synthDrum.rawValue)
         setInstrument(MidiChannels.drumChannelFour.rawValue, PercussionInstruments.synthDrum.rawValue)
         setInstrument(MidiChannels.drumChannelFive.rawValue, PercussionInstruments.synthDrum.rawValue)
-
+        
     }
     
     func playDrum(_ note: UInt8, velocity: UInt8)
@@ -319,27 +319,27 @@ class MidiHandler
         
         return evaluatedSign
     }
-        
+    
     // Variables used to keep track of current drum situation
     private var leftDrumSign = FlexSign.zero
     private var rightDrumSign = FlexSign.zero
     private var leftDrumPlaying = false
     private var rightDrumPlaying = false
-
+    
     func percussionModeFlexCallbackLeft(_ newFlexVal: [String: AnyObject?])
     {
         leftDrumSign = evaluateSign(newFlexVal)
         let xVal = newFlexVal["x"] as! Double
-       // do drum stuff here
-       if (xVal >= 0 && !leftDrumPlaying)
-       {
-           leftDrumPlaying = false
-           playNote(PercussionNotes[leftDrumSign]!, 90, MidiChannels.drumChannelOne.rawValue)
-       }
-       else
-       {
-           leftDrumPlaying = true
-       }
+        // do drum stuff here
+        if (xVal >= 0 && !leftDrumPlaying)
+        {
+            leftDrumPlaying = true
+            playNote(PercussionNotes[leftDrumSign]!, 90, MidiChannels.drumChannelOne.rawValue)
+        }
+        else if (xVal < -0.15)
+        {
+            leftDrumPlaying = false
+        }
     }
     
     func percussionModeFlexCallbackRight(_ newFlexVal: [String: AnyObject?])
@@ -347,16 +347,18 @@ class MidiHandler
         rightDrumSign = evaluateSign(newFlexVal)
         let xVal = newFlexVal["x"] as! Double
         // do drum stuff here
+        
         if (xVal >= 0 && !rightDrumPlaying)
         {
-            rightDrumPlaying = false
-            playNote(PercussionNotes[rightDrumSign]!, 90, MidiChannels.drumChannelOne.rawValue)
-        }
-        else
-        {
             rightDrumPlaying = true
+            playNote(PercussionNotes[rightDrumSign]!, 90, MidiChannels.drumChannelTwo.rawValue)
+        }
+        else if (xVal < -0.15)
+        {
+            rightDrumPlaying = false
         }
     }
     
     
 }
+

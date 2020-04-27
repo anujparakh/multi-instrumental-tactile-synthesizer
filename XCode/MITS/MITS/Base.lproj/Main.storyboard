@@ -969,6 +969,11 @@
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WbC-aM-zBf">
+                                <rect key="frame" x="238" y="284" width="220" height="131"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="rOE-xo-4v2"/>
+                            </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Soe-ZJ-mh8" firstAttribute="centerX" secondItem="WE3-Nf-aMT" secondAttribute="centerX" id="2qQ-G2-P62"/>

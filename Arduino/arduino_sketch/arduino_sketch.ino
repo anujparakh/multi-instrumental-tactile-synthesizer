@@ -1,4 +1,4 @@
-#include <Arduino_LSM9DS1.h> // For Arduino Stuff
+#include <Arduino_LSM9DS1.h> // For IMU Stuff
 #include <ArduinoBLE.h> // For BLE Stuff
 // Set constants for flex analog inputs
 #define FINGER_1 A0
@@ -20,8 +20,38 @@ String getFlexValuesString()
   toReturn += "\"f2\":" + String(analogRead(FINGER_2)) + ",";
   toReturn += "\"f3\":" + String(analogRead(FINGER_3)) + ",";
   toReturn += "\"f4\":" + String(analogRead(FINGER_4)) + ",";
-  toReturn += "\"fs\":" + String(analogRead(FINGER_5)) + "}";
+  toReturn += "\"fs\":" + String(analogRead(FINGER_5)) + ",";
+
+  float x,y,z;
+  if (IMU.accelerationAvailable()) 
+  {
+    IMU.readAcceleration(x, y, z);
+  }
+
+  toReturn += "\"x\":" + String(x) + "}";
+  
   return toReturn;
+}
+
+String getAccelerometerString()
+{
+  float x,y,z;
+  if (IMU.accelerationAvailable()) 
+  {
+    IMU.readAcceleration(x, y, z);
+  }
+  else
+  {
+    return String("accelerometer reading error");
+  }
+
+  String toReturn = "{\"x\":" + String(x) + ",\"y\":" + String(y) + ",\"z\":" + String(z) + "}";
+  return toReturn;
+}
+
+String getImuString()
+{
+  return "{\"a\":" + getAccelerometerString() + "}";
 }
 
 void niceDelay(long delayTime)
@@ -69,6 +99,7 @@ void loop()
     {
       long time = millis();
       flexCharacteristic.writeValue(getFlexValuesString().c_str());
+//      imuCharacteristic.writeValue(getImuString().c_str());
       niceDelay(100);
     }
   }

@@ -295,7 +295,6 @@ class MidiHandler
     {
         btHandlerLeft.setFlexCallback(percussionModeFlexCallbackLeft(_:))
         btHandlerRight.setFlexCallback(percussionModeFlexCallbackRight(_:))
-        btHandlerLeft.setImuCallback(percussionModeImuCallbackLeft(_:))
     }
     
     func evaluateSign(_ flexValues: [String: AnyObject?]) -> FlexSign
@@ -320,40 +319,33 @@ class MidiHandler
         
         return evaluatedSign
     }
-    
+        
+    // Variables used to keep track of current drum situation
     private var leftDrumSign = FlexSign.zero
     private var rightDrumSign = FlexSign.zero
-    
+    private var leftDrumPlaying = false
+    private var rightDrumPlaying = false
+
     func percussionModeFlexCallbackLeft(_ newFlexVal: [String: AnyObject?])
     {
         leftDrumSign = evaluateSign(newFlexVal)
+        let xVal = newFlexVal["x"] as! Double
+       // do drum stuff here
+       if (xVal >= 0 && !leftDrumPlaying)
+       {
+           leftDrumPlaying = false
+           playNote(PercussionNotes[leftDrumSign]!, 90, MidiChannels.drumChannelOne.rawValue)
+       }
+       else
+       {
+           leftDrumPlaying = true
+       }
     }
     
     func percussionModeFlexCallbackRight(_ newFlexVal: [String: AnyObject?])
     {
         rightDrumSign = evaluateSign(newFlexVal)
-    }
-    
-    private var leftDrumPlaying = false
-    func percussionModeImuCallbackLeft(_ newImuVals: [String: AnyObject?])
-    {
-        let xVal = ((newImuVals["a"] as! [String: AnyObject?])["x"] as! Int)
-        // do drum stuff here
-        if (xVal >= 0 && !leftDrumPlaying)
-        {
-            leftDrumPlaying = false
-            playNote(PercussionNotes[leftDrumSign]!, 90, MidiChannels.drumChannelOne.rawValue)
-        }
-        else
-        {
-            leftDrumPlaying = true
-        }
-    }
-    
-    private var rightDrumPlaying = false
-    func percussionModeImuCallbackRight(_ newImuVals: [String: AnyObject?])
-    {
-        let xVal = ((newImuVals["a"] as! [String: AnyObject?])["x"] as! Int)
+        let xVal = newFlexVal["x"] as! Double
         // do drum stuff here
         if (xVal >= 0 && !rightDrumPlaying)
         {
@@ -364,9 +356,7 @@ class MidiHandler
         {
             rightDrumPlaying = true
         }
-        
     }
-
-
+    
     
 }

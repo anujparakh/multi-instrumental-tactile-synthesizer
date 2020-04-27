@@ -149,7 +149,7 @@ class BTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
         }
         else
         {
-            print("No IMU callback set")
+//            print("No IMU callback set")
         }
     }
     

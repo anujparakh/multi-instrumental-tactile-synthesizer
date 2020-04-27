@@ -10,6 +10,16 @@ import Cocoa
 
 class DrumsViewController:NSViewController
 {
+    @IBAction func playDrumClicked(_ sender: Any)
+    {
+        (parent as! ViewController).playDrumClicked(sender)
+    }
+    
+    @IBAction func drumClick(_ sender: Any)
+    {
+        (parent as! ViewController).playDrumClicked(sender)
+
+    }
     override func viewDidLoad()
     {
         super.viewDidLoad()

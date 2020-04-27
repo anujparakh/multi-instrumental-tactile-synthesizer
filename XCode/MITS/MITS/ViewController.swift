@@ -87,6 +87,11 @@ class ViewController: NSViewController, NSWindowDelegate
         midiHandler.playPianoChord(currentChord, velocity: 80)
     }
     
+    func playDrumClicked(_ sender: Any)
+    {
+        midiHandler.playDrum(49, velocity: 80)
+    }
+    
     override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.

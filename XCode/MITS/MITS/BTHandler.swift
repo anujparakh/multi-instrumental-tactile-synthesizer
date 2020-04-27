@@ -14,7 +14,8 @@ class BTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
     private var centralManager: CBCentralManager!
     private var mitsPeripheral: CBPeripheral!
     private var mitsUUID: CBUUID!
-    private var flexCallback: (([String: AnyObject]) -> Void)?;
+    private var flexCallback: (([String: AnyObject]) -> Void)?
+    private var imuCallback: (([String: AnyObject]) -> Void)?
     
     public var connectionStatusCallback: ((String) -> Void)?
     
@@ -110,7 +111,7 @@ class BTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
         {
         case BTConstants.imuCharacteristicID:
             let jsonString = String(data: characteristic.value!, encoding: .utf8)!
-            print(parseValues(withJSONString: jsonString))
+            updateImuValues(parseValues(withJSONString: jsonString))
         case BTConstants.flexCharacteristicID:
             let flexString = String(data: characteristic.value!, encoding: .utf8)!
             updateFlexValues(parseValues(withJSONString: flexString))
@@ -138,6 +139,23 @@ class BTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
         {
             print("No Flex callback set")
         }
+    }
+    
+    func updateImuValues(_ newImuVals: [String: AnyObject])
+    {
+        if (imuCallback != nil)
+        {
+            imuCallback!(newImuVals)
+        }
+        else
+        {
+            print("No IMU callback set")
+        }
+    }
+    
+    public func setImuCallback(_ doOnImu: @escaping ([String: AnyObject]) -> Void)
+    {
+        self.imuCallback = doOnImu
     }
     
     public func setFlexCallback(_ doOnFlex: @escaping ([String: AnyObject]) -> Void)

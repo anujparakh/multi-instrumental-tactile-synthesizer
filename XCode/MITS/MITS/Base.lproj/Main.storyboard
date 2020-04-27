@@ -841,16 +841,28 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aeD-2s-h7O">
+                                <rect key="frame" x="286" y="205" width="104" height="32"/>
+                                <buttonCell key="cell" type="push" title="Play chord" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GY0-BO-Nvk">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="drumClick:" target="oOf-Tx-VsX" id="B2K-kw-Ql7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="aeD-2s-h7O" firstAttribute="centerY" secondItem="RHM-Ut-0IV" secondAttribute="centerY" id="AIq-Dh-GsQ"/>
                             <constraint firstItem="uYc-Je-jha" firstAttribute="top" secondItem="RHM-Ut-0IV" secondAttribute="top" constant="20" symbolic="YES" id="Gl4-Hg-dIl"/>
+                            <constraint firstItem="aeD-2s-h7O" firstAttribute="centerX" secondItem="uYc-Je-jha" secondAttribute="centerX" id="HTE-LL-Un2"/>
                             <constraint firstItem="uYc-Je-jha" firstAttribute="centerX" secondItem="RHM-Ut-0IV" secondAttribute="centerX" id="Msg-1F-xzK"/>
                         </constraints>
                     </view>
                 </viewController>
                 <customObject id="Hf0-GP-z0h" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1162" y="852"/>
+            <point key="canvasLocation" x="1161.5" y="851.5"/>
         </scene>
         <!--Piano View Controller-->
         <scene sceneID="Dgo-qQ-ldy">

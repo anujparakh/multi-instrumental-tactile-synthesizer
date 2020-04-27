@@ -43,10 +43,23 @@ enum FlexSign: String
     case four = "four"
 }
 
-//enum PianoChords: uint8
-//{
-//
-//}
+/* enum PianoChords: uint8
+{
+    // Middle Chords
+    case C_Interval_0 = [60, 64, 67]
+    case Dm_Interval_0 = [62, 64, 68]
+    case D_Interval_0 = [62, 65, 68]
+    case Em_Interval_0 = [64, 67, 71]
+    case E_Interval_0 = [64, 68, 71]
+    case F_Interval_0 = [65, 69, 72]
+    case F#_Interval_0 = [66, 70, 73]
+    case G_Interval_0 = [66, 70, 73]
+    case Am_Interval_0 = [69, 72, 76]
+    case A_Interval_0 = [69, 73, 76]
+    case Bm_Interval_0 = [71, 74, 78]
+    case Bm_Interval_0 = [71, 75, 78]
+    
+} */
 
 // Stores the notes for each finger during String Mode
 enum StringNotes: uint8

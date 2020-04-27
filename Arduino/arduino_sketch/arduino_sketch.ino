@@ -1,4 +1,4 @@
-//#include <Arduino_LSM9DS1.h> // For Arduino Stuff
+#include <Arduino_LSM9DS1.h> // For Arduino Stuff
 #include <ArduinoBLE.h> // For BLE Stuff
 // Set constants for flex analog inputs
 #define FINGER_1 A0

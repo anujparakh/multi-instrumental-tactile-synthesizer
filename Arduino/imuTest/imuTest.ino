@@ -7,7 +7,8 @@
 #define FINGER_4 A3
 
 
-BLEService imuService("26548447-3cd0-4460-b683-43b332274c2b");
+//BLEService imuService("26548447-3cd0-4460-b683-43b332274c2b");
+BLEService imuService("26548447-3cd0-4460-b683-43b332274c2c"); // RIGHT HAND
 BLECharacteristic imuCharacteristic("20831a75-7aaf-4284-888f-47c41dc6b976", BLERead | BLENotify, 512);
 
 
@@ -23,7 +24,7 @@ String generateAccelerometerJSON()
     return String("accelerometer reading error");
   }
 
-  String toReturn = "\"x\":\"" + String(x) + "\",\"y\":\"" + String(y) + "\",\"z\":\"" + String(z) + "\"";
+  String toReturn = "\"x\":" + String(x) + ",\"y\":" + String(y) + ",\"z\":" + String(z) + "";
   return toReturn;
 }
 

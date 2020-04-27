@@ -97,7 +97,7 @@ class MidiHandler
     func initForPianoMode()
     {
         setInstrument(Instrument.piano.rawValue, MidiChannels.pianoChannel.rawValue)
-        setSustain(0, 0)
+        setSustain(9, 0)
         currentPianoSign = .two
     }
     
@@ -296,6 +296,7 @@ class MidiHandler
         btHandlerLeft.setFlexCallback(percussionModeFlexCallbackLeft(_:))
         btHandlerRight.setFlexCallback(percussionModeFlexCallbackRight(_:))
         btHandlerLeft.setImuCallback(percussionModeImuCallbackLeft(_:))
+        btHandlerRight.setImuCallback(percussionModeImuCallbackRight(_:))
     }
     
     func evaluateSign(_ flexValues: [String: AnyObject?]) -> FlexSign
@@ -321,8 +322,8 @@ class MidiHandler
         return evaluatedSign
     }
     
-    private var leftDrumSign = FlexSign.zero
-    private var rightDrumSign = FlexSign.zero
+    private var leftDrumSign = FlexSign.one
+    private var rightDrumSign = FlexSign.two
     
     func percussionModeFlexCallbackLeft(_ newFlexVal: [String: AnyObject?])
     {
@@ -337,32 +338,35 @@ class MidiHandler
     private var leftDrumPlaying = false
     func percussionModeImuCallbackLeft(_ newImuVals: [String: AnyObject?])
     {
-        let xVal = ((newImuVals["a"] as! [String: AnyObject?])["x"] as! Int)
+        
+        let xVal = ((newImuVals["a"] as! [String: AnyObject?])["x"]) as! Double
+        print(xVal)
         // do drum stuff here
         if (xVal >= 0 && !leftDrumPlaying)
         {
-            leftDrumPlaying = false
-            playNote(PercussionNotes[leftDrumSign]!, 90, MidiChannels.drumChannelOne.rawValue)
-        }
-        else
-        {
             leftDrumPlaying = true
+            playNote(PercussionNotes[leftDrumSign]!, 90, MidiChannels.drumChannelOne.rawValue)
+            print("playing")
+        }
+        else if (xVal < -0.15)
+        {
+            leftDrumPlaying = false
         }
     }
     
     private var rightDrumPlaying = false
     func percussionModeImuCallbackRight(_ newImuVals: [String: AnyObject?])
     {
-        let xVal = ((newImuVals["a"] as! [String: AnyObject?])["x"] as! Int)
+        let xVal = ((newImuVals["a"] as! [String: AnyObject?])["x"]) as! Double
         // do drum stuff here
         if (xVal >= 0 && !rightDrumPlaying)
         {
-            rightDrumPlaying = false
-            playNote(PercussionNotes[rightDrumSign]!, 90, MidiChannels.drumChannelOne.rawValue)
-        }
-        else
-        {
             rightDrumPlaying = true
+            playNote(PercussionNotes[rightDrumSign]!, 90, MidiChannels.drumChannelTwo.rawValue)
+        }
+        else if (xVal < -0.15)
+        {
+            rightDrumPlaying = false
         }
         
     }
@@ -370,3 +374,4 @@ class MidiHandler
 
     
 }
+

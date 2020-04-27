@@ -61,7 +61,7 @@ enum StringNotes: uint8
     case finger8 = 81 // +1 A
 }
 
-let PianoChords: [FlexSign: [uint8]] =
+let FlexSignPianoChords: [FlexSign: [uint8]] =
 [
     FlexSign.zero: [59, 64, 67], // Em Chord
     FlexSign.one: [60, 64, 67], // C Chord
@@ -69,5 +69,12 @@ let PianoChords: [FlexSign: [uint8]] =
     FlexSign.three: [57, 60, 64], // Am Chord
     FlexSign.four: [60, 65, 69] // F Chord
 ]
+
+let PianoChords: [String: [uint8]] =
+[
+    "C" : [60, 64, 67]
+]
+
+
 
 

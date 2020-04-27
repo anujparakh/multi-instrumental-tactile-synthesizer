@@ -98,7 +98,7 @@ class MidiHandler
     {
         setInstrument(Instrument.piano.rawValue, MidiChannels.pianoChannel.rawValue)
         setSustain(0, 0)
-        currentPianoSign = .one
+        currentPianoSign = .two
     }
     
     func playPianoChord(_ noteNumber: FlexSign, velocity: UInt8)

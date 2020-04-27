@@ -11,9 +11,9 @@ import Foundation
 // Stores codes of all the instruments
 enum Instrument: uint8
 {
-//    case guitar = 0x19
+    case guitar = 0x19
     case strings = 0x11
-    case piano = 0x19
+    case piano = 0x01
     // Add instruments here
 }
 
@@ -73,3 +73,21 @@ enum StringNotes: uint8
     case finger7 = 77 // +1 F
     case finger8 = 81 // +1 A
 }
+
+let FlexSignPianoChords: [FlexSign: [uint8]] =
+[
+    FlexSign.zero: [59, 64, 67], // Em Chord
+    FlexSign.one: [60, 64, 67], // C Chord
+    FlexSign.two: [62, 66, 69], // G Chord
+    FlexSign.three: [57, 60, 64], // Am Chord
+    FlexSign.four: [60, 65, 69] // F Chord
+]
+
+let PianoChords: [String: [uint8]] =
+[
+    "C" : [60, 64, 67]
+]
+
+
+
+

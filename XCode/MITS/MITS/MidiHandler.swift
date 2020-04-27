@@ -105,7 +105,7 @@ class MidiHandler
     {
         if (currentMode == .pianoMode)
         {
-            playChord(chord: PianoChords[currentPianoSign]!, velocity)
+            playChord(chord: FlexSignPianoChords[currentPianoSign]!, velocity)
         }
     }
     

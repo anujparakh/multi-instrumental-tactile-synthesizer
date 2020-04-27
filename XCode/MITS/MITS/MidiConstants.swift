@@ -30,9 +30,26 @@ enum MidiChannels: UInt8
     case pianoChannel = 0
     case stringChannelStart = 1 // Needs 8 channels
     case stringChannelEnd = 8 // Needs 8 channels
-    case drumChannelStart = 9 // Needs 4 channels
+    case drumChannelOne = 9 // Needs 5 channels
+    case drumChannelTwo = 10
+    case drumChannelThree = 11
+    case drumChannelFour = 12
+    case drumChannelFive = 13
 }
 
+enum PercussionInstruments: UInt8
+{
+    case synthDrum = 119
+}
+
+let PercussionNotes: [FlexSign: uint8] =
+[
+    .zero: 36, // bass drum 1
+    .one: 49, // crash cymbal,
+    .two: 38, // acoustic snare
+    .three: 46, // open hi-hat
+    .four: 48 // high-mid tom
+]
 
 enum FlexSign: String
 {

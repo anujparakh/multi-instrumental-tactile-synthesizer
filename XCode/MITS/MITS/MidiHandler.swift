@@ -46,12 +46,12 @@ class MidiHandler
             }
         }
     }
-
+    
     
     public func updateMode(_ newMode: MitsMode)
     {
         stopCurrentPlaying()
-
+        
         currentMode = newMode
         switch (currentMode)
         {
@@ -59,7 +59,7 @@ class MidiHandler
             setStringsMode()
             break
         case .percussionMode:
-            // TODO
+            setPercussionMode()
             break
         case .pianoMode:
             setPianoMode()
@@ -83,7 +83,7 @@ class MidiHandler
     {
         btHandlerLeft.setUUIDToLookFor(BTConstants.nanoIDLeft)
         btHandlerRight.setUUIDToLookFor(BTConstants.nanoIDRight)
-
+        
         initializePortMidi()
         initForStringsMode()
         initForPianoMode()
@@ -105,7 +105,7 @@ class MidiHandler
     {
         if (currentMode == .pianoMode)
         {
-            playChord(chord: PianoChords[currentPianoSign]!, velocity)
+            playChord(chord: FlexSignPianoChords[currentPianoSign]!, velocity)
         }
     }
     
@@ -115,7 +115,7 @@ class MidiHandler
         {
             playNote(note, velocity, MidiChannels.pianoChannel.rawValue)
         }
-
+        
     }
     
     func setPianoMode()
@@ -133,7 +133,7 @@ class MidiHandler
     // Called whenever flex value changes when in piano mode
     func pianoModeFlexCallback(_ newFlexVal: [String: AnyObject?])
     {
-
+        
         var evaluatedSign = FlexSign.four
         if (newFlexVal["f1"] as! Int) < BENDING_THRESHOLD
         {
@@ -151,7 +151,7 @@ class MidiHandler
         {
             evaluatedSign = FlexSign.three
         }
-
+        
         if (pianoModeCallback != nil)
         {
             pianoModeCallback!(evaluatedSign)
@@ -174,7 +174,7 @@ class MidiHandler
             justPlayed = false
         }
     }
-
+    
     
     
     //
@@ -198,7 +198,7 @@ class MidiHandler
         
         btHandlerLeft.setFlexCallback(stringsFlexCallbackLeft(_:))
         btHandlerRight.setFlexCallback(stringsFlexCallbackRight(_:))
-
+        
         startStringNotes()
     }
     
@@ -269,7 +269,7 @@ class MidiHandler
             setVolume(calculateVolume(forFlex: newFlexVal["f\(flexIndex + 1)"] as! Int), MidiChannels.stringChannelStart.rawValue + UInt8(flexIndex) + 4)
         }
     }
-
+    
     
     //
     // MARK: Percussion Mode Functions
@@ -278,6 +278,95 @@ class MidiHandler
     func initForPercussionMode()
     {
         // set the instruments for percussion channels
+        setInstrument(MidiChannels.drumChannelOne.rawValue, PercussionInstruments.synthDrum.rawValue)
+        setInstrument(MidiChannels.drumChannelTwo.rawValue, PercussionInstruments.synthDrum.rawValue)
+        setInstrument(MidiChannels.drumChannelThree.rawValue, PercussionInstruments.synthDrum.rawValue)
+        setInstrument(MidiChannels.drumChannelFour.rawValue, PercussionInstruments.synthDrum.rawValue)
+        setInstrument(MidiChannels.drumChannelFive.rawValue, PercussionInstruments.synthDrum.rawValue)
+
     }
+    
+    func playDrum(_ note: UInt8, velocity: UInt8)
+    {
+        playNote(note, velocity, MidiChannels.drumChannelOne.rawValue)
+    }
+    
+    func setPercussionMode()
+    {
+        btHandlerLeft.setFlexCallback(percussionModeFlexCallbackLeft(_:))
+        btHandlerRight.setFlexCallback(percussionModeFlexCallbackRight(_:))
+        btHandlerLeft.setImuCallback(percussionModeImuCallbackLeft(_:))
+    }
+    
+    func evaluateSign(_ flexValues: [String: AnyObject?]) -> FlexSign
+    {
+        var evaluatedSign = FlexSign.four
+        if (flexValues["f1"] as! Int) < BENDING_THRESHOLD
+        {
+            evaluatedSign = FlexSign.zero
+        }
+        else if (flexValues["f2"] as! Int) < BENDING_THRESHOLD
+        {
+            evaluatedSign = FlexSign.one
+        }
+        else if (flexValues["f3"] as! Int) < BENDING_THRESHOLD
+        {
+            evaluatedSign = FlexSign.two
+        }
+        else if (flexValues["f4"] as! Int) < BENDING_THRESHOLD + 25
+        {
+            evaluatedSign = FlexSign.three
+        }
+        
+        return evaluatedSign
+    }
+    
+    private var leftDrumSign = FlexSign.zero
+    private var rightDrumSign = FlexSign.zero
+    
+    func percussionModeFlexCallbackLeft(_ newFlexVal: [String: AnyObject?])
+    {
+        leftDrumSign = evaluateSign(newFlexVal)
+    }
+    
+    func percussionModeFlexCallbackRight(_ newFlexVal: [String: AnyObject?])
+    {
+        rightDrumSign = evaluateSign(newFlexVal)
+    }
+    
+    private var leftDrumPlaying = false
+    func percussionModeImuCallbackLeft(_ newImuVals: [String: AnyObject?])
+    {
+        let xVal = ((newImuVals["a"] as! [String: AnyObject?])["x"] as! Int)
+        // do drum stuff here
+        if (xVal >= 0 && !leftDrumPlaying)
+        {
+            leftDrumPlaying = false
+            playNote(PercussionNotes[leftDrumSign]!, 90, MidiChannels.drumChannelOne.rawValue)
+        }
+        else
+        {
+            leftDrumPlaying = true
+        }
+    }
+    
+    private var rightDrumPlaying = false
+    func percussionModeImuCallbackRight(_ newImuVals: [String: AnyObject?])
+    {
+        let xVal = ((newImuVals["a"] as! [String: AnyObject?])["x"] as! Int)
+        // do drum stuff here
+        if (xVal >= 0 && !rightDrumPlaying)
+        {
+            rightDrumPlaying = false
+            playNote(PercussionNotes[rightDrumSign]!, 90, MidiChannels.drumChannelOne.rawValue)
+        }
+        else
+        {
+            rightDrumPlaying = true
+        }
+        
+    }
+
+
     
 }

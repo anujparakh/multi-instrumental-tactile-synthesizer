@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -730,7 +730,7 @@
                                 </constraints>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Multi Instrumental Tactile Synthesizer" id="2R3-2s-GHj">
                                     <font key="font" size="26" name="HelveticaNeue-Thin"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -741,7 +741,7 @@
                                 </constraints>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="MITS" id="VzR-ej-FLr">
                                     <font key="font" size="45" name="HelveticaNeue-Bold"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -767,7 +767,7 @@
                                 <rect key="frame" x="666" y="567" width="152" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" alignment="right" title="Status" id="JCI-Uk-b08">
                                     <font key="font" size="18" name="HelveticaNeue-Light"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -775,7 +775,7 @@
                                 <rect key="frame" x="666" y="538" width="152" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" alignment="right" title="Status" id="eJw-Tp-94H">
                                     <font key="font" size="18" name="HelveticaNeue-Light"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -837,7 +837,7 @@
                                 </constraints>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="DRUMS" id="tpW-kv-BT9">
                                     <font key="font" size="26" name="HelveticaNeue-UltraLight"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -848,7 +848,7 @@
                                     <constraint firstAttribute="width" constant="279" id="FlY-Nz-18d"/>
                                 </constraints>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="HandsImage" id="uBJ-ZN-4wv"/>
-                                <color key="contentTintColor" red="0.78585820709999998" green="1" blue="0.96143100370000001" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="contentTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                         </subviews>
                         <constraints>
@@ -881,14 +881,14 @@
                                 </constraints>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="PIANO" id="sjN-fh-CNK">
                                     <font key="font" size="26" name="HelveticaNeue-UltraLight"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" red="0.99608784910000003" green="0.99606639149999998" blue="0.99607056380000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kcf-Y0-aZF">
                                 <rect key="frame" x="100" y="129" width="671" height="391"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="HandsImage" id="c0s-aL-fK3"/>
-                                <color key="contentTintColor" red="0.78585820709999998" green="1" blue="0.96143100370000001" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="contentTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ajP-6j-yq4">
                                 <rect key="frame" x="117" y="42" width="93" height="25"/>
@@ -897,7 +897,7 @@
                                 </constraints>
                                 <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="7" id="9WY-tu-lZ0">
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </comboBoxCell>
                                 <connections>
@@ -984,7 +984,7 @@
                                 <rect key="frame" x="151" y="77" width="43" height="18"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Zero :" id="R9G-Xa-k3V">
                                     <font key="font" size="16" name="HelveticaNeue-Thin"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" red="0.99608784910000003" green="0.99606639149999998" blue="0.99607056380000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -992,7 +992,7 @@
                                 <rect key="frame" x="275" y="77" width="42" height="18"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="One :" id="eOD-BN-qJx">
                                     <font key="font" size="16" name="HelveticaNeue-Thin"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" red="0.99608784910000003" green="0.99606639149999998" blue="0.99607056380000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -1000,7 +1000,7 @@
                                 <rect key="frame" x="416" y="77" width="40" height="18"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Two :" id="bMj-8F-DhC">
                                     <font key="font" size="16" name="HelveticaNeue-Thin"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -1008,7 +1008,7 @@
                                 <rect key="frame" x="542" y="77" width="51" height="18"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Three :" id="FR0-PO-6rf">
                                     <font key="font" size="16" name="HelveticaNeue-Thin"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -1016,7 +1016,7 @@
                                 <rect key="frame" x="682" y="77" width="43" height="18"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Four :" id="aZn-1H-bu6">
                                     <font key="font" size="16" name="HelveticaNeue-Thin"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -1079,7 +1079,7 @@
                                 </constraints>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="STRINGS" id="Bqk-MP-kqw">
                                     <font key="font" size="26" name="HelveticaNeue-UltraLight"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -1090,7 +1090,7 @@
                                     <constraint firstAttribute="width" constant="330" id="WlX-P3-6Ip"/>
                                 </constraints>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="HandsImage" id="gz6-iH-dfd"/>
-                                <color key="contentTintColor" red="0.78585820709999998" green="1" blue="0.96143100370000001" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="contentTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KxC-gf-L4v">
                                 <rect key="frame" x="132" y="293" width="77" height="25"/>
@@ -1113,7 +1113,7 @@
                                 </constraints>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Finger 1: " id="UYG-xR-3K8">
                                     <font key="font" size="16" name="HelveticaNeue-Thin"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -1135,7 +1135,7 @@
                                 <rect key="frame" x="61" y="258" width="67" height="18"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Finger 2: " id="dOb-C9-x0j">
                                     <font key="font" size="16" name="HelveticaNeue-Thin"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -1157,7 +1157,7 @@
                                 <rect key="frame" x="61" y="214" width="67" height="18"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Finger 3: " id="by0-Er-9yp">
                                     <font key="font" size="16" name="HelveticaNeue-Thin"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -1179,7 +1179,7 @@
                                 <rect key="frame" x="61" y="166" width="67" height="18"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Finger 4: " id="bBC-Bx-xi4">
                                     <font key="font" size="16" name="HelveticaNeue-Thin"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -1187,7 +1187,7 @@
                                 <rect key="frame" x="681" y="258" width="67" height="18"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Finger 2: " id="C9J-Pu-pGC">
                                     <font key="font" size="16" name="HelveticaNeue-Thin"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -1223,7 +1223,7 @@
                                 <rect key="frame" x="681" y="299" width="67" height="18"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Finger 1: " id="iOo-PS-tXx">
                                     <font key="font" size="16" name="HelveticaNeue-Thin"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -1245,7 +1245,7 @@
                                 <rect key="frame" x="681" y="214" width="67" height="18"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Finger 3: " id="pLl-SI-g6U">
                                     <font key="font" size="16" name="HelveticaNeue-Thin"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -1267,7 +1267,7 @@
                                 <rect key="frame" x="681" y="166" width="67" height="18"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Finger 4: " id="W5x-lz-t6F">
                                     <font key="font" size="16" name="HelveticaNeue-Thin"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -1278,7 +1278,7 @@
                                 </constraints>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Left Hand" id="HmL-zy-opv">
                                     <font key="font" size="28" name="HelveticaNeue-Light"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -1289,7 +1289,7 @@
                                 </constraints>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Right Hand" id="hH0-nA-12k">
                                     <font key="font" size="29" name="HelveticaNeue-Light"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>

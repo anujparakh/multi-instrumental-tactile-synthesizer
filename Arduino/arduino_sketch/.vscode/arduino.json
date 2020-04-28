@@ -1,0 +1,6 @@
+{
+    "board": "arduino:mbed:nano33ble",
+    "port": "/dev/tty.usbmodem141201",
+    "programmer": "AVRISP mkII",
+    "sketch": "arduino_sketch.ino"
+}

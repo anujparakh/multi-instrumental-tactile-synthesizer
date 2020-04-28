@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreBluetooth
+import os
 
 class BTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
 {
@@ -114,6 +115,7 @@ class BTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
             updateImuValues(parseValues(withJSONString: jsonString))
         case BTConstants.flexCharacteristicID:
             let flexString = String(data: characteristic.value!, encoding: .utf8)!
+            NSLog("%@", flexString)
             updateFlexValues(parseValues(withJSONString: flexString))
 
         default:

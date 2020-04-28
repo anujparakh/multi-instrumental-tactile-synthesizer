@@ -204,26 +204,19 @@ class MidiHandler
     
     func startStringNotes()
     {
-        playNote(StringNotes.finger1.rawValue, STRING_NOTE_VELOCITY, MidiChannels.stringChannelStart.rawValue)
-        playNote(StringNotes.finger2.rawValue, STRING_NOTE_VELOCITY, MidiChannels.stringChannelStart.rawValue + 1)
-        playNote(StringNotes.finger3.rawValue, STRING_NOTE_VELOCITY, MidiChannels.stringChannelStart.rawValue + 2)
-        playNote(StringNotes.finger4.rawValue, STRING_NOTE_VELOCITY, MidiChannels.stringChannelStart.rawValue + 3)
-        playNote(StringNotes.finger5.rawValue, STRING_NOTE_VELOCITY, MidiChannels.stringChannelStart.rawValue + 4)
-        playNote(StringNotes.finger6.rawValue, STRING_NOTE_VELOCITY, MidiChannels.stringChannelStart.rawValue + 5)
-        playNote(StringNotes.finger7.rawValue, STRING_NOTE_VELOCITY, MidiChannels.stringChannelStart.rawValue + 6)
-        playNote(StringNotes.finger8.rawValue, STRING_NOTE_VELOCITY, MidiChannels.stringChannelStart.rawValue + 7)
+        for i in 1...8
+        {
+            playNote(FlexStringNotes["finger\(i)"]!, STRING_NOTE_VELOCITY, MidiChannels.stringChannelStart.rawValue + uint8(i) - 1)
+        }
+        
     }
     
     func stopStringNotes()
     {
-        endNote(StringNotes.finger1.rawValue, MidiChannels.stringChannelStart.rawValue)
-        endNote(StringNotes.finger2.rawValue, MidiChannels.stringChannelStart.rawValue + 1)
-        endNote(StringNotes.finger3.rawValue, MidiChannels.stringChannelStart.rawValue + 2)
-        endNote(StringNotes.finger4.rawValue, MidiChannels.stringChannelStart.rawValue + 3)
-        endNote(StringNotes.finger5.rawValue, MidiChannels.stringChannelStart.rawValue + 4)
-        endNote(StringNotes.finger6.rawValue, MidiChannels.stringChannelStart.rawValue + 5)
-        endNote(StringNotes.finger7.rawValue, MidiChannels.stringChannelStart.rawValue + 6)
-        endNote(StringNotes.finger8.rawValue, MidiChannels.stringChannelStart.rawValue + 7)
+        for i in 1...8
+        {
+            endNote(FlexStringNotes["finger\(i)"]!, MidiChannels.stringChannelStart.rawValue + uint8(i) - 1)
+        }
     }
     
     func calculateVolume(forFlex flexValue: Int) -> UInt8
@@ -330,7 +323,7 @@ class MidiHandler
     {
         leftDrumSign = evaluateSign(newFlexVal)
         let xVal = newFlexVal["x"] as! Double
-
+        
         // do drum stuff here
         if (xVal >= 0 && !leftDrumPlaying)
         {

@@ -215,8 +215,14 @@ class MidiHandler
     {
         for i in 1...8
         {
-            endNote(FlexStringNotes["finger\(i)"]!, MidiChannels.stringChannelStart.rawValue + uint8(i) - 1)
+            turnAllNotesOff(MidiChannels.stringChannelStart.rawValue + uint8(i) - 1)
         }
+    }
+    
+    public func refreshStringNotes()
+    {
+        stopStringNotes()
+        startStringNotes()
     }
     
     func calculateVolume(forFlex flexValue: Int) -> UInt8

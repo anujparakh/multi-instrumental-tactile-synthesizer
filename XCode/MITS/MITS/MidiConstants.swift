@@ -94,6 +94,10 @@ let StringNoteNames = ["Middle C", "Middle C#", "Middle D",
                        "Middle F#", "Middle G", "Middle G#",
                        "Middle A", "Middle A#", "Middle B"]
 
+// Default values in order (1 - 8)
+let StringDefaultValues = ["Middle C", "Middle F", "Middle G", "Middle A",
+                           "Middle D", "Middle E", "Middle B", "Middle C#"]
+
 let StringNotes: [String: uint8] =
 [
     "Middle C" : 60,
@@ -107,7 +111,7 @@ let StringNotes: [String: uint8] =
     "Middle G#" : 68,
     "Middle A" : 69,
     "Middle A#" : 70,
-    "Middle B" : 71,
+    "Middle B" : 71
 ]
 
 let PianoChords: [String: [uint8]] =

@@ -22,6 +22,7 @@ void playNote(uint8_t note, uint8_t velocity, uint8_t channel);
 void endNote(uint8_t note, uint8_t channel);
 void setVolume(uint8_t volume, uint8_t channel);
 void setSustain(uint8_t sustainValue, uint8_t channel);
+void turnAllNotesOff(uint8_t channel);
 
 #ifdef __cplusplus
 }

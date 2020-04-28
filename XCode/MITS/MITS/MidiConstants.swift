@@ -123,14 +123,14 @@ let PianoChords: [String: [uint8]] =
 //    "Lower B" : [71-12*1, 75-12*1, 78-12*1],
     
     // Interval 0
-    "Middle C" : [60, 64, 67],
-    "Middle Dm" : [62, 64, 68],
-    "Middle D" : [62, 65, 68],
-    "Middle Em" : [64, 67, 71],
+    "Middle C" : [60, 64, 67], //
+    "Middle Dm" : [62, 65, 69], //
+    "Middle D" : [62, 66, 69], //
+    "Middle Em" : [64, 67, 71], //
     "Middle E" : [64, 68, 71],
     "Middle F" : [65, 69, 72],
     "Middle F#" : [66, 70, 73],
-    "Middle G" : [66, 70, 73],
+    "Middle G" : [67, 71, 74],
     "Middle Am" : [69, 72, 76],
     "Middle A" : [69, 73, 76],
     "Middle Bm" : [71, 74, 78],

@@ -10,6 +10,8 @@ import Cocoa
 
 class DrumsViewController:NSViewController
 {
+    
+    @IBOutlet weak var HandsImage: NSImageView!
     @IBAction func playDrumClicked(_ sender: Any)
     {
         (parent as! ViewController).playDrumClicked(sender)

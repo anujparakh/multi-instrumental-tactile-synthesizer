@@ -87,6 +87,24 @@ let PianoChordsNames =
     "Middle C", "Middle Dm", "Middle D", "Middle Em", "Middle E", "Middle F", "Middle F#", "Middle G", "Middle Am", "Middle A", "Middle Bm", "Middle B"
 ]
 
+// New Stuff
+
+let StringNotes2: [String: uint8] =
+[
+    "Middle C" : 60,
+    "Middle C#" : 61,
+    "Middle D" : 62,
+    "Middle D#" : 63,
+    "Middle E" : 64,
+    "Middle F" : 65,
+    "Middle F#" : 66,
+    "Middle G" : 67,
+    "Middle G#" : 68,
+    "Middle A" : 69,
+    "Middle A#" : 70,
+    "Middle B" : 71,
+]
+
 let PianoChords: [String: [uint8]] =
 [
     
@@ -134,6 +152,8 @@ let PianoChords: [String: [uint8]] =
 
     
 ]
+
+
 
 
 

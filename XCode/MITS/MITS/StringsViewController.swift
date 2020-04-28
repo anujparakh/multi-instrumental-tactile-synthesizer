@@ -10,6 +10,8 @@ import Cocoa
 
 class StringsViewController:NSViewController
 {
+    
+    @IBOutlet weak var HandsImage: NSImageView!
     override func viewDidLoad()
     {
         super.viewDidLoad()

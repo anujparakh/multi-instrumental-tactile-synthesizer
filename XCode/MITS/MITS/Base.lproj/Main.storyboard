@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -687,8 +687,8 @@
                     <window key="window" title="MITS" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" titleVisibility="hidden" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <rect key="contentRect" x="196" y="348" width="480" height="162"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
@@ -699,7 +699,7 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="75" y="304"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -841,24 +841,26 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aeD-2s-h7O">
-                                <rect key="frame" x="286" y="205" width="104" height="32"/>
-                                <buttonCell key="cell" type="push" title="Play chord" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GY0-BO-Nvk">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="drumClick:" target="oOf-Tx-VsX" id="B2K-kw-Ql7"/>
-                                </connections>
-                            </button>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bGa-pg-vzr">
+                                <rect key="frame" x="199" y="117" width="279" height="211"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="211" id="EDq-ky-rn4"/>
+                                    <constraint firstAttribute="width" constant="279" id="FlY-Nz-18d"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="HandsImage" id="uBJ-ZN-4wv"/>
+                                <color key="contentTintColor" red="0.78585820709999998" green="1" blue="0.96143100370000001" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
+                            </imageView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="aeD-2s-h7O" firstAttribute="centerY" secondItem="RHM-Ut-0IV" secondAttribute="centerY" id="AIq-Dh-GsQ"/>
                             <constraint firstItem="uYc-Je-jha" firstAttribute="top" secondItem="RHM-Ut-0IV" secondAttribute="top" constant="20" symbolic="YES" id="Gl4-Hg-dIl"/>
-                            <constraint firstItem="aeD-2s-h7O" firstAttribute="centerX" secondItem="uYc-Je-jha" secondAttribute="centerX" id="HTE-LL-Un2"/>
                             <constraint firstItem="uYc-Je-jha" firstAttribute="centerX" secondItem="RHM-Ut-0IV" secondAttribute="centerX" id="Msg-1F-xzK"/>
+                            <constraint firstItem="bGa-pg-vzr" firstAttribute="centerX" secondItem="uYc-Je-jha" secondAttribute="centerX" id="Rln-ZL-Qj0"/>
+                            <constraint firstItem="bGa-pg-vzr" firstAttribute="centerY" secondItem="RHM-Ut-0IV" secondAttribute="centerY" id="v5P-ob-EzA"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="HandsImage" destination="bGa-pg-vzr" id="58n-fe-2ub"/>
+                    </connections>
                 </viewController>
                 <customObject id="Hf0-GP-z0h" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -884,10 +886,6 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WbC-aM-zBf">
-                                <rect key="frame" x="238" y="284" width="220" height="131"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="rOE-xo-4v2"/>
-                            </imageView>
                             <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ajP-6j-yq4">
                                 <rect key="frame" x="88" y="317" width="99" height="25"/>
                                 <constraints>
@@ -1016,6 +1014,12 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kcf-Y0-aZF">
+                                <rect key="frame" x="209" y="141" width="279" height="211"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="HandsImage" id="c0s-aL-fK3"/>
+                                <color key="contentTintColor" red="0.78585820709999998" green="1" blue="0.96143100370000001" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
+                            </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="7sO-Ua-3fZ" firstAttribute="trailing" secondItem="N3l-Z4-SFK" secondAttribute="trailing" id="0fv-cH-N6J"/>
@@ -1035,10 +1039,8 @@
                             <constraint firstItem="zXr-xq-mLT" firstAttribute="leading" secondItem="Nyt-g9-Bcf" secondAttribute="trailing" constant="13" id="Kn4-vB-WIV"/>
                             <constraint firstItem="Nyt-g9-Bcf" firstAttribute="leading" secondItem="fti-Pt-AgU" secondAttribute="leading" id="Mgx-lW-wWP"/>
                             <constraint firstItem="XJe-U6-PIx" firstAttribute="top" secondItem="2g5-U3-3rK" secondAttribute="bottom" constant="15" id="Onk-7I-Ouo"/>
-                            <constraint firstItem="WbC-aM-zBf" firstAttribute="top" secondItem="Soe-ZJ-mh8" secondAttribute="bottom" constant="32" id="P7b-2e-1C3"/>
                             <constraint firstItem="zME-Gb-TlL" firstAttribute="leading" secondItem="WE3-Nf-aMT" secondAttribute="leading" constant="28" id="WaV-n0-aCZ"/>
                             <constraint firstItem="ajP-6j-yq4" firstAttribute="leading" secondItem="zME-Gb-TlL" secondAttribute="trailing" constant="15" id="cVG-nM-iL1"/>
-                            <constraint firstItem="WbC-aM-zBf" firstAttribute="leading" secondItem="ajP-6j-yq4" secondAttribute="trailing" constant="54" id="cd9-7i-Q0r"/>
                             <constraint firstItem="Nyt-g9-Bcf" firstAttribute="top" secondItem="XJe-U6-PIx" secondAttribute="bottom" constant="23" id="d8g-V5-Zyq"/>
                             <constraint firstItem="fti-Pt-AgU" firstAttribute="top" secondItem="cLf-JK-2J0" secondAttribute="top" id="eSn-l4-vSF"/>
                             <constraint firstItem="N3l-Z4-SFK" firstAttribute="trailing" secondItem="zXr-xq-mLT" secondAttribute="trailing" id="fFD-1C-NVo"/>
@@ -1089,16 +1091,33 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cGn-eB-YUe">
+                                <rect key="frame" x="199" y="127" width="279" height="211"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="211" id="SGY-w4-Wxf"/>
+                                    <constraint firstAttribute="width" constant="279" id="tv9-pT-jHc"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="HandsImage" id="gz6-iH-dfd"/>
+                                <color key="contentTintColor" red="0.78585820709999998" green="1" blue="0.96143100370000001" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
+                            </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="exg-uu-n4H" firstAttribute="top" secondItem="MVL-Li-Vah" secondAttribute="top" constant="20" symbolic="YES" id="Fgc-H9-T5G"/>
                             <constraint firstItem="exg-uu-n4H" firstAttribute="centerX" secondItem="MVL-Li-Vah" secondAttribute="centerX" id="SSa-eR-Rdy"/>
+                            <constraint firstItem="cGn-eB-YUe" firstAttribute="centerX" secondItem="exg-uu-n4H" secondAttribute="centerX" id="dli-yQ-G12"/>
+                            <constraint firstItem="cGn-eB-YUe" firstAttribute="centerY" secondItem="MVL-Li-Vah" secondAttribute="centerY" id="oNa-q4-Ts4"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="HandsImage" destination="cGn-eB-YUe" id="Q63-gq-618"/>
+                    </connections>
                 </viewController>
                 <customObject id="WsK-b0-Fqj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1161.5" y="274"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="HandsImage" width="600" height="391"/>
+    </resources>
 </document>

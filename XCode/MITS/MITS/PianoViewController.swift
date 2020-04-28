@@ -11,6 +11,7 @@ import Cocoa
 class PianoViewController:NSViewController, NSComboBoxDataSource
 {
     
+    @IBOutlet weak var HandsImage: NSImageView!
     @IBOutlet weak var chordBox1: NSComboBox!
     @IBOutlet weak var chordBox2: NSComboBox!
     @IBOutlet weak var chordBox3: NSComboBox!

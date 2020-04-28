@@ -17,7 +17,9 @@ class ViewController: NSViewController, NSWindowDelegate
     @IBOutlet weak var leftStatusView: NSTextField!
     @IBOutlet weak var rightStatusView: NSTextField!
 
-    var pianoViewController: PianoViewController!
+    private var pianoViewController: PianoViewController!
+    private var drumsViewController: DrumsViewController!
+    private var stringsViewController: StringsViewController!
     
     @IBAction func modeSegmentSelected(_ sender: NSSegmentedControl)
     {
@@ -61,7 +63,7 @@ class ViewController: NSViewController, NSWindowDelegate
         super.viewDidLoad()
         setupMidiHandler()
         // String mode is the initial mode
-        currentMode = MitsMode.flexStringsMode
+        currentMode = MitsMode.pianoMode
         
     }
     
@@ -75,16 +77,10 @@ class ViewController: NSViewController, NSWindowDelegate
             self.rightStatusView.stringValue = "Right: \(status)"
         }
         
-        midiHandler.setPianoModeHandler({ (_ newSign: FlexSign) -> Void in
-            self.pianoViewController.chordLabel.stringValue = newSign.rawValue
-        })
+//        midiHandler.setPianoModeHandler({ (_ newSign: FlexSign) -> Void in
+            
+//        })
 
-    }
-    
-    // Called by child view controller
-    func playChordClicked(_ sender: Any)
-    {
-        midiHandler.playPianoChord(currentChord, velocity: 80)
     }
     
     func playDrumClicked(_ sender: Any)
@@ -121,6 +117,28 @@ class ViewController: NSViewController, NSWindowDelegate
     func windowWillClose(_ notification: Notification)
     {
         midiHandler.stopCurrentPlaying()
+    }
+    
+    // MARK: PianoViewController Functions
+    func updateChordForSign(sign theSign: FlexSign, chordName: String)
+    {
+        FlexSignPianoChords[theSign] = PianoChords[chordName]!
+    }
+    
+    // MARK: StringViewController Functions
+    
+    // MARK: DrumsViewController Functions
+    
+}
+
+var loggingOn = true
+
+// Global logging function to be used everywhere
+func debugLog(_ toLog: String)
+{
+    if loggingOn
+    {
+        print(toLog)
     }
 }
 

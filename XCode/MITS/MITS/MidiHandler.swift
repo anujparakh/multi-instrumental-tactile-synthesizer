@@ -330,6 +330,7 @@ class MidiHandler
     {
         leftDrumSign = evaluateSign(newFlexVal)
         let xVal = newFlexVal["x"] as! Double
+
         // do drum stuff here
         if (xVal >= 0 && !leftDrumPlaying)
         {
@@ -351,7 +352,7 @@ class MidiHandler
         if (xVal >= 0 && !rightDrumPlaying)
         {
             rightDrumPlaying = true
-            playNote(PercussionNotes[rightDrumSign]!, 90, MidiChannels.drumChannelTwo.rawValue)
+            playNote(PercussionNotes[rightDrumSign]!, 90, MidiChannels.drumChannelOne.rawValue)
         }
         else if (xVal < -0.15)
         {

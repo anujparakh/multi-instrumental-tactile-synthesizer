@@ -28,7 +28,7 @@ class BTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
         }
         else
         {
-            print(status)
+            debugLog(status)
         }
     }
     
@@ -39,22 +39,22 @@ class BTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
         {
             
         case .unknown:
-            print("Central Manager's State is Unknown")
+            debugLog("Central Manager's State is Unknown")
         case .resetting:
-            print("Central Manager's State is Resetting")
+            debugLog("Central Manager's State is Resetting")
         case .unsupported:
-            print("BLE Unsupported")
+            debugLog("BLE Unsupported")
         case .unauthorized:
-            print("BLE Unauthorized")
+            debugLog("BLE Unauthorized")
         case .poweredOff:
-            print("BLE powered off")
+            debugLog("BLE powered off")
         case .poweredOn:
-            print("BLE On and Scanning")
+            debugLog("BLE On and Scanning")
             updateConnectionStatus("Scanning")
             // Scan for any peripherals
             centralManager.scanForPeripherals(withServices: [mitsUUID])
         @unknown default:
-            print ("Central Manager Don't know :(")
+            debugLog ("Central Manager Don't know :(")
         }
     }
     
@@ -72,7 +72,7 @@ class BTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
     // The handler if we do connect succesfully
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral)
     {
-        print("Connected to MITS Mk. II!")
+        debugLog("Connected to MITS Mk. II!")
         updateConnectionStatus("Connected to MITS!")
 
         mitsPeripheral.discoverServices([mitsUUID])
@@ -115,11 +115,10 @@ class BTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
             updateImuValues(parseValues(withJSONString: jsonString))
         case BTConstants.flexCharacteristicID:
             let flexString = String(data: characteristic.value!, encoding: .utf8)!
-            NSLog("%@", flexString)
             updateFlexValues(parseValues(withJSONString: flexString))
 
         default:
-            print("Unhandled Characteristic UUID: \(characteristic.uuid)")
+            debugLog("Unhandled Characteristic UUID: \(characteristic.uuid)")
         }
     }
     
@@ -139,7 +138,7 @@ class BTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
         }
         else
         {
-            print("No Flex callback set")
+            debugLog("No Flex callback set")
         }
     }
     
@@ -151,7 +150,7 @@ class BTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
         }
         else
         {
-//            print("No IMU callback set")
+//            debugLog("No IMU callback set")
         }
     }
     

@@ -102,7 +102,7 @@ void loop()
             long time = millis();
             flexCharacteristic.writeValue(getFlexValuesString().c_str());
             //      imuCharacteristic.writeValue(getImuString().c_str());
-            niceDelay(100);
+            niceDelay(50);
         }
     }
 }

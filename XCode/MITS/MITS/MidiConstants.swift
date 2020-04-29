@@ -37,13 +37,6 @@ enum MidiChannels: UInt8
     case drumChannelFive = 13
 }
 
-enum PercussionInstruments: UInt8
-{
-    case synthDrum = 119
-}
-
-
-
 enum FlexSign: String
 {
     case zero = "zero"
@@ -119,13 +112,29 @@ let DrumType: [String: uint8] =
     "Open Triangle" : 81,
 ]
 
-let PercussionNotes: [FlexSign: uint8] =
+var PercussionInstrumentLeft = DrumCategory["Synth Drum"]! // default
+var PercussionInstrumentRight = DrumCategory["Synth Drum"]! // default
+
+var PercussionNotesLeft: [FlexSign: uint8] =
 [
     .zero: 36, // bass drum 1
     .one: 49, // crash cymbal,
     .two: 38, // acoustic snare
     .three: 46, // open hi-hat
     .four: 48 // high-mid tom
+]
+
+var PercussionNotesRight: [FlexSign: uint8] =
+[
+    .zero: 36, // bass drum 1
+    .one: 49, // crash cymbal,
+    .two: 38, // acoustic snare
+    .three: 46, // open hi-hat
+    .four: 48 // high-mid tom
+]
+
+let PercussionDefaultNotes = [
+    "Bass Drum 1", "Crash Cymbal 1", "Acoustic Snare", "Open Hi-Hat", "Hi-Mid Tom"
 ]
 
 

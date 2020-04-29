@@ -76,10 +76,6 @@ class ViewController: NSViewController, NSWindowDelegate
         midiHandler.btRightConnectionStatusCallback = {(_ status: String) -> Void in
             self.rightStatusView.stringValue = "Right: \(status)"
         }
-        
-//        midiHandler.setPianoModeHandler({ (_ newSign: FlexSign) -> Void in
-            
-//        })
 
     }
     
@@ -153,7 +149,61 @@ class ViewController: NSViewController, NSWindowDelegate
     }
     
     // MARK: DrumsViewController Functions
+    func updateDrumCategory(_ newCategory: String, hand: String)
+    {
+        if (hand == "left")
+        {
+            PercussionInstrumentLeft = DrumCategory[newCategory]!
+        }
+        else if (hand == "right")
+        {
+            PercussionInstrumentRight = DrumCategory[newCategory]!
+        }
+    }
     
+    func updateLeftDrumType(_ newType: String, sign: String)
+    {
+        var flexSign = FlexSign.zero
+        switch (sign)
+        {
+        case "zero":
+            flexSign = .zero
+        case "one":
+            flexSign = .one
+        case "two":
+            flexSign = .two
+        case "three":
+            flexSign = .three
+        case "four":
+            flexSign = .four
+        default:
+            break
+        }
+        
+        PercussionNotesLeft[flexSign] = DrumType[newType]
+    }
+    
+    func updateRightDrumType(_ newType: String, sign: String)
+    {
+        var flexSign = FlexSign.zero
+        switch (sign)
+        {
+        case "zero":
+            flexSign = .zero
+        case "one":
+            flexSign = .one
+        case "two":
+            flexSign = .two
+        case "three":
+            flexSign = .three
+        case "four":
+            flexSign = .four
+        default:
+            break
+        }
+        
+        PercussionNotesRight[flexSign] = DrumType[newType]
+    }
 }
 
 var loggingOn = true

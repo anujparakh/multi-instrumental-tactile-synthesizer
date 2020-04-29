@@ -288,12 +288,8 @@ class MidiHandler
     func initForPercussionMode()
     {
         // set the instruments for percussion channels
-        setInstrument(MidiChannels.drumChannelOne.rawValue, PercussionInstruments.synthDrum.rawValue)
-        setInstrument(MidiChannels.drumChannelTwo.rawValue, PercussionInstruments.synthDrum.rawValue)
-        setInstrument(MidiChannels.drumChannelThree.rawValue, PercussionInstruments.synthDrum.rawValue)
-        setInstrument(MidiChannels.drumChannelFour.rawValue, PercussionInstruments.synthDrum.rawValue)
-        setInstrument(MidiChannels.drumChannelFive.rawValue, PercussionInstruments.synthDrum.rawValue)
-        
+        setInstrument(MidiChannels.drumChannelOne.rawValue, PercussionInstrumentLeft)
+        setInstrument(MidiChannels.drumChannelTwo.rawValue, PercussionInstrumentRight)
     }
     
     func playDrum(_ note: UInt8, velocity: UInt8)
@@ -345,7 +341,7 @@ class MidiHandler
         if (xVal >= 0 && !leftDrumPlaying)
         {
             leftDrumPlaying = true
-            playNote(PercussionNotes[leftDrumSign]!, 90, MidiChannels.drumChannelOne.rawValue)
+            playNote(PercussionNotesRight[leftDrumSign]!, 90, MidiChannels.drumChannelOne.rawValue)
         }
         else if (xVal < -0.10)
         {
@@ -362,7 +358,7 @@ class MidiHandler
         if (xVal >= 0 && !rightDrumPlaying)
         {
             rightDrumPlaying = true
-            playNote(PercussionNotes[rightDrumSign]!, 90, MidiChannels.drumChannelOne.rawValue)
+            playNote(PercussionNotesRight[rightDrumSign]!, 90, MidiChannels.drumChannelTwo.rawValue)
         }
         else if (xVal < -0.10)
         {

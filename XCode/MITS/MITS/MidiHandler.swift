@@ -173,6 +173,16 @@ class MidiHandler
         else if (forceValue < 500)
         {
             justPlayed = false
+            //stopPianoChord(currentPianoSign)
+        }
+    }
+    
+    func stopPianoChord(_ sign: FlexSign)
+    {
+        let chordNotes = FlexSignPianoChords[sign]!
+        for note in chordNotes
+        {
+            endNote(note, MidiChannels.pianoChannel.rawValue)
         }
     }
     

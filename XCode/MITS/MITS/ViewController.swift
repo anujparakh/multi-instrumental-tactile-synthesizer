@@ -122,7 +122,24 @@ class ViewController: NSViewController, NSWindowDelegate
     // MARK: PianoViewController Functions
     func updateChordForSign(sign theSign: FlexSign, chordName: String)
     {
-        FlexSignPianoChords[theSign] = PianoChords[chordName]!
+        let chordParts = chordName.components(separatedBy: " ")
+        
+        FlexSignPianoChords[theSign] = PianoChords[chordParts[1]]!
+        
+        if chordParts[0] == "Upper"
+        {
+            for i in 0..<FlexSignPianoChords[theSign]!.count
+            {
+                FlexSignPianoChords[theSign]![i] += 12
+            }
+        }
+        else if chordParts[0] == "Lower"
+        {
+            for i in 0..<FlexSignPianoChords[theSign]!.count
+            {
+                FlexSignPianoChords[theSign]![i] -= 12
+            }
+        }
     }
     
     // MARK: StringViewController Functions

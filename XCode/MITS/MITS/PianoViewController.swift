@@ -19,6 +19,7 @@ class PianoViewController:NSViewController, NSComboBoxDataSource
     @IBOutlet weak var chordBox5: NSComboBox!
     
     private var chordBoxes: [NSComboBox] = []
+    private var chordNames: [String] = []
     
     
     @IBAction func chordZeroChosen(_ sender: NSComboBox)
@@ -106,6 +107,15 @@ class PianoViewController:NSViewController, NSComboBoxDataSource
         chordBoxes.append(chordBox4)
         chordBoxes.append(chordBox5)
         
+        // Populate all the chord names
+        for modifier in ["Lower ", "Middle ", "Upper "]
+        {
+            for chordName in PianoChordsNames
+            {
+                chordNames.append(modifier + chordName)
+            }
+        }
+        
         for chordBox in chordBoxes
         {
             chordBox.usesDataSource = true
@@ -120,12 +130,12 @@ class PianoViewController:NSViewController, NSComboBoxDataSource
     func numberOfItems(in comboBox: NSComboBox) -> Int
     {
       // anArray is an Array variable containing the objects
-      return PianoChordsNames.count
+      return chordNames.count
     }
         
     // Returns the object that corresponds to the item at the specified index in the combo box
     func comboBox(_ comboBox: NSComboBox, objectValueForItemAt index: Int) -> Any?
     {
-      return PianoChordsNames[index]
+      return chordNames[index]
     }
 }

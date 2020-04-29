@@ -336,7 +336,7 @@ class MidiHandler
             leftDrumPlaying = true
             playNote(PercussionNotes[leftDrumSign]!, 90, MidiChannels.drumChannelOne.rawValue)
         }
-        else if (xVal < -0.15)
+        else if (xVal < -0.10)
         {
             leftDrumPlaying = false
         }
@@ -353,7 +353,7 @@ class MidiHandler
             rightDrumPlaying = true
             playNote(PercussionNotes[rightDrumSign]!, 90, MidiChannels.drumChannelOne.rawValue)
         }
-        else if (xVal < -0.15)
+        else if (xVal < -0.10)
         {
             rightDrumPlaying = false
         }

@@ -99,28 +99,13 @@ class StringsViewController:NSViewController
     func setDefaultNoteValues()
     {
         leftFinger1.selectItem(withTitle: StringDefaultValues[0])
-//        leftFinger1Selected(leftFinger1)
-        
         leftFinger2.selectItem(withTitle: StringDefaultValues[1])
-//        leftFinger2Selected(leftFinger2)
-        
         leftFinger3.selectItem(withTitle: StringDefaultValues[2])
-//        leftFinger3Selected(leftFinger3)
-
         leftFinger4.selectItem(withTitle: StringDefaultValues[3])
-//        leftFinger4Selected(leftFinger4)
-
         rightFinger1.selectItem(withTitle: StringDefaultValues[4])
-//        rightFinger1Selected(rightFinger1)
-
         rightFinger2.selectItem(withTitle: StringDefaultValues[5])
-//        rightFinger2Selected(rightFinger2)
-
         rightFinger3.selectItem(withTitle: StringDefaultValues[6])
-//        rightFinger3Selected(rightFinger3)
-
         rightFinger4.selectItem(withTitle: StringDefaultValues[7])
-//        rightFinger4Selected(rightFinger4)
     }
     
     

@@ -97,7 +97,8 @@ class MidiHandler
     func initForPianoMode()
     {
         setInstrument(Instrument.piano.rawValue, MidiChannels.pianoChannel.rawValue)
-        setSustain(9, 0)
+//        setSustain(9, 0)
+        setSustain(0, 0)
         currentPianoSign = .two
     }
     

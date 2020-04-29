@@ -21,6 +21,7 @@
 #define MIDI_PROGRAM_CHANGE 0xc0
 #define MIDI_CC_VOLUME 0x07
 #define MIDI_CC_SUSTAIN 0x40
+#define MIDI_CC_ALL_NOTES_OFF 0x7b
 
 
 using namespace std;
@@ -103,6 +104,13 @@ void setSustain(uint8_t sustainValue, uint8_t channel)
     const uint32_t sustainInstruction (MIDIMessage(MIDI_CONTROL_CHANGE, channel, MIDI_CC_SUSTAIN, sustainValue));
     printInstruction(sustainInstruction);
     Pm_WriteShort(midiDeviceStream, 0, sustainInstruction);
+}
+
+void turnAllNotesOff(uint8_t channel)
+{
+    const uint32_t allNotesOffInstruction (MIDIMessage(MIDI_CONTROL_CHANGE, channel, MIDI_CC_ALL_NOTES_OFF, 0x00));
+    printInstruction(allNotesOffInstruction);
+    Pm_WriteShort(midiDeviceStream, 0, allNotesOffInstruction);
 }
 
 // End Note

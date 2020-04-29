@@ -126,6 +126,14 @@ class ViewController: NSViewController, NSWindowDelegate
     }
     
     // MARK: StringViewController Functions
+    func updateStringNoteForFinger(finger fingerString: String, note: String)
+    {
+        FlexStringNotes[fingerString] = StringNotes[note]!
+        if (currentMode == MitsMode.flexStringsMode)
+        {
+            midiHandler.refreshStringNotes()
+        }
+    }
     
     // MARK: DrumsViewController Functions
     

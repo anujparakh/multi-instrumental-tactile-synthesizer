@@ -61,17 +61,17 @@ enum FlexSign: String
 }
 
 // Stores the notes for each finger during String Mode
-enum StringNotes: uint8
-{
-    case finger1 = 60 // middle C
-    case finger2 = 67 // middle G
-    case finger3 = 65 // middle F
-    case finger4 = 69 // middle A
-    case finger5 = 72 // +1 C
-    case finger6 = 79 // +1 G
-    case finger7 = 77 // +1 F
-    case finger8 = 81 // +1 A
-}
+var FlexStringNotes: [String: uint8] =
+[
+    "finger1" : 60, // middle C
+    "finger2" : 67, // middle G
+    "finger3" : 65, // middle F
+    "finger4" : 69, // middle A
+    "finger5" : 72, // +1 C
+    "finger6" : 79, // +1 G
+    "finger7" : 77, // +1 F
+    "finger8" : 81 // +1 A
+]
 
 var FlexSignPianoChords: [FlexSign: [uint8]] =
 [
@@ -88,7 +88,6 @@ let PianoChordsNames =
 ]
 
 // New Stuff
-
 let DrumCategory: [String: uint8] =
 [
     "Tinkle Bell" : 113,
@@ -151,7 +150,16 @@ let DrumType: [String: uint8] =
     "Open Triangle" : 81,
 ]
 
-let StringNotes2: [String: uint8] =
+let StringNoteNames = ["Middle C", "Middle C#", "Middle D",
+                       "Middle D#", "Middle E", "Middle F",
+                       "Middle F#", "Middle G", "Middle G#",
+                       "Middle A", "Middle A#", "Middle B"]
+
+// Default values in order (1 - 8)
+let StringDefaultValues = ["Middle C", "Middle F", "Middle G", "Middle A",
+                           "Middle D", "Middle E", "Middle B", "Middle C#"]
+
+let StringNotes: [String: uint8] =
 [
     "Middle C" : 60,
     "Middle C#" : 61,
@@ -164,7 +172,7 @@ let StringNotes2: [String: uint8] =
     "Middle G#" : 68,
     "Middle A" : 69,
     "Middle A#" : 70,
-    "Middle B" : 71,
+    "Middle B" : 71
 ]
 
 let PianoChords: [String: [uint8]] =

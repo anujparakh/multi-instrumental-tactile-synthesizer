@@ -13,7 +13,7 @@ enum Instrument: uint8
 {
     case guitar = 0x19
     case strings = 0x11
-    case piano = 0x01
+    case piano = 0x00
     // Add instruments here
 }
 
@@ -32,8 +32,8 @@ enum MidiChannels: UInt8
     case stringChannelEnd = 8 // Needs 8 channels
     case drumChannelOne = 9 // Needs 5 channels
     case drumChannelTwo = 10
-    case drumChannelThree = 11
-    case drumChannelFour = 12
+//    case drumChannelThree = 11
+    case drumChannelFour = 14
     case drumChannelFive = 13
 }
 

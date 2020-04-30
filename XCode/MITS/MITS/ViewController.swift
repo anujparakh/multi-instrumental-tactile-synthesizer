@@ -159,6 +159,7 @@ class ViewController: NSViewController, NSWindowDelegate
         {
             PercussionInstrumentRight = DrumCategory[newCategory]!
         }
+        midiHandler.initForPercussionMode()
     }
     
     func updateLeftDrumType(_ newType: String, sign: String)

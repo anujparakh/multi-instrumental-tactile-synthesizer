@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B2DAC99247031920079D62B /* GattPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2DAC98247031910079D62B /* GattPacket.swift */; };
+		2B2DAC9B247032050079D62B /* MessageAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2DAC9A247032050079D62B /* MessageAssembler.swift */; };
+		2B2DAC9D2470320E0079D62B /* GattSerialMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2DAC9C2470320E0079D62B /* GattSerialMessage.swift */; };
 		2B5F748524024D2000B2309D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F748424024D2000B2309D /* AppDelegate.swift */; };
 		2B5F748724024D2000B2309D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F748624024D2000B2309D /* ViewController.swift */; };
 		2B5F748924024D2400B2309D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B5F748824024D2400B2309D /* Assets.xcassets */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B2DAC98247031910079D62B /* GattPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GattPacket.swift; sourceTree = "<group>"; };
+		2B2DAC9A247032050079D62B /* MessageAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageAssembler.swift; sourceTree = "<group>"; };
+		2B2DAC9C2470320E0079D62B /* GattSerialMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GattSerialMessage.swift; sourceTree = "<group>"; };
 		2B5F748124024D2000B2309D /* TestBLE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestBLE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B5F748424024D2000B2309D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B5F748624024D2000B2309D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +44,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B2DAC9E247032200079D62B /* Bean Serial */ = {
+			isa = PBXGroup;
+			children = (
+				2B2DAC98247031910079D62B /* GattPacket.swift */,
+				2B2DAC9A247032050079D62B /* MessageAssembler.swift */,
+				2B2DAC9C2470320E0079D62B /* GattSerialMessage.swift */,
+			);
+			path = "Bean Serial";
+			sourceTree = "<group>";
+		};
 		2B5F747824024D2000B2309D = {
 			isa = PBXGroup;
 			children = (
@@ -57,6 +73,7 @@
 		2B5F748324024D2000B2309D /* TestBLE */ = {
 			isa = PBXGroup;
 			children = (
+				2B2DAC9E247032200079D62B /* Bean Serial */,
 				2B5F748424024D2000B2309D /* AppDelegate.swift */,
 				2B5F748624024D2000B2309D /* ViewController.swift */,
 				2BF54A532419DE5500B87559 /* BTHandler.swift */,
@@ -139,9 +156,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B2DAC9B247032050079D62B /* MessageAssembler.swift in Sources */,
 				2B5F749524024DE800B2309D /* BTConstants.swift in Sources */,
+				2B2DAC99247031920079D62B /* GattPacket.swift in Sources */,
 				2B5F748724024D2000B2309D /* ViewController.swift in Sources */,
 				2BF54A542419DE5500B87559 /* BTHandler.swift in Sources */,
+				2B2DAC9D2470320E0079D62B /* GattSerialMessage.swift in Sources */,
 				2B5F748524024D2000B2309D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

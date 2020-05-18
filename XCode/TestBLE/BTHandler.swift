@@ -12,6 +12,7 @@ class BTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
 {
     private var centralManager: CBCentralManager!
     private var mitsPeripheral: CBPeripheral!
+    private var messageAssembler = MessageAssembler()
     
     // Callback when central manager's state is updated
     func centralManagerDidUpdateState(_ central: CBCentralManager)
@@ -32,7 +33,7 @@ class BTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
         case .poweredOn:
             print("BLE On and Scanning")
             // Scan for any peripherals
-            centralManager.scanForPeripherals(withServices: [BTConstants.nanoID])
+            centralManager.scanForPeripherals(withServices: [BTConstants.beanID])
         @unknown default:
             print ("Central Manager Don't know :(")
         }
@@ -52,8 +53,8 @@ class BTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
     // The handler if we do connect succesfully
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral)
     {
-        print("Connected to MITS Mark 1!")
-        mitsPeripheral.discoverServices([BTConstants.nanoID])
+        print("Connected to MITS Mk IV!")
+        mitsPeripheral.discoverServices([BTConstants.beanID])
     }
     
     // Handles Services Discovery
@@ -81,6 +82,19 @@ class BTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
     // Called by Asynchronous Read
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?)
     {
+        
+        // TODO: Find the right characteristic uuid for Bean
+        if (characteristic.value != nil)
+        {
+            let currentPacket = GattPacket(withData: characteristic.value!)
+            let serialMessage = messageAssembler.processPacket(currentPacket)
+            if (serialMessage != nil)
+            {
+                print (serialMessage!.stringValue())
+            }
+            
+        }
+        
         switch characteristic.uuid
         {
         case BTConstants.imuCharacteristicID:
@@ -88,7 +102,8 @@ class BTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
             parseValues(withJSONString: jsonString)
 
         default:
-            print("Unhandled Characteristic UUID: \(characteristic.uuid)")
+//            print("Unhandled Characteristic UUID: \(characteristic.uuid)")
+            break
         }
     }
     

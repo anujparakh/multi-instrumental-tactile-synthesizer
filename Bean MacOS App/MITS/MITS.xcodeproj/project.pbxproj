@@ -1,0 +1,436 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2B2DACA62472E5B30079D62B /* MessageAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2DACA02472E5B30079D62B /* MessageAssembler.swift */; };
+		2B2DACA72472E5B30079D62B /* GattPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2DACA12472E5B30079D62B /* GattPacket.swift */; };
+		2B2DACA82472E5B30079D62B /* GattSerialMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2DACA22472E5B30079D62B /* GattSerialMessage.swift */; };
+		2B3746DE24B2C33400962FED /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3746DD24B2C33400962FED /* Utility.swift */; };
+		2B64117D244BBE8E006F2004 /* BTConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B64117C244BBE8E006F2004 /* BTConstants.swift */; };
+		2B64117F244BBE96006F2004 /* BeanBTHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B64117E244BBE96006F2004 /* BeanBTHandler.swift */; };
+		2B641181244D4877006F2004 /* StringsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B641180244D4877006F2004 /* StringsViewController.swift */; };
+		2B641183244D4883006F2004 /* PianoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B641182244D4883006F2004 /* PianoViewController.swift */; };
+		2B641185244D4894006F2004 /* DrumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B641184244D4894006F2004 /* DrumsViewController.swift */; };
+		2B731722244A141100136A5C /* midiConnector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B731720244A141100136A5C /* midiConnector.cpp */; };
+		2B731724244A15AC00136A5C /* MidiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B731723244A15AC00136A5C /* MidiConstants.swift */; };
+		2B731726244A1A9600136A5C /* MidiHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B731725244A1A9600136A5C /* MidiHandler.swift */; };
+		2BF54A62241A9DD900B87559 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF54A61241A9DD900B87559 /* AppDelegate.swift */; };
+		2BF54A64241A9DD900B87559 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF54A63241A9DD900B87559 /* ViewController.swift */; };
+		2BF54A66241A9DDF00B87559 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BF54A65241A9DDF00B87559 /* Assets.xcassets */; };
+		2BF54A69241A9DDF00B87559 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BF54A67241A9DDF00B87559 /* Main.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2B2DACA02472E5B30079D62B /* MessageAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageAssembler.swift; sourceTree = "<group>"; };
+		2B2DACA12472E5B30079D62B /* GattPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GattPacket.swift; sourceTree = "<group>"; };
+		2B2DACA22472E5B30079D62B /* GattSerialMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GattSerialMessage.swift; sourceTree = "<group>"; };
+		2B3746DD24B2C33400962FED /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		2B64117C244BBE8E006F2004 /* BTConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTConstants.swift; sourceTree = "<group>"; };
+		2B64117E244BBE96006F2004 /* BeanBTHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeanBTHandler.swift; sourceTree = "<group>"; };
+		2B641180244D4877006F2004 /* StringsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringsViewController.swift; path = ../StringsViewController.swift; sourceTree = "<group>"; };
+		2B641182244D4883006F2004 /* PianoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PianoViewController.swift; path = ../PianoViewController.swift; sourceTree = "<group>"; };
+		2B641184244D4894006F2004 /* DrumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DrumsViewController.swift; path = ../DrumsViewController.swift; sourceTree = "<group>"; };
+		2B73171F244A141100136A5C /* MITS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MITS-Bridging-Header.h"; sourceTree = "<group>"; };
+		2B731720244A141100136A5C /* midiConnector.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = midiConnector.cpp; sourceTree = "<group>"; };
+		2B731721244A141100136A5C /* midiConnector.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = midiConnector.hpp; sourceTree = "<group>"; };
+		2B731723244A15AC00136A5C /* MidiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiConstants.swift; sourceTree = "<group>"; };
+		2B731725244A1A9600136A5C /* MidiHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiHandler.swift; sourceTree = "<group>"; };
+		2BF54A5E241A9DD900B87559 /* MITS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MITS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BF54A61241A9DD900B87559 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2BF54A63241A9DD900B87559 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../ViewController.swift; sourceTree = "<group>"; };
+		2BF54A65241A9DDF00B87559 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2BF54A68241A9DDF00B87559 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2BF54A6A241A9DDF00B87559 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BF54A6B241A9DDF00B87559 /* MITS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MITS.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2BF54A5B241A9DD900B87559 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2B2DAC9F2472E5B30079D62B /* Bean Serial */ = {
+			isa = PBXGroup;
+			children = (
+				2B2DACA02472E5B30079D62B /* MessageAssembler.swift */,
+				2B2DACA12472E5B30079D62B /* GattPacket.swift */,
+				2B2DACA22472E5B30079D62B /* GattSerialMessage.swift */,
+			);
+			path = "Bean Serial";
+			sourceTree = "<group>";
+		};
+		2B2DACAC2472E61D0079D62B /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2BF54A63241A9DD900B87559 /* ViewController.swift */,
+				2B641180244D4877006F2004 /* StringsViewController.swift */,
+				2B641182244D4883006F2004 /* PianoViewController.swift */,
+				2B641184244D4894006F2004 /* DrumsViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		2B2DACAD2472E64C0079D62B /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				2B64117C244BBE8E006F2004 /* BTConstants.swift */,
+				2B64117E244BBE96006F2004 /* BeanBTHandler.swift */,
+			);
+			path = Bluetooth;
+			sourceTree = "<group>";
+		};
+		2B2DACAE2472E6640079D62B /* Midi Code */ = {
+			isa = PBXGroup;
+			children = (
+				2B731725244A1A9600136A5C /* MidiHandler.swift */,
+				2B731723244A15AC00136A5C /* MidiConstants.swift */,
+				2B731720244A141100136A5C /* midiConnector.cpp */,
+				2B731721244A141100136A5C /* midiConnector.hpp */,
+			);
+			path = "Midi Code";
+			sourceTree = "<group>";
+		};
+		2B3746DC24B2C32500962FED /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				2B3746DD24B2C33400962FED /* Utility.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		2BF54A55241A9DD900B87559 = {
+			isa = PBXGroup;
+			children = (
+				2BF54A60241A9DD900B87559 /* MITS */,
+				2BF54A5F241A9DD900B87559 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2BF54A5F241A9DD900B87559 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2BF54A5E241A9DD900B87559 /* MITS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2BF54A60241A9DD900B87559 /* MITS */ = {
+			isa = PBXGroup;
+			children = (
+				2BF54A61241A9DD900B87559 /* AppDelegate.swift */,
+				2B2DAC9F2472E5B30079D62B /* Bean Serial */,
+				2B2DACAD2472E64C0079D62B /* Bluetooth */,
+				2B2DACAE2472E6640079D62B /* Midi Code */,
+				2B3746DC24B2C32500962FED /* Utility */,
+				2B2DACAC2472E61D0079D62B /* View Controllers */,
+				2BF54A65241A9DDF00B87559 /* Assets.xcassets */,
+				2BF54A67241A9DDF00B87559 /* Main.storyboard */,
+				2BF54A6A241A9DDF00B87559 /* Info.plist */,
+				2BF54A6B241A9DDF00B87559 /* MITS.entitlements */,
+				2B73171F244A141100136A5C /* MITS-Bridging-Header.h */,
+			);
+			path = MITS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2BF54A5D241A9DD900B87559 /* MITS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2BF54A6E241A9DDF00B87559 /* Build configuration list for PBXNativeTarget "MITS" */;
+			buildPhases = (
+				2BF54A5A241A9DD900B87559 /* Sources */,
+				2BF54A5B241A9DD900B87559 /* Frameworks */,
+				2BF54A5C241A9DD900B87559 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MITS;
+			productName = MITS;
+			productReference = 2BF54A5E241A9DD900B87559 /* MITS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2BF54A56241A9DD900B87559 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Anuj Parakh";
+				TargetAttributes = {
+					2BF54A5D241A9DD900B87559 = {
+						CreatedOnToolsVersion = 11.3;
+						LastSwiftMigration = 1130;
+					};
+				};
+			};
+			buildConfigurationList = 2BF54A59241A9DD900B87559 /* Build configuration list for PBXProject "MITS" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2BF54A55241A9DD900B87559;
+			productRefGroup = 2BF54A5F241A9DD900B87559 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2BF54A5D241A9DD900B87559 /* MITS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2BF54A5C241A9DD900B87559 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BF54A66241A9DDF00B87559 /* Assets.xcassets in Resources */,
+				2BF54A69241A9DDF00B87559 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2BF54A5A241A9DD900B87559 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B3746DE24B2C33400962FED /* Utility.swift in Sources */,
+				2B641185244D4894006F2004 /* DrumsViewController.swift in Sources */,
+				2B731722244A141100136A5C /* midiConnector.cpp in Sources */,
+				2BF54A64241A9DD900B87559 /* ViewController.swift in Sources */,
+				2B731726244A1A9600136A5C /* MidiHandler.swift in Sources */,
+				2B64117D244BBE8E006F2004 /* BTConstants.swift in Sources */,
+				2B2DACA62472E5B30079D62B /* MessageAssembler.swift in Sources */,
+				2B64117F244BBE96006F2004 /* BeanBTHandler.swift in Sources */,
+				2B2DACA72472E5B30079D62B /* GattPacket.swift in Sources */,
+				2B2DACA82472E5B30079D62B /* GattSerialMessage.swift in Sources */,
+				2B731724244A15AC00136A5C /* MidiConstants.swift in Sources */,
+				2BF54A62241A9DD900B87559 /* AppDelegate.swift in Sources */,
+				2B641183244D4883006F2004 /* PianoViewController.swift in Sources */,
+				2B641181244D4877006F2004 /* StringsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2BF54A67241A9DDF00B87559 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2BF54A68241A9DDF00B87559 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2BF54A6C241A9DDF00B87559 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2BF54A6D241A9DDF00B87559 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		2BF54A6F241A9DDF00B87559 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = MITS/MITS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = T628V6ULQ5;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = MITS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = /opt/local/lib;
+				OTHER_LDFLAGS = "-lportmidi";
+				PRODUCT_BUNDLE_IDENTIFIER = com.anuj.MITS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MITS/MITS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				USER_HEADER_SEARCH_PATHS = /opt/local/include;
+			};
+			name = Debug;
+		};
+		2BF54A70241A9DDF00B87559 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = MITS/MITS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = T628V6ULQ5;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = MITS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = /opt/local/lib;
+				OTHER_LDFLAGS = "-lportmidi";
+				PRODUCT_BUNDLE_IDENTIFIER = com.anuj.MITS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MITS/MITS-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				USER_HEADER_SEARCH_PATHS = /opt/local/include;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2BF54A59241A9DD900B87559 /* Build configuration list for PBXProject "MITS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2BF54A6C241A9DDF00B87559 /* Debug */,
+				2BF54A6D241A9DDF00B87559 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2BF54A6E241A9DDF00B87559 /* Build configuration list for PBXNativeTarget "MITS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2BF54A6F241A9DDF00B87559 /* Debug */,
+				2BF54A70241A9DDF00B87559 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2BF54A56241A9DD900B87559 /* Project object */;
+}

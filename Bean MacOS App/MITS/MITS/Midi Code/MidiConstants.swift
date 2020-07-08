@@ -46,9 +46,7 @@ enum FlexSign: String
     case four = "four"
 }
 
-//
-// MARK: Drum Constants
-//
+// MARK:- Drum Constants
 
 let DrumCategory: [String: uint8] =
 [
@@ -138,9 +136,8 @@ let PercussionDefaultNotes = [
 ]
 
 
-//
-// MARK: String Constants
-//
+// MARK:- String Constants
+
 let StringNoteNames = ["Middle C", "Middle C#", "Middle D",
                        "Middle D#", "Middle E", "Middle F",
                        "Middle F#", "Middle G", "Middle G#",
@@ -180,9 +177,8 @@ var FlexStringNotes: [String: uint8] =
     "finger8" : 81 // +1 A
 ]
 
-//
-// MARK: Piano Constants
-//
+// MARK:- Piano Constants
+
 let PianoChords: [String: [uint8]] =
 [
     

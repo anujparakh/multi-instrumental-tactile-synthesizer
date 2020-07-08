@@ -615,7 +615,18 @@
                                                 <action selector="runToolbarCustomizationPalette:" target="Ady-hI-5gd" id="pQI-g3-MTW"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Calibrate" keyEquivalent="C" id="8kI-57-q2c"/>
+                                        <menuItem title="Calibrate" keyEquivalent="c" id="8kI-57-q2c">
+                                            <modifierMask key="keyEquivalentModifierMask" control="YES" option="YES"/>
+                                            <connections>
+                                                <action selector="calibrateClicked:" target="Ady-hI-5gd" id="3PN-sc-QoN"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Silly Printing" keyEquivalent="s" id="TlV-8c-lwh">
+                                            <modifierMask key="keyEquivalentModifierMask" control="YES" option="YES"/>
+                                            <connections>
+                                                <action selector="sillyPrintingClicked:" target="Ady-hI-5gd" id="4cM-5S-rff"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="hB3-LF-h0Y"/>
                                         <menuItem title="Show Sidebar" keyEquivalent="s" id="kIP-vf-haE">
                                             <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>

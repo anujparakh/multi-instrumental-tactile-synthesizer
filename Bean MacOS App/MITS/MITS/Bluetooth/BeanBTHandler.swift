@@ -12,21 +12,6 @@ import os
 
 class BeanBTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
 {
-    
-    public static var FLEX_MIN = [
-        0: 570,
-        1: 555,
-        2: 615,
-        3: 520
-    ]
-    
-    public static var FLEX_MAX = [
-        0: 675,
-        1: 660,
-        2: 700,
-        3: 650
-    ]
-    
     private var centralManager: CBCentralManager!
     private var mitsPeripheral: CBPeripheral!
     private var mitsUUID: CBUUID?
@@ -45,7 +30,7 @@ class BeanBTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
         }
         else
         {
-            debugLog(status)
+            debugLog(status, .INFO)
         }
     }
     
@@ -56,25 +41,25 @@ class BeanBTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
         {
             
         case .unknown:
-            debugLog("Central Manager's State is Unknown")
+            debugLog("Central Manager's State is Unknown", .ERROR)
         case .resetting:
-            debugLog("Central Manager's State is Resetting")
+            debugLog("Central Manager's State is Resetting", .IMPORTANT)
         case .unsupported:
-            debugLog("BLE Unsupported")
+            debugLog("BLE Unsupported", .ERROR)
         case .unauthorized:
-            debugLog("BLE Unauthorized")
+            debugLog("BLE Unauthorized", .ERROR)
         case .poweredOff:
-            debugLog("BLE powered off")
+            debugLog("BLE powered off", .ERROR)
         case .poweredOn:
             updateConnectionStatus("Scanning")
             // Scan for any peripherals
             if (mitsUUID != nil)
             {
                 centralManager.scanForPeripherals(withServices: [mitsUUID!])
-                debugLog("BLE On and Scanning")
+                debugLog("BLE On and Scanning", .IMPORTANT)
             }
         @unknown default:
-            debugLog ("Central Manager Don't know :(")
+            debugLog ("Central Manager Don't know :(", .ERROR)
         }
     }
     
@@ -92,7 +77,7 @@ class BeanBTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
     // The handler if we do connect succesfully
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral)
     {
-        debugLog("Connected to MITS Mk. II!")
+        debugLog("Connected to MITS Mk. II!", .INFO)
         updateConnectionStatus("Connected to MITS!")
 
         mitsPeripheral.discoverServices([mitsUUID!])
@@ -143,11 +128,12 @@ class BeanBTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
                 if (flexVals != nil)
                 {
                     // Update Flex Values here
+                    debugLog("\(String(describing: flexVals))", .SILLY)
                     updateFlexValues(flexVals!)
                 }
                 else
                 {
-                    print("Parsing error: \(flexString)")
+                    debugLog("Parsing error: \(flexString)", .ERROR)
                 }
             }
             
@@ -182,7 +168,7 @@ class BeanBTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
         }
         else
         {
-            debugLog("No Flex callback set")
+            debugLog("No Flex callback set", .ERROR)
         }
     }
     

@@ -47,6 +47,66 @@ class ViewController: NSViewController, NSWindowDelegate
         }
     }
     
+    private func showAlert(title: String, message: String, completionHandler: (((NSApplication.ModalResponse) -> Void))? = nil  )
+    {
+        let theAlert: NSAlert = NSAlert()
+
+        theAlert.messageText = title
+        theAlert.informativeText = message
+        theAlert.addButton(withTitle: "Okay")
+        theAlert.alertStyle = NSAlert.Style.informational
+
+        let theWindow = NSApplication.shared.mainWindow!
+        theAlert.beginSheetModal(for: theWindow, completionHandler: completionHandler)
+    }
+
+    @IBAction func calibrateClicked(_ sender: Any)
+    {
+        // Check if glove is actually connected
+        if !leftStatusView.stringValue.contains("Connected")
+        {
+            showAlert(title: "Not Connected", message: "Connect a MITS glove to calibrate it!")
+            return
+        }
+        
+        // read next values and calibrate
+        self.midiHandler.calibrateBentHand()
+        
+        // Calibrate bent hand
+        showAlert(title: "Calibrate Bending", message: "Bend both gloves fully and then click Okay to calibrate values.", completionHandler: { (modalResponse: NSApplication.ModalResponse) -> Void in
+            
+            self.midiHandler.endCalibration()
+            
+            // read next values and calibrate
+            self.midiHandler.calibrateOpenHand()
+
+            // when finished, calibrate unbent hand
+            self.showAlert(title: "Calibrate Flexing", message: "Unbend both gloves fully and click Okay to calibrate values.", completionHandler: { (modalResponse: NSApplication.ModalResponse) -> Void in
+                
+                self.midiHandler.endCalibration()
+                // done calibrating!
+                self.showAlert(title: "Done Calibrating!", message: "Value Calibration is Complete!")
+
+            })
+            
+        })
+            
+    }
+    
+    @IBAction func sillyPrintingClicked(_ sender: NSMenuItem)
+    {
+        if DEBUG_LEVEL_TOGGLES[.SILLY]!
+        {
+            sender.state = NSControl.StateValue.off
+            DEBUG_LEVEL_TOGGLES[.SILLY] = false
+        }
+        else
+        {
+            sender.state = NSControl.StateValue.on
+            DEBUG_LEVEL_TOGGLES[.SILLY] = true
+        }
+    }
+    
     
     var midiHandler = MidiHandler()
     var currentChord = FlexSign.zero
@@ -95,9 +155,8 @@ class ViewController: NSViewController, NSWindowDelegate
         }
     }
 
-    //
-    // MARK: WindowDelegate stuff
-    //
+    // MARK:- WindowDelegate stuff
+    
     override func viewDidAppear() {
            self.view.window?.delegate = self
        }
@@ -120,7 +179,8 @@ class ViewController: NSViewController, NSWindowDelegate
         midiHandler.stopCurrentPlaying()
     }
     
-    // MARK: PianoViewController Functions
+    // MARK:- PianoViewController Functions
+    
     func updateChordForSign(sign theSign: FlexSign, chordName: String)
     {
         let chordParts = chordName.components(separatedBy: " ")
@@ -143,7 +203,7 @@ class ViewController: NSViewController, NSWindowDelegate
         }
     }
     
-    // MARK: StringViewController Functions
+    // MARK:- StringViewController Functions
     func updateStringNoteForFinger(finger fingerString: String, note: String)
     {
         FlexStringNotes[fingerString] = StringNotes[note]!
@@ -153,7 +213,7 @@ class ViewController: NSViewController, NSWindowDelegate
         }
     }
     
-    // MARK: DrumsViewController Functions
+    // MARK:- DrumsViewController Functions
     func updateDrumCategory(_ newCategory: String, hand: String)
     {
         if (hand == "left")

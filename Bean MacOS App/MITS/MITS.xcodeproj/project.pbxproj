@@ -11,6 +11,7 @@
 		2B2DACA72472E5B30079D62B /* GattPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2DACA12472E5B30079D62B /* GattPacket.swift */; };
 		2B2DACA82472E5B30079D62B /* GattSerialMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2DACA22472E5B30079D62B /* GattSerialMessage.swift */; };
 		2B3746DE24B2C33400962FED /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3746DD24B2C33400962FED /* Utility.swift */; };
+		2B60370324B3E1560026EFF4 /* GloveConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B60370224B3E1560026EFF4 /* GloveConstants.swift */; };
 		2B64117D244BBE8E006F2004 /* BTConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B64117C244BBE8E006F2004 /* BTConstants.swift */; };
 		2B64117F244BBE96006F2004 /* BeanBTHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B64117E244BBE96006F2004 /* BeanBTHandler.swift */; };
 		2B641181244D4877006F2004 /* StringsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B641180244D4877006F2004 /* StringsViewController.swift */; };
@@ -30,6 +31,7 @@
 		2B2DACA12472E5B30079D62B /* GattPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GattPacket.swift; sourceTree = "<group>"; };
 		2B2DACA22472E5B30079D62B /* GattSerialMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GattSerialMessage.swift; sourceTree = "<group>"; };
 		2B3746DD24B2C33400962FED /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		2B60370224B3E1560026EFF4 /* GloveConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GloveConstants.swift; sourceTree = "<group>"; };
 		2B64117C244BBE8E006F2004 /* BTConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTConstants.swift; sourceTree = "<group>"; };
 		2B64117E244BBE96006F2004 /* BeanBTHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeanBTHandler.swift; sourceTree = "<group>"; };
 		2B641180244D4877006F2004 /* StringsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringsViewController.swift; path = ../StringsViewController.swift; sourceTree = "<group>"; };
@@ -95,8 +97,8 @@
 			children = (
 				2B731725244A1A9600136A5C /* MidiHandler.swift */,
 				2B731723244A15AC00136A5C /* MidiConstants.swift */,
-				2B731720244A141100136A5C /* midiConnector.cpp */,
 				2B731721244A141100136A5C /* midiConnector.hpp */,
+				2B731720244A141100136A5C /* midiConnector.cpp */,
 			);
 			path = "Midi Code";
 			sourceTree = "<group>";
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				2B3746DD24B2C33400962FED /* Utility.swift */,
+				2B60370224B3E1560026EFF4 /* GloveConstants.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 				2BF54A62241A9DD900B87559 /* AppDelegate.swift in Sources */,
 				2B641183244D4883006F2004 /* PianoViewController.swift in Sources */,
 				2B641181244D4877006F2004 /* StringsViewController.swift in Sources */,
+				2B60370324B3E1560026EFF4 /* GloveConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -114,10 +114,20 @@ class StringsViewController:NSViewController
     {
         super.viewDidLoad()
         fingerNoteButtons = [leftFinger1, leftFinger2, leftFinger3, leftFinger4, rightFinger1, rightFinger2, rightFinger3, rightFinger4]
+        var titlesToAdd: [String] = []
+        for modifier in ["Lower ", "Middle ", "Upper "]
+        {
+            for name in StringNoteNames
+            {
+                titlesToAdd.append(modifier + name)
+            }
+        }
+        
         for button in fingerNoteButtons
         {
             button.removeAllItems()
-            button.addItems(withTitles: StringNoteNames)
+            
+            button.addItems(withTitles: titlesToAdd)
         }
         
         setDefaultNoteValues()

@@ -35,7 +35,7 @@ class GloveConstants
     {
         for (key, flexVal) in FLEX_MIN
         {
-            FLEX_THRESHOLD[key] = flexVal + 20
+            FLEX_THRESHOLD[key] = flexVal + 30
         }
     }
 }

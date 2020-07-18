@@ -206,7 +206,19 @@ class ViewController: NSViewController, NSWindowDelegate
     // MARK:- StringViewController Functions
     func updateStringNoteForFinger(finger fingerString: String, note: String)
     {
-        FlexStringNotes[fingerString] = StringNotes[note]!
+        let noteParts = note.components(separatedBy: " ")
+        
+        FlexStringNotes[fingerString] = StringNotes[noteParts[1]]!
+        
+        if noteParts[0] == "Upper"
+        {
+            FlexStringNotes[fingerString]! += 12
+        }
+        else if noteParts[0] == "Lower"
+        {
+            FlexStringNotes[fingerString]! -= 12
+        }
+        
         if (currentMode == MitsMode.flexStringsMode)
         {
             midiHandler.refreshStringNotes()

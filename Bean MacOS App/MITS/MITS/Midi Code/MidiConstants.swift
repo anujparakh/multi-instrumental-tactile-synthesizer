@@ -12,7 +12,7 @@ import Foundation
 enum Instrument: uint8
 {
     case guitar = 0x19
-    case strings = 0x11
+    case strings = 42
     case piano = 0x00
     // Add instruments here
 }
@@ -138,10 +138,10 @@ let PercussionDefaultNotes = [
 
 // MARK:- String Constants
 
-let StringNoteNames = ["Middle C", "Middle C#", "Middle D",
-                       "Middle D#", "Middle E", "Middle F",
-                       "Middle F#", "Middle G", "Middle G#",
-                       "Middle A", "Middle A#", "Middle B"]
+let StringNoteNames = ["C", "C#", "D",
+                       "D#", "E", "F",
+                       "F#", "G", "G#",
+                       "A", "A#", "B"]
 
 // Default values in order (1 - 8)
 let StringDefaultValues = ["Middle C", "Middle F", "Middle G", "Middle A",
@@ -149,18 +149,18 @@ let StringDefaultValues = ["Middle C", "Middle F", "Middle G", "Middle A",
 
 let StringNotes: [String: uint8] =
 [
-    "Middle C" : 60,
-    "Middle C#" : 61,
-    "Middle D" : 62,
-    "Middle D#" : 63,
-    "Middle E" : 64,
-    "Middle F" : 65,
-    "Middle F#" : 66,
-    "Middle G" : 67,
-    "Middle G#" : 68,
-    "Middle A" : 69,
-    "Middle A#" : 70,
-    "Middle B" : 71
+    "C" : 60,
+    "C#" : 61,
+    "D" : 62,
+    "D#" : 63,
+    "E" : 64,
+    "F" : 65,
+    "F#" : 66,
+    "G" : 67,
+    "G#" : 68,
+    "A" : 69,
+    "A#" : 70,
+    "B" : 71
 ]
 
 

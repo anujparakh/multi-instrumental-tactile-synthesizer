@@ -1,9 +1,11 @@
 # multi-instrumental-tactile-synthesizer
 
 This repository contains all the code for the multi-instrumental-tactile-synthesizer (MITS) project. MITS is a pair of gloves that
-can be used to create different kinds of music. They use Arduino Nano 33 BLEs to connect over bluetooth to a MacOS application
+can be used to create different kinds of music. They use Arduino Nano 33 BLEs/LightBlue Bean to connect over bluetooth to a MacOS application
 that sends MIDI signals to a Digital Audio Workstation (DAW) like Reaper to change instruments and play the notes as required.
 The glove has flex sensors and a force sensor to implement all the features of the glove.
+
+This is a [demo](https://drive.google.com/file/d/1lbWAit0UsWoIoUK5HM2rC7NUDeDGo3h_/view?usp=sharing) of the fully assembled gloves using Arduino Nano 33 BLEs and Strings Mode. Here is a [video](https://drive.google.com/file/d/1CDvM2dGkykC25AaSf0XhNUgMkxLVEQ5s/view?usp=sharing) of one glove using the LightBlue Bean.
 
 There are three main modes that the MITS support:
 

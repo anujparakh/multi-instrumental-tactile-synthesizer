@@ -63,7 +63,7 @@ class ViewController: NSViewController, NSWindowDelegate
     @IBAction func calibrateClicked(_ sender: Any)
     {
         // Check if glove is actually connected
-        if !leftStatusView.stringValue.contains("Connected")
+        if !(leftStatusView.stringValue.contains("Connected"))
         {
             showAlert(title: "Not Connected", message: "Connect a MITS glove to calibrate it!")
             return
@@ -95,15 +95,15 @@ class ViewController: NSViewController, NSWindowDelegate
     
     @IBAction func sillyPrintingClicked(_ sender: NSMenuItem)
     {
-        if DEBUG_LEVEL_TOGGLES[.SILLY]!
+        if DebugLogger.DEBUG_LEVEL_TOGGLES[.SILLY]!
         {
             sender.state = NSControl.StateValue.off
-            DEBUG_LEVEL_TOGGLES[.SILLY] = false
+            DebugLogger.DEBUG_LEVEL_TOGGLES[.SILLY] = false
         }
         else
         {
             sender.state = NSControl.StateValue.on
-            DEBUG_LEVEL_TOGGLES[.SILLY] = true
+            DebugLogger.DEBUG_LEVEL_TOGGLES[.SILLY] = true
         }
     }
     
@@ -124,17 +124,16 @@ class ViewController: NSViewController, NSWindowDelegate
         setupMidiHandler()
         // String mode is the initial mode
         currentMode = MitsMode.pianoMode
-        
     }
     
     func setupMidiHandler()
     {
-        midiHandler.btLeftConnectionStatusCallback = {(_ status: String) -> Void in
-            self.leftStatusView.stringValue = "Left: \(status)"
+        midiHandler.btLeftConnectionStatusCallback = {(_ status: ConnectionStatus) -> Void in
+            self.leftStatusView.stringValue = "Left: \(status.rawValue)"
         }
 
-        midiHandler.btRightConnectionStatusCallback = {(_ status: String) -> Void in
-            self.rightStatusView.stringValue = "Right: \(status)"
+        midiHandler.btRightConnectionStatusCallback = {(_ status: ConnectionStatus) -> Void in
+            self.rightStatusView.stringValue = "Right: \(status.rawValue)"
         }
 
     }
@@ -204,19 +203,40 @@ class ViewController: NSViewController, NSWindowDelegate
     }
     
     // MARK:- StringViewController Functions
-    func updateStringNoteForFinger(finger fingerString: String, note: String)
+    func updateStringNoteForLeftFinger(finger: GloveFinger, note: String)
     {
         let noteParts = note.components(separatedBy: " ")
         
-        FlexStringNotes[fingerString] = StringNotes[noteParts[1]]!
+        LeftFlexStringNotes[finger] = StringNotes[noteParts[1]]!
         
         if noteParts[0] == "Upper"
         {
-            FlexStringNotes[fingerString]! += 12
+            LeftFlexStringNotes[finger]! += 12
         }
         else if noteParts[0] == "Lower"
         {
-            FlexStringNotes[fingerString]! -= 12
+            LeftFlexStringNotes[finger]! -= 12
+        }
+        
+        if (currentMode == MitsMode.flexStringsMode)
+        {
+            midiHandler.refreshStringNotes()
+        }
+    }
+    
+    func updateStringNoteForRightFinger(finger: GloveFinger, note: String)
+    {
+        let noteParts = note.components(separatedBy: " ")
+        
+        RightFlexStringNotes[finger] = StringNotes[noteParts[1]]!
+        
+        if noteParts[0] == "Upper"
+        {
+            RightFlexStringNotes[finger]! += 12
+        }
+        else if noteParts[0] == "Lower"
+        {
+            RightFlexStringNotes[finger]! -= 12
         }
         
         if (currentMode == MitsMode.flexStringsMode)

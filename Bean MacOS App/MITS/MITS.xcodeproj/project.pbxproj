@@ -11,6 +11,7 @@
 		2B2DACA72472E5B30079D62B /* GattPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2DACA12472E5B30079D62B /* GattPacket.swift */; };
 		2B2DACA82472E5B30079D62B /* GattSerialMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2DACA22472E5B30079D62B /* GattSerialMessage.swift */; };
 		2B3746DE24B2C33400962FED /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3746DD24B2C33400962FED /* Utility.swift */; };
+		2B5A241125A51288000F5C43 /* DebugLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5A241025A51288000F5C43 /* DebugLogger.swift */; };
 		2B60370324B3E1560026EFF4 /* GloveConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B60370224B3E1560026EFF4 /* GloveConstants.swift */; };
 		2B64117D244BBE8E006F2004 /* BTConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B64117C244BBE8E006F2004 /* BTConstants.swift */; };
 		2B64117F244BBE96006F2004 /* BeanBTHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B64117E244BBE96006F2004 /* BeanBTHandler.swift */; };
@@ -31,6 +32,7 @@
 		2B2DACA12472E5B30079D62B /* GattPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GattPacket.swift; sourceTree = "<group>"; };
 		2B2DACA22472E5B30079D62B /* GattSerialMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GattSerialMessage.swift; sourceTree = "<group>"; };
 		2B3746DD24B2C33400962FED /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		2B5A241025A51288000F5C43 /* DebugLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugLogger.swift; sourceTree = "<group>"; };
 		2B60370224B3E1560026EFF4 /* GloveConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GloveConstants.swift; sourceTree = "<group>"; };
 		2B64117C244BBE8E006F2004 /* BTConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTConstants.swift; sourceTree = "<group>"; };
 		2B64117E244BBE96006F2004 /* BeanBTHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeanBTHandler.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				2B3746DD24B2C33400962FED /* Utility.swift */,
+				2B5A241025A51288000F5C43 /* DebugLogger.swift */,
 				2B60370224B3E1560026EFF4 /* GloveConstants.swift */,
 			);
 			path = Utility;
@@ -220,6 +223,7 @@
 				2B3746DE24B2C33400962FED /* Utility.swift in Sources */,
 				2B641185244D4894006F2004 /* DrumsViewController.swift in Sources */,
 				2B731722244A141100136A5C /* midiConnector.cpp in Sources */,
+				2B5A241125A51288000F5C43 /* DebugLogger.swift in Sources */,
 				2BF54A64241A9DD900B87559 /* ViewController.swift in Sources */,
 				2B731726244A1A9600136A5C /* MidiHandler.swift in Sources */,
 				2B64117D244BBE8E006F2004 /* BTConstants.swift in Sources */,

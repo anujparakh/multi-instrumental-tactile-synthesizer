@@ -12,27 +12,33 @@ import os
 
 class BeanBTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
 {
+    // MARK:- Private Data Members and Functions
     private var centralManager: CBCentralManager!
-    private var mitsPeripheral: CBPeripheral!
-    private var mitsUUID: CBUUID?
-    private var flexCallback: (([String: AnyObject]) -> Void)?
-    private var imuCallback: (([String: AnyObject]) -> Void)?
+    private var mitsBeanPeripheral: CBPeripheral!
+    private var messageAssembler: MessageAssembler!
     
-    private var messageAssembler = MessageAssembler()
+    // UUIDs
+    private var mitsUUID: CBUUID!
+    private var beanUUID: UUID!
     
-    public var connectionStatusCallback: ((String) -> Void)?
+    // Callbacks
+    public var flexCallback: FlexCallbackFunction?
+    public var imuCallback: FlexCallbackFunction?
+    public var connectionStatusCallback: ConnectionStatusCallbackFunction?
     
-    private func updateConnectionStatus(_ status: String)
+    private func updateConnectionStatus(_ status: ConnectionStatus)
     {
-        if (connectionStatusCallback != nil)
+        if let callback = connectionStatusCallback
         {
-            connectionStatusCallback!(status)
+            callback(status)
         }
         else
         {
-            debugLog(status, .INFO)
+            DebugLogger.log("No connection callback\n(status = \(status))", .INFO)
         }
     }
+    
+    // MARK:- CBCentralManager Delegate Functions
     
     // Callback when central manager's state is updated
     func centralManagerDidUpdateState(_ central: CBCentralManager)
@@ -41,52 +47,68 @@ class BeanBTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
         {
             
         case .unknown:
-            debugLog("Central Manager's State is Unknown", .ERROR)
+            DebugLogger.log("Central Manager's State is Unknown", .ERROR)
+            updateConnectionStatus(.Off)
         case .resetting:
-            debugLog("Central Manager's State is Resetting", .IMPORTANT)
+            DebugLogger.log("Central Manager's State is Resetting", .IMPORTANT)
         case .unsupported:
-            debugLog("BLE Unsupported", .ERROR)
+            DebugLogger.log("BLE Unsupported", .ERROR)
+            updateConnectionStatus(.Off)
         case .unauthorized:
-            debugLog("BLE Unauthorized", .ERROR)
+            DebugLogger.log("BLE Unauthorized", .ERROR)
+            updateConnectionStatus(.Off)
         case .poweredOff:
-            debugLog("BLE powered off", .ERROR)
+            DebugLogger.log("BLE powered off", .ERROR)
+            updateConnectionStatus(.Off)
         case .poweredOn:
-            updateConnectionStatus("Scanning")
+            updateConnectionStatus(.Scanning)
             // Scan for any peripherals
-            if (mitsUUID != nil)
+            if let uuid = mitsUUID
             {
-                centralManager.scanForPeripherals(withServices: [mitsUUID!])
-                debugLog("BLE On and Scanning", .IMPORTANT)
+                centralManager.scanForPeripherals(withServices: [uuid])
+                DebugLogger.log("BLE On and Scanning", .IMPORTANT)
             }
         @unknown default:
-            debugLog ("Central Manager Don't know :(", .ERROR)
+            DebugLogger.log ("Central Manager Don't know :(", .ERROR)
         }
     }
     
     // Handles the result of the scan
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber)
     {
+        // Check if it's the right device
+        if peripheral.identifier != beanUUID
+        {
+            sleep(2)
+            return
+        }
+        
         // Save the peripheral instance and connect to it
-        mitsPeripheral = peripheral
+        mitsBeanPeripheral = peripheral
+        
         // Set delegate to self for callbacks
-        mitsPeripheral.delegate = self
+        peripheral.delegate = self
         centralManager.stopScan()
-        centralManager.connect(mitsPeripheral)
+        centralManager.connect(peripheral)
     }
     
     // The handler if we do connect succesfully
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral)
     {
-        debugLog("Connected to MITS Mk. II!", .INFO)
-        updateConnectionStatus("Connected to MITS!")
+        DebugLogger.log("Connected to MITS Bean with UUID: \(peripheral.identifier.uuidString)", .INFO)
+        updateConnectionStatus(.Connected)
 
-        mitsPeripheral.discoverServices([mitsUUID!])
+        peripheral.discoverServices([mitsUUID!])
+        messageAssembler = MessageAssembler()
+        centralManager.scanForPeripherals(withServices: [mitsUUID!])
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?)
     {
-        updateConnectionStatus("Disconnected")
+        updateConnectionStatus(.Disconnected)
     }
+    
+    // MARK:- CBPeripheralDelegate Functions
     
     // Handles Services Discovery
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?)
@@ -119,48 +141,36 @@ class BeanBTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
         if (characteristic.value != nil)
         {
             let currentPacket = GattPacket(withData: characteristic.value!)
-            let serialMessage = messageAssembler.processPacket(currentPacket)
-            if (serialMessage != nil)
+            let serialMessage = messageAssembler!.processPacket(currentPacket)
+            if let serialMessageString = serialMessage?.stringValue()
             {
-                // Parse Flex Values
-                let flexString = serialMessage!.stringValue()
-                let flexVals = (parseValues(withJSONString: flexString))
-                if (flexVals != nil)
+                // Try to Parse Flex Values
+                if let flexValsJSON = serialMessageString.toJSON() as? JSONDictionary
                 {
-                    // Update Flex Values here
-                    debugLog("\(String(describing: flexVals))", .SILLY)
-                    updateFlexValues(flexVals!)
+                    // Convert and update the flex values
+                    if (!validateFlexValsJson(flexValsJSON))
+                    {
+                        DebugLogger.log("Could not validate flex vals: \(flexValsJSON)", .ERROR)
+                        return
+                    }
+                    
+                    // Update the flex values
+                    let flexVals = convertJSONDictionary(flexValsJSON)
+                    DebugLogger.log("\(String(describing: flexVals))", .SILLY)
+                    updateFlexValues(flexVals, flexCallback)
                 }
                 else
                 {
-                    debugLog("Parsing error: \(flexString)", .ERROR)
+                    DebugLogger.log("Parsing error: \(serialMessageString)", .ERROR)
                 }
             }
-            
-           
         }
-        
-//        switch characteristic.uuid
-//        {
-//
-//        case BTConstants.flexCharacteristicID:
-//            let flexString = String(data: characteristic.value!, encoding: .utf8)!
-//            updateFlexValues(parseValues(withJSONString: flexString))
-//
-//        default:
-//            debugLog("Unhandled Characteristic UUID: \(characteristic.uuid)")
-//        }
     }
     
-    // Parse JSON values and return a dictionary
-    func parseValues(withJSONString jsonString: String) -> [String: AnyObject]?
-    {
-        let toReturn = (jsonString.toJSON() as? [String:AnyObject])
-        return toReturn
-    }
+    // MARK:- Private Functions
     
     // Called whenever a new flex value is received
-    func updateFlexValues(_ newFlexVals: [ String: AnyObject])
+    private func updateFlexValues(_ newFlexVals: FlexValuesDictionary, _ flexCallback: FlexCallbackFunction?)
     {
         if (flexCallback != nil)
         {
@@ -168,47 +178,27 @@ class BeanBTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
         }
         else
         {
-            debugLog("No Flex callback set", .ERROR)
+            DebugLogger.log("No Flex callback set", .ERROR)
         }
     }
     
-    func updateImuValues(_ newImuVals: [String: AnyObject])
+    private func updateImuValues(_ newImuVals: FlexValuesDictionary)
     {
-        if (imuCallback != nil)
+        if let callback = imuCallback
         {
-            imuCallback!(newImuVals)
+            callback(newImuVals)
         }
         else
         {
-//            debugLog("No IMU callback set")
+            DebugLogger.log("No IMU callback set", .INFO)
         }
-    }
-    
-    public func setImuCallback(_ doOnImu: @escaping ([String: AnyObject]) -> Void)
-    {
-        self.imuCallback = doOnImu
-    }
-    
-    public func setFlexCallback(_ doOnFlex: @escaping ([String: AnyObject]) -> Void)
-    {
-        self.flexCallback = doOnFlex
-    }
-    
-    override init()
-    {
-        super.init()
-    }
-    
-    func setUUIDToLookFor(_ theUUID: CBUUID)
-    {
-        mitsUUID = theUUID
-        centralManager = CBCentralManager(delegate: self, queue: nil)
-
     }
     
     var lastTime: UInt64 = 0
     
-    func printDate(string: String) {
+    // Helper Debugging Function to print time
+    private func printDate(string: String)
+    {
         var info = mach_timebase_info()
         guard mach_timebase_info(&info) == KERN_SUCCESS else { return }
         let currentTime = mach_absolute_time()
@@ -218,12 +208,22 @@ class BeanBTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
         lastTime = nanos
     }
     
+    // MARK:- Public Functions
+    
+    func setUUIDsToLookFor(advertising advertisingUUID: CBUUID, device deviceUUID: UUID)
+    {
+        mitsUUID = advertisingUUID
+        beanUUID = UUID(uuidString: deviceUUID.uuidString)
+        centralManager = CBCentralManager(delegate: self, queue: nil)
+    }
+    
 }
 
 extension String
 {
     // converts a string to JSON
-    func toJSON() -> Any? {
+    func toJSON() -> Any?
+    {
         guard let data = self.data(using: .utf8, allowLossyConversion: false) else { return nil }
         return try? JSONSerialization.jsonObject(with: data, options: .mutableContainers)
     }

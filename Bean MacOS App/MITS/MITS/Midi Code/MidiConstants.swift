@@ -8,8 +8,10 @@
 
 import Foundation
 
+// MARK:- MIDI Constants
+
 // Stores codes of all the instruments
-enum Instrument: uint8
+enum Instrument: UInt8
 {
     case guitar = 0x19
     case strings = 42
@@ -36,6 +38,22 @@ enum MidiChannels: UInt8
     case drumChannelFour = 14
     case drumChannelFive = 13
 }
+
+let LEFT_STRING_MIDI_CHANNELS: [GloveFinger: UInt8] =
+[
+    .Index  : 1,
+    .Middle : 2,
+    .Ring   : 3,
+    .Pinky  : 4
+]
+
+let RIGHT_STRING_MIDI_CHANNELS: [GloveFinger: UInt8] =
+[
+    .Index  : 5,
+    .Middle : 6,
+    .Ring   : 7,
+    .Pinky  : 8
+]
 
 enum FlexSign: String
 {
@@ -144,8 +162,8 @@ let StringNoteNames = ["C", "C#", "D",
                        "A", "A#", "B"]
 
 // Default values in order (1 - 8)
-let StringDefaultValues = ["Middle C", "Middle F", "Middle G", "Middle A",
-                           "Middle D", "Middle E", "Middle B", "Middle C#"]
+let StringDefaultValues = ["Middle C", "Middle F", "Middle G", "Middle A",   // left hand
+                           "Middle D", "Middle E", "Middle B", "Middle C#"]  // right hand
 
 let StringNotes: [String: uint8] =
 [
@@ -165,16 +183,20 @@ let StringNotes: [String: uint8] =
 
 
 // Stores the notes for each finger during String Mode
-var FlexStringNotes: [String: uint8] =
+var LeftFlexStringNotes: [GloveFinger: uint8] =
 [
-    "finger1" : 60, // middle C
-    "finger2" : 67, // middle G
-    "finger3" : 65, // middle F
-    "finger4" : 69, // middle A
-    "finger5" : 72, // +1 C
-    "finger6" : 79, // +1 G
-    "finger7" : 77, // +1 F
-    "finger8" : 81 // +1 A
+    .Index  : 60, // middle C
+    .Middle : 67, // middle G
+    .Ring   : 65, // middle F
+    .Pinky  : 69, // middle A
+]
+
+var RightFlexStringNotes: [GloveFinger: UInt8] =
+[
+    .Index  : 72, // +1 C
+    .Middle : 79, // +1 G
+    .Ring   : 77, // +1 F
+    .Pinky  : 81  // +1 A
 ]
 
 // MARK:- Piano Constants

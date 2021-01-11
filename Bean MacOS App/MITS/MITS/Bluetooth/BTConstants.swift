@@ -18,5 +18,9 @@ class BTConstants: NSObject
     public static let flexCharacteristicID = CBUUID.init(string: "43b513cf-08aa-4bd9-bc58-3f626a4248d8")
     
     // Bean IDs
-    public static let beanID = CBUUID.init(string: "a495ff10-c5b1-4b44-b512-1370f02d74de")
+    public static let beanAdvertisingID = CBUUID.init(string: "a495ff10-c5b1-4b44-b512-1370f02d74de")
+    // TODO: Write the UUIDs
+    public static let beanIDLeft  = UUID.init(uuidString: "C157E54F-4DC4-4D0B-9048-7F0C8C586E21")!
+    public static let beanIDRight = UUID.init(uuidString: "EC068A21-72FD-4670-AACB-F0E177A78F46")!
 }
+

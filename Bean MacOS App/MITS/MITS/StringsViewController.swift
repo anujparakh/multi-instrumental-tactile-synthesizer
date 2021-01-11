@@ -28,7 +28,7 @@ class StringsViewController:NSViewController
         let parentController = self.parent as? ViewController
         if (parentController != nil)
         {
-            parentController?.updateStringNoteForFinger(finger: "finger1" , note: sender.titleOfSelectedItem!)
+            parentController?.updateStringNoteForLeftFinger(finger: .Index, note: sender.titleOfSelectedItem!)
         }
     }
     
@@ -37,7 +37,7 @@ class StringsViewController:NSViewController
         let parentController = self.parent as? ViewController
         if (parentController != nil)
         {
-            parentController?.updateStringNoteForFinger(finger: "finger2" , note: sender.titleOfSelectedItem!)
+            parentController?.updateStringNoteForLeftFinger(finger: .Middle, note: sender.titleOfSelectedItem!)
         }
     }
     
@@ -46,7 +46,7 @@ class StringsViewController:NSViewController
         let parentController = self.parent as? ViewController
         if (parentController != nil)
         {
-            parentController?.updateStringNoteForFinger(finger: "finger3" , note: sender.titleOfSelectedItem!)
+            parentController?.updateStringNoteForLeftFinger(finger: .Ring, note: sender.titleOfSelectedItem!)
         }
     }
     
@@ -55,7 +55,7 @@ class StringsViewController:NSViewController
         let parentController = self.parent as? ViewController
         if (parentController != nil)
         {
-            parentController?.updateStringNoteForFinger(finger: "finger4" , note: sender.titleOfSelectedItem!)
+            parentController?.updateStringNoteForLeftFinger(finger: .Pinky, note: sender.titleOfSelectedItem!)
         }
     }
     
@@ -64,7 +64,7 @@ class StringsViewController:NSViewController
         let parentController = self.parent as? ViewController
         if (parentController != nil)
         {
-            parentController?.updateStringNoteForFinger(finger: "finger5" , note: sender.titleOfSelectedItem!)
+            parentController?.updateStringNoteForRightFinger(finger: .Index, note: sender.titleOfSelectedItem!)
         }
     }
     
@@ -73,7 +73,7 @@ class StringsViewController:NSViewController
         let parentController = self.parent as? ViewController
         if (parentController != nil)
         {
-            parentController?.updateStringNoteForFinger(finger: "finger6" , note: sender.titleOfSelectedItem!)
+            parentController?.updateStringNoteForRightFinger(finger: .Middle, note: sender.titleOfSelectedItem!)
         }
     }
     
@@ -82,7 +82,7 @@ class StringsViewController:NSViewController
         let parentController = self.parent as? ViewController
         if (parentController != nil)
         {
-            parentController?.updateStringNoteForFinger(finger: "finger7" , note: sender.titleOfSelectedItem!)
+            parentController?.updateStringNoteForRightFinger(finger: .Ring, note: sender.titleOfSelectedItem!)
         }
     }
     
@@ -91,7 +91,7 @@ class StringsViewController:NSViewController
         let parentController = self.parent as? ViewController
         if (parentController != nil)
         {
-            parentController?.updateStringNoteForFinger(finger: "finger8" , note: sender.titleOfSelectedItem!)
+            parentController?.updateStringNoteForRightFinger(finger: .Pinky, note: sender.titleOfSelectedItem!)
         }
     }
     

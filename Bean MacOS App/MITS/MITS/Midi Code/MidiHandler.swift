@@ -23,10 +23,10 @@ class MidiHandler
     private var pianoModeCallback: ((FlexSign) -> Void)?
     private var currentPianoSign: FlexSign!
     
-    public var btLeftConnectionStatusCallback: ((String) -> Void)?
+    public var btLeftConnectionStatusCallback: ConnectionStatusCallbackFunction?
     {
         didSet {
-            btHandlerLeft.connectionStatusCallback = {(_ status: String) -> Void in
+            btHandlerLeft.connectionStatusCallback = {(_ status: ConnectionStatus) -> Void in
                 if (self.btLeftConnectionStatusCallback != nil)
                 {
                     self.btLeftConnectionStatusCallback!(status)
@@ -35,10 +35,10 @@ class MidiHandler
         }
     }
     
-    public var btRightConnectionStatusCallback: ((String) -> Void)?
+    public var btRightConnectionStatusCallback: ConnectionStatusCallbackFunction?
     {
         didSet {
-            btHandlerRight.connectionStatusCallback = {(_ status: String) -> Void in
+            btHandlerRight.connectionStatusCallback = {(_ status: ConnectionStatus) -> Void in
                 if (self.btRightConnectionStatusCallback != nil)
                 {
                     self.btRightConnectionStatusCallback!(status)
@@ -77,13 +77,13 @@ class MidiHandler
     
     init ()
     {
-        btHandlerLeft.setUUIDToLookFor(BTConstants.beanID)
-//        btHandlerRight.setUUIDToLookFor(BTConstants.nanoIDRight)
-        
         initializePortMidi()
         initForStringsMode()
         initForPianoMode()
         initForPercussionMode()
+        btHandlerLeft.setUUIDsToLookFor(advertising: BTConstants.beanAdvertisingID, device: BTConstants.beanIDLeft)
+        btHandlerRight.setUUIDsToLookFor(advertising: BTConstants.beanAdvertisingID, device: BTConstants.beanIDRight)
+
     }
     
     // MARK:- Calibration Related Functions
@@ -91,48 +91,54 @@ class MidiHandler
     public func calibrateBentHand()
     {
         stopCurrentPlaying()
-        btHandlerLeft.setFlexCallback({(flexVals: [String: AnyObject]) -> Void in
-            if !validateFlexVals(flexVals)
+        
+        btHandlerLeft.flexCallback = {(flexVals: FlexValuesDictionary) -> Void in
+            for (finger, flexVal) in flexVals
             {
-                return
+                GloveConstants.LEFT_FLEX_MIN [finger] = flexVal
             }
-            GloveConstants.FLEX_MIN[0] = (flexVals["f1"] as! Int)
-            GloveConstants.FLEX_MIN[1] = (flexVals["f2"] as! Int)
-            GloveConstants.FLEX_MIN[2] = (flexVals["f3"] as! Int)
-            GloveConstants.FLEX_MIN[3] = (flexVals["f4"] as! Int)
-        })
+        }
+        
+        btHandlerRight.flexCallback = {(flexVals: FlexValuesDictionary) -> Void in
+            for (finger, flexVal) in flexVals
+            {
+                GloveConstants.RIGHT_FLEX_MIN [finger] = flexVal
+            }
+        }
     }
     
     public func calibrateOpenHand()
     {
         stopCurrentPlaying()
-        btHandlerLeft.setFlexCallback({(flexVals: [String: AnyObject]) -> Void in
-            if !validateFlexVals(flexVals)
+        btHandlerLeft.flexCallback = { (flexVals: FlexValuesDictionary) -> Void in
+            for (finger, flexVal) in flexVals
             {
-                return
+                GloveConstants.LEFT_FLEX_MAX [finger] = flexVal
             }
-            GloveConstants.FLEX_MAX[0] = (flexVals["f1"] as! Int)
-            GloveConstants.FLEX_MAX[1] = (flexVals["f2"] as! Int)
-            GloveConstants.FLEX_MAX[2] = (flexVals["f3"] as! Int)
-            GloveConstants.FLEX_MAX[3] = (flexVals["f4"] as! Int)
-        })
+        }
+        
+        btHandlerRight.flexCallback = { (flexVals: FlexValuesDictionary) -> Void in
+
+            for (finger, flexVal) in flexVals
+            {
+                GloveConstants.RIGHT_FLEX_MAX [finger] = flexVal
+            }
+        }
     }
     
     public func endCalibration()
     {
         updateMode(currentMode)
         GloveConstants.calculateThresholdValues()
-        debugLog("FLEX_MIN = \(GloveConstants.FLEX_MIN)", .IMPORTANT)
-        debugLog("FLEX_THRESHOLD = \(GloveConstants.FLEX_THRESHOLD)", .IMPORTANT )
-        debugLog("FLEX_MAX = \(GloveConstants.FLEX_MAX)", .IMPORTANT)
+        GloveConstants.printCalibratedValues()
     }
     
     // MARK:- Piano Mode Functions
-
+    
     func initForPianoMode()
     {
         setInstrument(Instrument.piano.rawValue, MidiChannels.pianoChannel.rawValue)
-//        setSustain(9, 0)
+        //        setSustain(9, 0)
         setSustain(0, 0)
         currentPianoSign = .two
     }
@@ -155,8 +161,8 @@ class MidiHandler
     
     func setPianoMode()
     {
-        btHandlerLeft.setFlexCallback(pianoModeFlexCallback(_:))
-        btHandlerRight.setFlexCallback(pianoModeForceCallback(_:))
+        btHandlerLeft.flexCallback = pianoModeFlexCallback(_:)
+        btHandlerRight.flexCallback = pianoModeForceCallback(_:)
     }
     
     // sets the handler for piano mode
@@ -166,37 +172,16 @@ class MidiHandler
     }
     
     // Called whenever flex value changes when in piano mode
-    func pianoModeFlexCallback(_ newFlexVal: [String: AnyObject?])
+    func pianoModeFlexCallback(_ newFlexVal: FlexValuesDictionary)
     {
-        if !validateFlexVals(newFlexVal as [String : AnyObject])
-        {
-            return
-        }
-        
-        var evaluatedSign = FlexSign.four
-        if (newFlexVal["f1"] as! Int) < GloveConstants.FLEX_THRESHOLD[0]!
-        {
-            evaluatedSign = FlexSign.zero
-        }
-        else if (newFlexVal["f2"] as! Int) < GloveConstants.FLEX_THRESHOLD[1]!
-        {
-            evaluatedSign = FlexSign.one
-        }
-        else if (newFlexVal["f3"] as! Int) < GloveConstants.FLEX_THRESHOLD[2]!
-        {
-            evaluatedSign = FlexSign.two
-        }
-        else if (newFlexVal["f4"] as! Int) < GloveConstants.FLEX_THRESHOLD[3]!
-        {
-            evaluatedSign = FlexSign.three
-        }
+        let evaluatedSign = evaluateSign(fromValues: newFlexVal, thresholdValues: GloveConstants.LEFT_FLEX_THRESHOLD)
         
         if (pianoModeCallback != nil)
         {
             pianoModeCallback!(evaluatedSign)
         }
         currentPianoSign = evaluatedSign
-        debugLog("Current Sign: \(currentPianoSign.debugDescription)", .INFO)
+        DebugLogger.log("Current Sign: \(currentPianoSign.debugDescription)", .INFO)
     }
     
     func playPianoChordClick()
@@ -206,9 +191,10 @@ class MidiHandler
     
     private var justPlayed = false
     
-    func pianoModeForceCallback(_ newFlexVal: [String: AnyObject?])
+    func pianoModeForceCallback(_ newFlexVal: FlexValuesDictionary)
     {
-        let forceValue = newFlexVal["fs"] as! Int
+//        let forceValue = newFlexVal["fs"] as! Int
+        let forceValue = 400 // TEMP
         if (forceValue > 500) && !justPlayed
         {
             playPianoChord(currentPianoSign, velocity: UInt8((forceValue / 8) - 1))
@@ -234,9 +220,10 @@ class MidiHandler
     
     func initForStringsMode()
     {
-        for channelIndex in MidiChannels.stringChannelStart.rawValue...MidiChannels.stringChannelEnd.rawValue
+        for finger in GloveFinger.allCases
         {
-            setInstrument(Instrument.strings.rawValue, channelIndex)
+            setInstrument(Instrument.strings.rawValue, LEFT_STRING_MIDI_CHANNELS[finger]!)
+            setInstrument(Instrument.strings.rawValue, RIGHT_STRING_MIDI_CHANNELS[finger]!)
         }
     }
     
@@ -247,26 +234,27 @@ class MidiHandler
         currentInstrument = .strings
         // initForStringsMode()
         
-        btHandlerLeft.setFlexCallback(stringsFlexCallbackLeft(_:))
-        btHandlerRight.setFlexCallback(stringsFlexCallbackRight(_:))
+        btHandlerLeft.flexCallback  = (stringsFlexCallbackLeft(_:))
+        btHandlerRight.flexCallback = (stringsFlexCallbackRight(_:))
         
         startStringNotes()
     }
     
     func startStringNotes()
     {
-        for i in 1...8
+        for finger in GloveFinger.allCases
         {
-            playNote(FlexStringNotes["finger\(i)"]!, STRING_NOTE_VELOCITY, MidiChannels.stringChannelStart.rawValue + uint8(i) - 1)
+            playNote(LeftFlexStringNotes[finger]!, STRING_NOTE_VELOCITY, LEFT_STRING_MIDI_CHANNELS[finger]!)
+            playNote(RightFlexStringNotes[finger]!, STRING_NOTE_VELOCITY, RIGHT_STRING_MIDI_CHANNELS[finger]!)
         }
-        
     }
     
     func stopStringNotes()
     {
-        for i in 1...8
+        for finger in GloveFinger.allCases
         {
-            turnAllNotesOff(MidiChannels.stringChannelStart.rawValue + uint8(i) - 1)
+            turnAllNotesOff(LEFT_STRING_MIDI_CHANNELS[finger]!)
+            turnAllNotesOff(RIGHT_STRING_MIDI_CHANNELS[finger]!)
         }
     }
     
@@ -276,53 +264,34 @@ class MidiHandler
         startStringNotes()
     }
     
-    func calculateVolume(forFlex flexValue: Int, _ fingerNum: Int) -> UInt8
+    func stringsFlexCallbackLeft(_ newFlexVal: FlexValuesDictionary)
     {
-        var newVolume = 127 * (flexValue - GloveConstants.FLEX_MIN[fingerNum]!) / (GloveConstants.FLEX_MAX[fingerNum]! - GloveConstants.FLEX_MIN[fingerNum]!)
-        if newVolume < 0
+        if (currentMode != .flexStringsMode)
         {
-            newVolume = 0
-        }
-        else if newVolume > 127
-        {
-            newVolume = 127
-        }
-        return UInt8(newVolume)
-    }
-    
-    func stringsFlexCallbackLeft(_ newFlexVal: [String: AnyObject?])
-    {
-        if !validateFlexVals(newFlexVal as [String : AnyObject])
-        {
-            return
+            return // Do nothing
         }
         
-        if (currentMode != .flexStringsMode)
-        {
-            // do nothing
-            return
-        }
         // set the volume for each flex sensor
-        for flexIndex in 0..<NUM_FINGERS
+        for (finger, flexVal) in newFlexVal
         {
-            setVolume(calculateVolume(forFlex: newFlexVal["f\(flexIndex + 1)"] as! Int, flexIndex), MidiChannels.stringChannelStart.rawValue + UInt8(flexIndex))
+            setVolume(calculateVolumeLeft(for: finger, value: flexVal), LEFT_STRING_MIDI_CHANNELS[finger]!)
         }
+
     }
     
-    func stringsFlexCallbackRight(_ newFlexVal: [String: AnyObject?])
+    func stringsFlexCallbackRight(_ newFlexVal: FlexValuesDictionary)
     {
         if (currentMode != .flexStringsMode)
         {
-            // do nothing
-            return
+            return // Do nothing
         }
+        
         // set the volume for each flex sensor
-        for flexIndex in 0..<NUM_FINGERS
+        for (finger, flexVal) in newFlexVal
         {
-            setVolume(calculateVolume(forFlex: newFlexVal["f\(flexIndex + 1)"] as! Int, flexIndex + 4), MidiChannels.stringChannelStart.rawValue + UInt8(flexIndex) + 4)
+            setVolume(calculateVolumeRight(for: finger, value: flexVal), RIGHT_STRING_MIDI_CHANNELS[finger]!)
         }
     }
-    
     
     // MARK:- Percussion Mode Functions
     
@@ -340,30 +309,8 @@ class MidiHandler
     
     func setPercussionMode()
     {
-        btHandlerLeft.setFlexCallback(percussionModeFlexCallbackLeft(_:))
-        btHandlerRight.setFlexCallback(percussionModeFlexCallbackRight(_:))
-    }
-    
-    func evaluateSign(_ flexValues: [String: AnyObject?]) -> FlexSign
-    {
-        var evaluatedSign = FlexSign.four
-        if (flexValues["f1"] as! Int) < BENDING_THRESHOLD
-        {
-            evaluatedSign = FlexSign.zero
-        }
-        else if (flexValues["f2"] as! Int) < BENDING_THRESHOLD
-        {
-            evaluatedSign = FlexSign.one
-        }
-        else if (flexValues["f3"] as! Int) < BENDING_THRESHOLD
-        {
-            evaluatedSign = FlexSign.two
-        }
-        else if (flexValues["f4"] as! Int) < BENDING_THRESHOLD + 25
-        {
-            evaluatedSign = FlexSign.three
-        }
-        return evaluatedSign
+        btHandlerLeft.flexCallback = (percussionModeFlexCallbackLeft(_:))
+        btHandlerRight.flexCallback = (percussionModeFlexCallbackRight(_:))
     }
     
     // Variables used to keep track of current drum situation
@@ -372,10 +319,11 @@ class MidiHandler
     private var leftDrumPlaying = false
     private var rightDrumPlaying = false
     
-    func percussionModeFlexCallbackLeft(_ newFlexVal: [String: AnyObject?])
+    func percussionModeFlexCallbackLeft(_ newFlexVal: FlexValuesDictionary)
     {
-        leftDrumSign = evaluateSign(newFlexVal)
-        let xVal = newFlexVal["x"] as! Double
+        leftDrumSign = evaluateSign(fromValues: newFlexVal, thresholdValues: GloveConstants.LEFT_FLEX_THRESHOLD)
+//        let xVal = newFlexVal["x"] as! Double
+        let xVal = 10.0 // TEMP
         
         // do drum stuff here
         if (xVal >= 0 && !leftDrumPlaying)
@@ -389,10 +337,12 @@ class MidiHandler
         }
     }
     
-    func percussionModeFlexCallbackRight(_ newFlexVal: [String: AnyObject?])
+    func percussionModeFlexCallbackRight(_ newFlexVal: FlexValuesDictionary)
     {
-        rightDrumSign = evaluateSign(newFlexVal)
-        let xVal = newFlexVal["x"] as! Double
+        rightDrumSign = evaluateSign(fromValues: newFlexVal, thresholdValues: GloveConstants.RIGHT_FLEX_THRESHOLD)
+//        let xVal = newFlexVal["x"] as! Double
+        let xVal = 10.0 // TEMP
+
         // do drum stuff here
         
         if (xVal >= 0 && !rightDrumPlaying)
@@ -405,7 +355,6 @@ class MidiHandler
             rightDrumPlaying = false
         }
     }
-    
-    
+
 }
 

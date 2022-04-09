@@ -55,14 +55,6 @@ let RIGHT_STRING_MIDI_CHANNELS: [GloveFinger: UInt8] =
     .Pinky  : 8
 ]
 
-enum FlexSign: String
-{
-    case zero = "zero"
-    case one = "one"
-    case two = "two"
-    case three = "three"
-    case four = "four"
-}
 
 // MARK: - Drum Constants
 

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait" appearance="dark"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Lights_Playground" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SDC-ib-RFC">
+                                <rect key="frame" x="150.66666666666666" y="569" width="73.666666666666657" height="38"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="32"/>
+                                <color key="textColor" systemColor="systemYellowColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="79K-wG-fsq">
+                                <rect key="frame" x="164" y="139" width="47" height="422"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SpG-Fm-EVV">
+                                <rect key="frame" x="143" y="93" width="89" height="38"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jO1-vb-ayZ">
+                                <rect key="frame" x="18" y="639" width="339" height="32"/>
+                                <segments>
+                                    <segment title="Brightness"/>
+                                    <segment title="Hue"/>
+                                    <segment title="Temp"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jO1-vb-ayZ" secondAttribute="bottom" constant="108" id="0MF-Ta-Icz"/>
+                            <constraint firstItem="SpG-Fm-EVV" firstAttribute="centerX" secondItem="79K-wG-fsq" secondAttribute="centerX" id="3VF-ui-deS"/>
+                            <constraint firstItem="jO1-vb-ayZ" firstAttribute="top" secondItem="SDC-ib-RFC" secondAttribute="bottom" constant="32" id="IpQ-VK-N5F"/>
+                            <constraint firstItem="SDC-ib-RFC" firstAttribute="top" secondItem="79K-wG-fsq" secondAttribute="bottom" constant="8" id="LYK-Lw-nR3"/>
+                            <constraint firstItem="79K-wG-fsq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SSW-KZ-UXc"/>
+                            <constraint firstItem="79K-wG-fsq" firstAttribute="top" secondItem="SpG-Fm-EVV" secondAttribute="bottom" constant="8" id="Sex-Zs-yms"/>
+                            <constraint firstItem="79K-wG-fsq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="164" id="Vvu-cc-Sj0"/>
+                            <constraint firstItem="SpG-Fm-EVV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="49" id="YwS-7D-xnE"/>
+                            <constraint firstItem="SDC-ib-RFC" firstAttribute="centerX" secondItem="jO1-vb-ayZ" secondAttribute="centerX" id="Z7u-z7-t2m"/>
+                            <constraint firstItem="79K-wG-fsq" firstAttribute="centerX" secondItem="SDC-ib-RFC" secondAttribute="centerX" id="fYd-Zq-vDA"/>
+                            <constraint firstItem="SDC-ib-RFC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="l4v-XF-UK0"/>
+                            <constraint firstItem="jO1-vb-ayZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="18" id="q7E-X7-rEi"/>
+                            <constraint firstItem="jO1-vb-ayZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uRe-Rq-QrA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="graphView" destination="79K-wG-fsq" id="vXW-Cz-5w5"/>
+                        <outlet property="segmentedControl" destination="jO1-vb-ayZ" id="m3U-AS-4pf"/>
+                        <outlet property="statusLabel" destination="SpG-Fm-EVV" id="vmy-Kf-4ea"/>
+                        <outlet property="valueLabel" destination="SDC-ib-RFC" id="gYr-eB-kpy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="141.59999999999999" y="118.96551724137932"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

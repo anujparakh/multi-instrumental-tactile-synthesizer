@@ -22,6 +22,6 @@ class BTConstants: NSObject
     // TODO: Write the UUIDs
     public static let beanIDLeft  = UUID.init(uuidString: "880EC696-6A31-09B6-9D4D-3825CA2FDF4D")! // iOS
 //    public static let beanIDLeft  = UUID.init(uuidString: "C157E54F-4DC4-4D0B-9048-7F0C8C586E21")! // macOS
-    public static let beanIDRight = UUID.init(uuidString: "EC068A21-72FD-4670-AACB-F0E177A78F46")!
+    public static let beanIDRight = UUID.init(uuidString: "FE3A28BC-E884-6080-97CA-9EFDC23D87D1")!
 }
 

@@ -46,7 +46,7 @@ class GloveConstants
     ]
     
     public static var RIGHT_FLEX_MAX:[GloveFinger: Int] = [
-        .Index: 675,
+        .Index: 720,
         .Middle: 660,
         .Ring: 700,
         .Pinky: 650

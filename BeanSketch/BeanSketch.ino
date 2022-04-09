@@ -14,10 +14,14 @@ String getFlexValue(int flexNumber)
     return String(toReturn);
 }
 
-String getFlexString()
+String getDataString()
 {
+    AccelerationReading acceleration = Bean.getAcceleration();
+
     String toReturn = "";
-    toReturn += "{\"f1\":" + getFlexValue(FINGER1) + ", \"f2\":" + getFlexValue(FINGER2) + ", \"f3\":" + getFlexValue(FINGER3) + ", \"f4\":" + getFlexValue(FINGER4) +"}";
+    toReturn += "{\"f1\":" + getFlexValue(FINGER1) + ", \"f2\":" + getFlexValue(FINGER2) + ", \"f3\":" + getFlexValue(FINGER3) + ", \"f4\":" + getFlexValue(FINGER4);
+    toReturn = toReturn + ",\"aX\":" + acceleration.xAxis + ", \"aY\": " + acceleration.yAxis + ",\"aZ\": " + acceleration.zAxis;
+    toReturn += "}";
     return toReturn; 
 }
 
@@ -27,10 +31,18 @@ void setup()
     pinMode(FINGER2, OUTPUT);
     pinMode(FINGER3, OUTPUT);
     pinMode(FINGER4, OUTPUT);
+
+    Bean.enableWakeOnConnect(true);
 }
+
+bool connected;
 
 void loop()
 {
-    Serial.print(getFlexString());
-    delay(50);
+    connected = Bean.getConnectionState();
+    if(connected)
+    {
+        Serial.print(getDataString());
+        delay(50);
+    }
 }

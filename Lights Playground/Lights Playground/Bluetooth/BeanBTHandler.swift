@@ -76,7 +76,7 @@ class BeanBTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
     // Handles the result of the scan
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber)
     {
-        
+        DebugLogger.log(peripheral.identifier.debugDescription, .INFO)
         // Check if it's the right device
         if peripheral.identifier != beanUUID
         {
@@ -88,7 +88,7 @@ class BeanBTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
         mitsBeanPeripheral = peripheral
         
         // Set delegate to self for callbacks
-        peripheral.delegate = self
+        mitsBeanPeripheral.delegate = self
         centralManager.stopScan()
         centralManager.connect(peripheral)
     }
@@ -129,7 +129,7 @@ class BeanBTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
         for characteristic in characteristics
         {
             // Set notifications on
-            peripheral.setNotifyValue(true, for: characteristic)
+            mitsBeanPeripheral.setNotifyValue(true, for: characteristic)
         }
     }
     
@@ -138,6 +138,37 @@ class BeanBTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?)
     {
         
+        // TODO: Find the right characteristic uuid for Bean
+        if (characteristic.value != nil)
+        {
+            let currentPacket = GattPacket(withData: characteristic.value!)
+            let serialMessage = messageAssembler!.processPacket(currentPacket)
+            if let serialMessageString = serialMessage?.stringValue()
+            {
+                // Try to Parse Flex Values
+                if let flexValsJSON = serialMessageString.toJSON() as? JSONDictionary
+                {
+                    // Convert and update the flex values
+                    if (!validateFlexValsJson(flexValsJSON))
+                    {
+                        DebugLogger.log("Could not validate flex vals: \(flexValsJSON)", .ERROR)
+                        return
+                    }
+                    
+                    // Update the flex values
+                    let flexVals = convertJSONDictionary(flexValsJSON)
+                    DebugLogger.log("\(String(describing: flexVals))", .SILLY)
+                    updateFlexValues(flexVals, flexCallback)
+                }
+                else
+                {
+                    DebugLogger.log("Parsing error: \(serialMessageString)", .ERROR)
+                }
+            }
+        }
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
         // TODO: Find the right characteristic uuid for Bean
         if (characteristic.value != nil)
         {

@@ -10,12 +10,12 @@ import Foundation
 
 class MidiHandler
 {
-    // MARK:- Constants
+    // MARK: - Constants
     let NUM_FINGERS = 4; // Constant storing number of fingers on each glove
     let BENDING_THRESHOLD = 600 // threshold for bending value (above this counts as BENT)
     let STRING_NOTE_VELOCITY = UInt8(60)
     
-    // MARK:- Private Member variables
+    // MARK: - Private Member variables
     private var currentInstrument: Instrument!;
     private var currentMode: MitsMode!;
     private var btHandlerLeft = BeanBTHandler()
@@ -86,7 +86,7 @@ class MidiHandler
 
     }
     
-    // MARK:- Calibration Related Functions
+    // MARK: - Calibration Related Functions
     //
     public func calibrateBentHand()
     {
@@ -133,7 +133,7 @@ class MidiHandler
         GloveConstants.printCalibratedValues()
     }
     
-    // MARK:- Piano Mode Functions
+    // MARK: - Piano Mode Functions
     
     func initForPianoMode()
     {
@@ -216,7 +216,7 @@ class MidiHandler
         }
     }
     
-    // MARK:- Strings Mode Functions
+    // MARK: - Strings Mode Functions
     
     func initForStringsMode()
     {
@@ -293,7 +293,7 @@ class MidiHandler
         }
     }
     
-    // MARK:- Percussion Mode Functions
+    // MARK: - Percussion Mode Functions
     
     func initForPercussionMode()
     {

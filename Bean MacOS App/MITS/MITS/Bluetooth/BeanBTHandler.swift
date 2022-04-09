@@ -12,7 +12,7 @@ import os
 
 class BeanBTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
 {
-    // MARK:- Private Data Members and Functions
+    // MARK: - Private Data Members and Functions
     private var centralManager: CBCentralManager!
     private var mitsBeanPeripheral: CBPeripheral!
     private var messageAssembler: MessageAssembler!
@@ -38,7 +38,7 @@ class BeanBTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
         }
     }
     
-    // MARK:- CBCentralManager Delegate Functions
+    // MARK: - CBCentralManager Delegate Functions
     
     // Callback when central manager's state is updated
     func centralManagerDidUpdateState(_ central: CBCentralManager)
@@ -108,7 +108,7 @@ class BeanBTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
         updateConnectionStatus(.Disconnected)
     }
     
-    // MARK:- CBPeripheralDelegate Functions
+    // MARK: - CBPeripheralDelegate Functions
     
     // Handles Services Discovery
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?)
@@ -167,7 +167,7 @@ class BeanBTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
         }
     }
     
-    // MARK:- Private Functions
+    // MARK: - Private Functions
     
     // Called whenever a new flex value is received
     private func updateFlexValues(_ newFlexVals: FlexValuesDictionary, _ flexCallback: FlexCallbackFunction?)
@@ -208,7 +208,7 @@ class BeanBTHandler: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
         lastTime = nanos
     }
     
-    // MARK:- Public Functions
+    // MARK: - Public Functions
     
     func setUUIDsToLookFor(advertising advertisingUUID: CBUUID, device deviceUUID: UUID)
     {

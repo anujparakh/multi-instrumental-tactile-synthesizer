@@ -154,7 +154,7 @@ class ViewController: NSViewController, NSWindowDelegate
         }
     }
 
-    // MARK:- WindowDelegate stuff
+    // MARK: - WindowDelegate stuff
     
     override func viewDidAppear() {
            self.view.window?.delegate = self
@@ -178,7 +178,7 @@ class ViewController: NSViewController, NSWindowDelegate
         midiHandler.stopCurrentPlaying()
     }
     
-    // MARK:- PianoViewController Functions
+    // MARK: - PianoViewController Functions
     
     func updateChordForSign(sign theSign: FlexSign, chordName: String)
     {
@@ -202,7 +202,7 @@ class ViewController: NSViewController, NSWindowDelegate
         }
     }
     
-    // MARK:- StringViewController Functions
+    // MARK: - StringViewController Functions
     func updateStringNoteForLeftFinger(finger: GloveFinger, note: String)
     {
         let noteParts = note.components(separatedBy: " ")
@@ -245,7 +245,7 @@ class ViewController: NSViewController, NSWindowDelegate
         }
     }
     
-    // MARK:- DrumsViewController Functions
+    // MARK: - DrumsViewController Functions
     func updateDrumCategory(_ newCategory: String, hand: String)
     {
         if (hand == "left")

@@ -18,7 +18,7 @@ String getFlexString()
 {
     String toReturn = "";
     toReturn += "{\"f1\":" + getFlexValue(FINGER1) + ", \"f2\":" + getFlexValue(FINGER2) + ", \"f3\":" + getFlexValue(FINGER3) + ", \"f4\":" + getFlexValue(FINGER4) +"}";
-    return toReturn; 
+    return toReturn;
 }
 
 void setup()

@@ -9,7 +9,7 @@
 import Foundation
 
 
-// MARK:- Data Related Functions
+// MARK: - Data Related Functions
 
 /// Validates that none of the finger values in the flex sensor values in the JSON dictionary is missing
 func validateFlexValsJson(_ flexVals: JSONDictionary) -> Bool
@@ -57,7 +57,7 @@ func evaluateSign(fromValues flexValues: FlexValuesDictionary, thresholdValues: 
     return evaluatedSign
 }
 
-// MARK:- Music Related Utility Functions
+// MARK: - Music Related Utility Functions
 
 /// Given a finger and the flex value, calculates the appropriate volume from 0-127
 /// based on the finger's FLEX_MIN and FLEX_MAX values for the left hand
@@ -91,7 +91,7 @@ func calculateVolumeRight(for finger: GloveFinger, value flexValue: Int) -> UInt
     return UInt8(newVolume)
 }
 
-// MARK:- Useful Types
+// MARK: - Useful Types
 
 typealias JSONDictionary = [String: AnyObject]
 typealias FlexValuesDictionary = [GloveFinger: Int]

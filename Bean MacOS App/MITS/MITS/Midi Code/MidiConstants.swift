@@ -8,7 +8,7 @@
 
 import Foundation
 
-// MARK:- MIDI Constants
+// MARK: - MIDI Constants
 
 // Stores codes of all the instruments
 enum Instrument: UInt8
@@ -64,7 +64,7 @@ enum FlexSign: String
     case four = "four"
 }
 
-// MARK:- Drum Constants
+// MARK: - Drum Constants
 
 let DrumCategory: [String: uint8] =
 [
@@ -154,7 +154,7 @@ let PercussionDefaultNotes = [
 ]
 
 
-// MARK:- String Constants
+// MARK: - String Constants
 
 let StringNoteNames = ["C", "C#", "D",
                        "D#", "E", "F",
@@ -199,7 +199,7 @@ var RightFlexStringNotes: [GloveFinger: UInt8] =
     .Pinky  : 81  // +1 A
 ]
 
-// MARK:- Piano Constants
+// MARK: - Piano Constants
 
 let PianoChords: [String: [uint8]] =
 [
